@@ -9,6 +9,6 @@
 # Запуск
 
 
-1. Создать виртуальное окружение: `python -m venv ve` и активировать: `./ve/bin/activate`.
+1. Создать виртуальное окружение: `python -m venv ve` и активировать: `. ve/bin/activate`.
 2. Установить зависимости: `pip install -r requirements.txt`.
 3. Запустить: `python vis_prob.py <out.svg> <problem.json> [<sol.json>]`
