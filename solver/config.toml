@@ -1,0 +1,5 @@
+[problems]
+dir = "../problems"
+
+[solutions]
+dir = "../solutions"
