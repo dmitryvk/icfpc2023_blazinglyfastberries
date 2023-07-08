@@ -29,10 +29,10 @@ pub fn get_random_solution(problem: &Problem, seed: u64, n_iters: u64, max_secs:
         }
         if is_better || i % 10000 == 0 {
             log::info!("iteration={i} best_score={best_score}");
-            if start.elapsed().as_secs() > max_secs {
-                log::info!("Stopping due to max time");
-                break;
-            }
+        }
+        if start.elapsed().as_secs() > max_secs {
+            log::info!("iteration={i} best_score={best_score}. Stopping due to max time");
+            break;
         }
     }
 
