@@ -133,6 +133,21 @@ fn relu(x: f64) -> f64 {
     if x > 0.0 { x } else { 0.0 }
 }
 
+pub fn grad<F>(h: f64, f: F, p: &Pt) -> Pt
+        where F: Fn(&Pt) -> f64 {
+    let dx = differential(h, |x| f(&pt(x, p.y)), p.x);
+    let dy = differential(h, |y| f(&pt(p.x, y)), p.y);
+    pt(dx, dy)
+}
+
+// https://en.wikipedia.org/wiki/Finite_difference_coefficient
+fn differential<F>(h: f64, f: F, x: f64) -> f64
+        where F: Fn(f64) -> f64 {
+    let fm = f(x-h);
+    let fp = f(x+h);
+    (-fm/2.0 + fp/2.0)/h
+}
+
 #[cfg(test)]
 mod test {
     use memegeom::primitive::pt;
