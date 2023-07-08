@@ -33,6 +33,10 @@ fn main() -> anyhow::Result<()> {
         .collect();
     files.sort_by_key(|(_num, stats)| stats.n_musicians * stats.n_attendees);
 
+    let overall_stats = combine(files.iter().map(|(_n, stat)| stat.clone()));
+
+    println!("overall: {overall_stats:?}");
+
     for (num, stats) in &files {
         println!("{num}: {stats:?}");
     }
@@ -86,4 +90,23 @@ fn summarize(problem: &Problem) -> ProblemStats {
             .unwrap()
             .0,
     }
+}
+
+fn combine(mut stats: impl Iterator<Item = ProblemStats>) -> ProblemStats {
+    let mut result = stats.next().unwrap();
+    for stat in stats {
+        result.n_musicians = result.n_musicians.max(stat.n_musicians);
+        result.n_attendees = result.n_attendees.max(stat.n_attendees);
+        result.n_instruments = result.n_instruments.max(stat.n_instruments);
+        result.stage_width = result.stage_width.max(stat.stage_width);
+        result.stage_height = result.stage_height.max(stat.stage_height);
+        result.stage_area = result.stage_area.max(stat.stage_area);
+        result.room_width = result.room_width.max(stat.room_width);
+        result.room_height = result.room_height.max(stat.room_height);
+        result.room_area = result.room_area.max(stat.room_area);
+        result.min_taste = result.min_taste.max(stat.min_taste);
+        result.max_taste = result.max_taste.max(stat.max_taste);
+    }
+
+    result
 }

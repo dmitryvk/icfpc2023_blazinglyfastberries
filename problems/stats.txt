@@ -1,3 +1,4 @@
+overall: ProblemStats { n_musicians: 1484, n_attendees: 5000, n_instruments: 700, stage_width: 1984.0, stage_height: 2931.0, stage_area: 4860800.0, room_width: 9963.0, room_height: 9953.0, room_area: 90683226.0, min_taste: 7.0, max_taste: 10000.0 }
 42: ProblemStats { n_musicians: 5, n_attendees: 100, n_instruments: 2, stage_width: 148.0, stage_height: 169.0, stage_area: 25012.0, room_width: 1000.0, room_height: 1000.0, room_area: 1000000.0, min_taste: -981.0, max_taste: 997.0 }
 43: ProblemStats { n_musicians: 5, n_attendees: 100, n_instruments: 2, stage_width: 105.0, stage_height: 175.0, stage_area: 18375.0, room_width: 1000.0, room_height: 1000.0, room_area: 1000000.0, min_taste: -998.0, max_taste: 994.0 }
 51: ProblemStats { n_musicians: 2, n_attendees: 400, n_instruments: 2, stage_width: 1704.0, stage_height: 415.0, stage_area: 707160.0, room_width: 7948.0, room_height: 3504.0, room_area: 27849792.0, min_taste: 0.0, max_taste: 995.0 }
