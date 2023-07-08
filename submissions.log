@@ -1,3 +1,0 @@
-date,number,score,score old,duration,args
-2023-07-08 14:41,42,3987004,62s,random seed=1 iters=1000000
-2023-07-08 15:02,43,1138412,0,63s,random seed=1 iters=1000000
