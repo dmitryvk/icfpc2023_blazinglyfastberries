@@ -40,6 +40,8 @@ pub struct ProblemArgs {
     rand_seed: u64,
     #[clap(long, value_parser, default_value_t = 1000)]
     rand_iters: u64,
+    #[clap(long, value_parser, default_value_t = 1000)]
+    rand_max_secs: u64,
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -57,7 +59,7 @@ fn main() -> anyhow::Result<()> {
                 output: solver::config::LogOutput::File(args.log),
             };
             configure(&log_config)?;
-            get_problem_solution(args.input, args.output, args.rand_seed, args.rand_iters)
+            get_problem_solution(args.input, args.output, args.rand_seed, args.rand_iters, args.rand_max_secs)
         }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
     }
@@ -68,6 +70,7 @@ fn get_problem_solution(
     solution_file: PathBuf,
     rand_seed: u64,
     rand_iters: u64,
+    rand_max_secs: u64,
 ) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
@@ -83,7 +86,7 @@ fn get_problem_solution(
         problem_file.problem.musicians.len(),
         problem_file.problem.attendees.len()
     );
-    let solution = get_random_solution(&problem_file.problem, rand_seed, rand_iters);
+    let solution = get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs);
     log::info!("scoring {:?}", problem_file.name);
     let score = evaluate_exact(&problem_file.problem, &solution);
     log::info!("score for {:?}: {score}", problem_file.name);
@@ -152,7 +155,7 @@ fn get_lined_solution(problem: &Problem) -> Solution {
     let x0 = problem.stage_bottom_left[0];
     let y0 = problem.stage_bottom_left[1];
     let x1 = x0 + problem.stage_width;
-    let y1 = y0 + problem.stage_height;
+    let _y1 = y0 + problem.stage_height;
     let mut x = x0 + 10.0;
     let mut y = y0 + 10.0;
     let mut placements = Vec::with_capacity(problem.musicians.len());
