@@ -43,6 +43,8 @@ pub struct ProblemArgs {
     rand_iters: u64,
     #[clap(long, value_parser, default_value_t = 1000)]
     rand_max_secs: u64,
+    #[clap(long, value_parser, default_value_t = 1000)]
+    descent_iters: u64,
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -60,7 +62,7 @@ fn main() -> anyhow::Result<()> {
                 output: solver::config::LogOutput::File(args.log),
             };
             configure(&log_config)?;
-            get_problem_solution(args.input, args.output, args.rand_seed, args.rand_iters, args.rand_max_secs)
+            get_problem_solution(args.input, args.output, args.rand_seed, args.rand_iters, args.rand_max_secs, args.descent_iters)
         }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
     }
@@ -72,6 +74,7 @@ fn get_problem_solution(
     rand_seed: u64,
     rand_iters: u64,
     rand_max_secs: u64,
+    descent_iters: u64,
 ) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
@@ -88,7 +91,7 @@ fn get_problem_solution(
         problem_file.problem.attendees.len()
     );
     let solution = get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs);
-    let improved = improve_solution(&problem_file.problem, &solution, 1.0, 100);
+    let improved = improve_solution(&problem_file.problem, &solution, 1.0, descent_iters);
     log::info!("scoring {:?}", problem_file.name);
     let score = evaluate_exact(&problem_file.problem, &improved);
     log::info!("score for {:?}: {score}", problem_file.name);
