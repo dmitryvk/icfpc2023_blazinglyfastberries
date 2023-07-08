@@ -1,10 +1,10 @@
 extern crate core;
 
 mod config;
-mod model;
 
-use crate::model::problem::{Position, Problem, ProblemFile, Solution};
 use rand::Rng;
+use solver::model::problem::{Position, Problem, ProblemFile, Solution};
+use solver::scoring::evaluate;
 use std::fs;
 use std::fs::File;
 use std::io::Write;
@@ -49,7 +49,16 @@ fn main() -> anyhow::Result<()> {
     fs::create_dir_all(config.solutions.dir.clone())?;
 
     for problem_file in problems {
-        let solution = get_lined_solution(problem_file.problem);
+        println!(
+            "solving {:?} n_musicians={} n_attendees={}",
+            problem_file.name,
+            problem_file.problem.musicians.len(),
+            problem_file.problem.attendees.len()
+        );
+        let solution = get_lined_solution(&problem_file.problem);
+        println!("scoring {:?}", problem_file.name);
+        let score = evaluate(&problem_file.problem, &solution);
+        println!("score for {:?}: {score}", problem_file.name);
         let content = serde_json::to_string(&solution)?;
         let mut solutions_dir = config.solutions.dir.clone();
         solutions_dir.push(problem_file.name);
@@ -65,15 +74,15 @@ fn get_solution(problem: Problem) -> Solution {
     let mut rng = rand::thread_rng();
     let mut placements = Vec::with_capacity(problem.musicians.len());
     for _ in problem.musicians {
-        let x = rng.gen_range(1..problem.stage_width as i32) as f32;
-        let y = rng.gen_range(1..problem.stage_height as i32) as f32;
+        let x = rng.gen_range(1.0..problem.stage_width);
+        let y = rng.gen_range(1.0..problem.stage_height);
         let position = Position::new(x, y);
         placements.push(position);
     }
     Solution::new(placements)
 }
 
-fn get_lined_solution(problem: Problem) -> Solution {
+fn get_lined_solution(problem: &Problem) -> Solution {
     let x0 = problem.stage_bottom_left[0];
     let y0 = problem.stage_bottom_left[1];
     let x1 = x0 + problem.stage_width;
@@ -81,7 +90,7 @@ fn get_lined_solution(problem: Problem) -> Solution {
     let mut x = x0 + 10.0;
     let mut y = y0 + 10.0;
     let mut placements = Vec::with_capacity(problem.musicians.len());
-    for _ in problem.musicians {
+    for _ in &problem.musicians {
         placements.push(Position::new(x, y));
         x = x + 10.0;
         if x > x1 - 10.0 {

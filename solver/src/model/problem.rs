@@ -16,21 +16,21 @@ impl ProblemFile {
 
 #[derive(serde::Deserialize)]
 pub struct Problem {
-    pub room_width: f32,
-    pub room_height: f32,
-    pub stage_width: f32,
-    pub stage_height: f32,
-    pub stage_bottom_left: Vec<f32>,
-    pub musicians: Vec<f32>,
+    pub room_width: f64,
+    pub room_height: f64,
+    pub stage_width: f64,
+    pub stage_height: f64,
+    pub stage_bottom_left: Vec<f64>,
+    pub musicians: Vec<i32>,
     pub attendees: Vec<Attendee>,
-    pub pillars: Vec<f32>,
+    pub pillars: Vec<f64>,
 }
 
 #[derive(serde::Deserialize)]
 pub struct Attendee {
-    pub x: f32,
-    pub y: f32,
-    pub tastes: Vec<f32>,
+    pub x: f64,
+    pub y: f64,
+    pub tastes: Vec<f64>,
 }
 
 #[derive(serde::Serialize)]
@@ -46,12 +46,12 @@ impl Solution {
 
 #[derive(serde::Serialize)]
 pub struct Position {
-    pub x: f32,
-    pub y: f32,
+    pub x: f64,
+    pub y: f64,
 }
 
 impl Position {
-    pub fn new(x: f32, y: f32) -> Self {
+    pub fn new(x: f64, y: f64) -> Self {
         Position { x, y }
     }
 }
