@@ -77,7 +77,9 @@ pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -
                 )
             })};
             let qi = if !full {1.0} else {(0..problem.musicians.len()).fold(1.0, |s, other_idx| {
-                if musician_idx == other_idx { s } else {
+                if musician_idx == other_idx || problem.musicians[musician_idx] != problem.musicians[other_idx] {
+                    s
+                } else {
                     let m1 = pt(solution.placements[musician_idx].x,
                                 solution.placements[musician_idx].y);
                     let m2 = pt(solution.placements[other_idx].x,
