@@ -40,6 +40,7 @@ pub struct Pillar {
 }
 
 #[derive(serde::Serialize)]
+#[derive(Clone)]
 pub struct Solution {
     pub placements: Vec<Position>,
 }
@@ -51,6 +52,7 @@ impl Solution {
 }
 
 #[derive(serde::Serialize)]
+#[derive(Clone)]
 pub struct Position {
     pub x: f64,
     pub y: f64,

@@ -7,7 +7,8 @@ use memegeom::{
 use rand::{distributions::Uniform, prelude::Distribution, rngs::StdRng, Rng, SeedableRng};
 use solver::{
     model::problem::{Position, Problem, Solution},
-    scoring::evaluate_exact,
+    scoring::{evaluate_exact, bound_penalty, grad,
+              pos_to_pt, pt_to_pos},
 };
 
 pub const MUSICIAN_SIZE: f64 = 10.0;
@@ -86,4 +87,31 @@ fn random_iteration<R: Rng>(rng: &mut R, problem: &Problem) -> Solution {
         .map(|p| Position::new(p.x, p.y))
         .collect();
     Solution::new(placements)
+}
+
+
+pub fn improve_solution(prob: &Problem, solution: &Solution, gamma: f64, n_iters: u64) -> Solution {
+    let mut sol = (*solution).clone();
+    for mus_idx in 0..prob.musicians.len() {
+        log::info!("Improving musician {}", mus_idx);
+        // let f = |p: &_| {
+        //     let mut s = sol.clone();
+        //     s.placements[mus_idx] = pt_to_pos(p);
+        //     evaluate_exact_full(full, prob, &s) + bound_penalty(prob, &s)
+        // };
+        let mut pt = pos_to_pt(&mut sol.placements[mus_idx]);
+        for it in 1..=n_iters {
+            let d = grad(0.1,
+                         |p| {
+                             sol.placements[mus_idx] = pt_to_pos(p);
+                             evaluate_exact(prob, &sol) - bound_penalty(prob, &sol)
+                         },
+                         &pt);
+            pt += gamma / d.mag() * d;
+            sol.placements[mus_idx] = pt_to_pos(&pt);
+            let score = evaluate_exact(prob, &sol);
+            log::info!("iter={}, musician={} pt={} grad={}, score={}", it, mus_idx, pt, d, score);
+        }
+    }
+    sol
 }

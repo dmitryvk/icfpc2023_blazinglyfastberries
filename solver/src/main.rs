@@ -6,6 +6,7 @@ use clap::{Parser as ClapParser, Subcommand};
 use log::LevelFilter;
 use solver::logger::configure;
 use solver::model::problem::{Position, Problem, ProblemFile, Solution};
+use solver::scoring::bound_penalty;
 use solver::scoring::evaluate_exact;
 use solver::scoring::evaluate_fast;
 use std::fs;
@@ -13,7 +14,7 @@ use std::fs::File;
 use std::io::Write;
 use std::path::PathBuf;
 
-use crate::random_solution::get_random_solution;
+use crate::random_solution::{get_random_solution, improve_solution};
 
 #[derive(Debug, Clone, ClapParser)]
 #[clap(author, version, about, long_about = None)]
@@ -87,10 +88,14 @@ fn get_problem_solution(
         problem_file.problem.attendees.len()
     );
     let solution = get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs);
+    let improved = improve_solution(&problem_file.problem, &solution, 1.0, 100);
     log::info!("scoring {:?}", problem_file.name);
-    let score = evaluate_exact(&problem_file.problem, &solution);
+    let score = evaluate_exact(&problem_file.problem, &improved);
     log::info!("score for {:?}: {score}", problem_file.name);
-    let content = serde_json::to_string(&solution)?;
+    log::info!("correctness {:?}", problem_file.name);
+    let penalty = bound_penalty(&problem_file.problem, &improved);
+    log::info!("penalty for {:?}: {penalty}", problem_file.name);
+    let content = serde_json::to_string(&improved)?;
     let mut file = File::create(solution_file)?;
     file.write_all(content.as_bytes())?;
     Ok(())

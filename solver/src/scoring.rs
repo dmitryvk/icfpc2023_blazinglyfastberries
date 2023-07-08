@@ -44,7 +44,8 @@ pub fn evaluate_fast(problem: &Problem, solution: &Solution) -> f64 {
 }
 
 pub fn evaluate_exact(problem: &Problem, solution: &Solution) -> f64 {
-    evaluate_exact_full(false, problem, solution)
+    let full = problem.pillars.len() > 0;
+    evaluate_exact_full(full, problem, solution)
 }
 
 pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -> f64 {
@@ -132,8 +133,12 @@ pub fn bound_penalty(problem: &Problem, solution: &Solution) -> f64 {
     res
 }
 
-fn pos_to_pt(p: &Position) -> Pt {
+pub fn pos_to_pt(p: &Position) -> Pt {
     pt(p.x, p.y)
+}
+
+pub fn pt_to_pos(p: &Pt) -> Position {
+    Position::new(p.x, p.y)
 }
 
 fn outside_stage_penalty(bottom_left: &Pt, top_right: &Pt, m: &Pt) -> f64 {
@@ -163,9 +168,9 @@ fn relu(x: f64) -> f64 {
     }
 }
 
-pub fn grad<F>(h: f64, f: F, p: &Pt) -> Pt
+pub fn grad<F>(h: f64, mut f: F, p: &Pt) -> Pt
 where
-    F: Fn(&Pt) -> f64,
+    F: FnMut(&Pt) -> f64,
 {
     let dx = differential(h, |x| f(&pt(x, p.y)), p.x);
     let dy = differential(h, |y| f(&pt(p.x, y)), p.y);
@@ -173,9 +178,9 @@ where
 }
 
 // https://en.wikipedia.org/wiki/Finite_difference_coefficient
-fn differential<F>(h: f64, f: F, x: f64) -> f64
+fn differential<F>(h: f64, mut f: F, x: f64) -> f64
 where
-    F: Fn(f64) -> f64,
+    F: FnMut(f64) -> f64,
 {
     let fm = f(x - h);
     let fp = f(x + h);
