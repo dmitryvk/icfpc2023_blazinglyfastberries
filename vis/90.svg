@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="3196.0" height="8359.0" viewBox="0 0 3196.0 8359.0">
+<defs>
+</defs>
+<rect x="0" y="0" width="3196.0" height="8359.0" fill="none" stroke="black" stroke-opacity="0.5" />
+<rect x="72.0" y="6225.0" width="614.0" height="1006.0" fill="none" stroke="red" />
+<circle cx="2010.0" cy="6028.0" r="79.0" color="black" fill="blue" />
+<circle cx="2921.0" cy="1529.0" r="10.0" color="black" fill="blue" />
+<circle cx="887.0" cy="4180.0" r="82.0" color="black" fill="blue" />
+<circle cx="1158.0" cy="141.0" r="7.0" color="black" fill="blue" />
+<circle cx="2517.0" cy="7610.0" r="28.0" color="black" fill="blue" />
+<circle cx="2009.0" cy="4607.0" r="64.0" color="black" fill="blue" />
+<circle cx="1488.0" cy="3204.0" r="22.0" color="black" fill="blue" />
+<circle cx="2028.0" cy="6889.0" r="19.0" color="black" fill="blue" />
+<circle cx="2801.0" cy="4720.0" r="60.0" color="black" fill="blue" />
+<circle cx="124.0" cy="3300.0" r="31.0" color="black" fill="blue" />
+<circle cx="2340.0" cy="3494.0" r="62.0" color="black" fill="blue" />
+<circle cx="1833.0" cy="7883.0" r="59.0" color="black" fill="blue" />
+<circle cx="1408.0" cy="4267.0" r="83.0" color="black" fill="blue" />
+<circle cx="963.0" cy="2078.0" r="16.0" color="black" fill="blue" />
+<circle cx="2551.0" cy="2061.0" r="47.0" color="black" fill="blue" />
+<circle cx="442.0" cy="2106.0" r="19.0" color="black" fill="blue" />
+<circle cx="2497.0" cy="6181.0" r="45.0" color="black" fill="blue" />
+<circle cx="1462.0" cy="4858.0" r="79.0" color="black" fill="blue" />
+<circle cx="1014.0" cy="4864.0" r="76.0" color="black" fill="blue" />
+<circle cx="1770.0" cy="1820.0" r="51.0" color="black" fill="blue" />
+<circle cx="2843.0" cy="1822.0" r="64.0" color="black" fill="blue" />
+<circle cx="2410.0" cy="2850.0" r="16.0" color="black" fill="blue" />
+<circle cx="1260.0" cy="2839.0" r="21.0" color="black" fill="blue" />
+<circle cx="3072.0" cy="1558.0" r="17.0" color="black" fill="blue" />
+<circle cx="352.0" cy="639.0" r="29.0" color="black" fill="blue" />
+<circle cx="1915.0" cy="3775.0" r="55.0" color="black" fill="blue" />
+<circle cx="268.0" cy="966.0" r="84.0" color="black" fill="blue" />
+<circle cx="2055.0" cy="6857.0" r="14.0" color="black" fill="blue" />
+<circle cx="2036.0" cy="4111.0" r="81.0" color="black" fill="blue" />
+<circle cx="2594.0" cy="3452.0" r="55.0" color="black" fill="blue" />
+<circle cx="2069.0" cy="7359.0" r="55.0" color="black" fill="blue" />
+<circle cx="990.0" cy="8313.0" r="43.0" color="black" fill="blue" />
+<circle cx="1256.0" cy="5714.0" r="46.0" color="black" fill="blue" />
+<circle cx="1451.0" cy="3990.0" r="80.0" color="black" fill="blue" />
+<circle cx="1719.0" cy="3481.0" r="78.0" color="black" fill="blue" />
+<circle cx="2094.0" cy="3819.0" r="48.0" color="black" fill="blue" />
+<circle cx="2466.0" cy="483.0" r="72.0" color="black" fill="blue" />
+<circle cx="130.0" cy="1350.0" r="64.0" color="black" fill="blue" />
+<circle cx="3028.0" cy="5765.0" r="65.0" color="black" fill="blue" />
+<circle cx="2131.0" cy="7067.0" r="48.0" color="black" fill="blue" />
+<circle cx="339.0" cy="7324.0" r="37.0" color="black" fill="blue" />
+<circle cx="1412.0" cy="8012.0" r="34.0" color="black" fill="blue" />
+<circle cx="1448.0" cy="5791.0" r="84.0" color="black" fill="blue" />
+<circle cx="1084.0" cy="6958.0" r="45.0" color="black" fill="blue" />
+<circle cx="1016.0" cy="3784.0" r="56.0" color="black" fill="blue" />
+<circle cx="1543.0" cy="7867.0" r="19.0" color="black" fill="blue" />
+<circle cx="680.0" cy="3873.0" r="50.0" color="black" fill="blue" />
+<circle cx="1279.0" cy="7723.0" r="13.0" color="black" fill="blue" />
+<circle cx="1336.0" cy="5339.0" r="24.0" color="black" fill="blue" />
+<circle cx="2473.0" cy="4067.0" r="43.0" color="black" fill="blue" />
+<circle cx="1832.0" cy="3993.0" r="21.0" color="black" fill="blue" />
+<circle cx="1983.0" cy="4200.0" r="9.0" color="black" fill="blue" />
+<circle cx="569.0" cy="3494.0" r="62.0" color="black" fill="blue" />
+<circle cx="458.0" cy="5838.0" r="64.0" color="black" fill="blue" />
+<circle cx="2773.0" cy="3680.0" r="51.0" color="black" fill="blue" />
+<circle cx="2115.0" cy="8123.0" r="40.0" color="black" fill="blue" />
+<circle cx="1849.0" cy="7323.0" r="24.0" color="black" fill="blue" />
+<circle cx="2695.0" cy="7040.0" r="63.0" color="black" fill="blue" />
+<circle cx="1221.0" cy="6452.0" r="11.0" color="black" fill="blue" />
+<circle cx="1782.0" cy="6845.0" r="53.0" color="black" fill="blue" />
+<circle cx="294.0" cy="3270.0" r="32.0" color="black" fill="blue" />
+<circle cx="3105.0" cy="7780.0" r="37.0" color="black" fill="blue" />
+<circle cx="2055.0" cy="7617.0" r="77.0" color="black" fill="blue" />
+<circle cx="2393.0" cy="510.0" r="66.0" color="black" fill="blue" />
+<circle cx="1601.0" cy="2911.0" r="44.0" color="black" fill="blue" />
+<circle cx="1813.0" cy="3017.0" r="26.0" color="black" fill="blue" />
+<circle cx="1851.0" cy="8266.0" r="79.0" color="black" fill="blue" />
+<circle cx="2601.0" cy="4850.0" r="49.0" color="black" fill="blue" />
+<circle cx="1693.0" cy="1982.0" r="11.0" color="black" fill="blue" />
+<circle cx="1749.0" cy="4856.0" r="43.0" color="black" fill="blue" />
+<circle cx="3013.0" cy="1937.0" r="27.0" color="black" fill="blue" />
+<circle cx="1359.0" cy="8076.0" r="56.0" color="black" fill="blue" />
+<circle cx="348.0" cy="1986.0" r="80.0" color="black" fill="blue" />
+<circle cx="3110.0" cy="7771.0" r="49.0" color="black" fill="blue" />
+<circle cx="1769.0" cy="7305.0" r="60.0" color="black" fill="blue" />
+<circle cx="179.0" cy="1616.0" r="74.0" color="black" fill="blue" />
+<circle cx="839.0" cy="7860.0" r="53.0" color="black" fill="blue" />
+<circle cx="1316.0" cy="3807.0" r="66.0" color="black" fill="blue" />
+<circle cx="1013.0" cy="4560.0" r="48.0" color="black" fill="blue" />
+<circle cx="2438.0" cy="5416.0" r="12.0" color="black" fill="blue" />
+<circle cx="1957.0" cy="6298.0" r="55.0" color="black" fill="blue" />
+<circle cx="1556.0" cy="3419.0" r="26.0" color="black" fill="blue" />
+<circle cx="2905.0" cy="770.0" r="77.0" color="black" fill="blue" />
+<circle cx="862.0" cy="316.0" r="39.0" color="black" fill="blue" />
+<circle cx="874.0" cy="1284.0" r="67.0" color="black" fill="blue" />
+<circle cx="1436.0" cy="6633.0" r="52.0" color="black" fill="blue" />
+<circle cx="2763.0" cy="5385.0" r="21.0" color="black" fill="blue" />
+<circle cx="2999.0" cy="3526.0" r="28.0" color="black" fill="blue" />
+<circle cx="272.0" cy="2096.0" r="77.0" color="black" fill="blue" />
+<circle cx="1905.0" cy="6138.0" r="19.0" color="black" fill="blue" />
+<circle cx="1368.0" cy="1724.0" r="74.0" color="black" fill="blue" />
+<circle cx="1266.0" cy="5226.0" r="79.0" color="black" fill="blue" />
+<circle cx="2679.0" cy="4327.0" r="38.0" color="black" fill="blue" />
+<circle cx="2755.0" cy="636.0" r="24.0" color="black" fill="blue" />
+<circle cx="2189.0" cy="4750.0" r="62.0" color="black" fill="blue" />
+<circle cx="2276.0" cy="6166.0" r="16.0" color="black" fill="blue" />
+<circle cx="2931.0" cy="6619.0" r="77.0" color="black" fill="blue" />
+<circle cx="1168.0" cy="5617.0" r="84.0" color="black" fill="blue" />
+<circle cx="2088.0" cy="6744.0" r="55.0" color="black" fill="blue" />
+<circle cx="2511.0" cy="6997.0" r="49.0" color="black" fill="blue" />
+<circle cx="1366.0" cy="6018.0" r="8.0" color="black" fill="blue" />
+<circle cx="1253.0" cy="1446.0" r="82.0" color="black" fill="blue" />
+<circle cx="1907.0" cy="4824.0" r="50.0" color="black" fill="blue" />
+<circle cx="932.0" cy="1560.0" r="26.0" color="black" fill="blue" />
+<circle cx="1759.0" cy="7564.0" r="7.0" color="black" fill="blue" />
+<circle cx="852.0" cy="7617.0" r="21.0" color="black" fill="blue" />
+<circle cx="2342.0" cy="7620.0" r="45.0" color="black" fill="blue" />
+<circle cx="1035.0" cy="3456.0" r="70.0" color="black" fill="blue" />
+<circle cx="987.0" cy="3843.0" r="45.0" color="black" fill="blue" />
+<circle cx="1528.0" cy="6867.0" r="47.0" color="black" fill="blue" />
+<circle cx="1225.0" cy="7495.0" r="61.0" color="black" fill="blue" />
+<circle cx="2355.0" cy="6088.0" r="75.0" color="black" fill="blue" />
+<circle cx="1967.0" cy="1887.0" r="65.0" color="black" fill="blue" />
+<circle cx="2308.0" cy="4353.0" r="33.0" color="black" fill="blue" />
+<circle cx="2092.0" cy="2558.0" r="82.0" color="black" fill="blue" />
+<circle cx="2846.0" cy="6121.0" r="44.0" color="black" fill="blue" />
+<circle cx="1638.0" cy="1195.0" r="38.0" color="black" fill="blue" />
+<circle cx="681.0" cy="795.0" r="68.0" color="black" fill="blue" />
+<circle cx="909.0" cy="7161.0" r="41.0" color="black" fill="blue" />
+<circle cx="1476.0" cy="1598.0" r="41.0" color="black" fill="blue" />
+<circle cx="2987.0" cy="6549.0" r="36.0" color="black" fill="blue" />
+<circle cx="1750.0" cy="7094.0" r="5.0" color="black" fill="blue" />
+<circle cx="2009.0" cy="6669.0" r="22.0" color="black" fill="blue" />
+<circle cx="961.0" cy="6178.0" r="41.0" color="black" fill="blue" />
+<circle cx="182.0" cy="5603.0" r="34.0" color="black" fill="blue" />
+<circle cx="2919.0" cy="5391.0" r="47.0" color="black" fill="blue" />
+<circle cx="2060.0" cy="509.0" r="41.0" color="black" fill="blue" />
+<circle cx="2953.0" cy="6591.0" r="17.0" color="black" fill="blue" />
+<circle cx="2356.0" cy="1804.0" r="51.0" color="black" fill="blue" />
+<circle cx="2216.0" cy="4439.0" r="30.0" color="black" fill="blue" />
+<circle cx="2551.0" cy="294.0" r="49.0" color="black" fill="blue" />
+<circle cx="248.0" cy="5961.0" r="54.0" color="black" fill="blue" />
+<circle cx="134.0" cy="2129.0" r="49.0" color="black" fill="blue" />
+<circle cx="539.0" cy="6057.0" r="42.0" color="black" fill="blue" />
+<circle cx="672.0" cy="1729.0" r="82.0" color="black" fill="blue" />
+<circle cx="2766.0" cy="5562.0" r="16.0" color="black" fill="blue" />
+<circle cx="1379.0" cy="5503.0" r="40.0" color="black" fill="blue" />
+<circle cx="1134.0" cy="3114.0" r="12.0" color="black" fill="blue" />
+<circle cx="679.0" cy="5068.0" r="45.0" color="black" fill="blue" />
+<circle cx="573.0" cy="2355.0" r="18.0" color="black" fill="blue" />
+<circle cx="2682.0" cy="766.0" r="10.0" color="black" fill="blue" />
+<circle cx="1375.0" cy="2375.0" r="7.0" color="black" fill="blue" />
+<circle cx="695.0" cy="6060.0" r="52.0" color="black" fill="blue" />
+<circle cx="606.0" cy="405.0" r="56.0" color="black" fill="blue" />
+<circle cx="2268.0" cy="8065.0" r="58.0" color="black" fill="blue" />
+<circle cx="3186.0" cy="5890.0" r="8.0" color="black" fill="blue" />
+<circle cx="964.0" cy="7965.0" r="78.0" color="black" fill="blue" />
+<circle cx="2752.0" cy="4265.0" r="40.0" color="black" fill="blue" />
+<circle cx="1352.0" cy="2083.0" r="67.0" color="black" fill="blue" />
+<circle cx="611.0" cy="1070.0" r="24.0" color="black" fill="blue" />
+<circle cx="3101.0" cy="7662.0" r="43.0" color="black" fill="blue" />
+<circle cx="1138.0" cy="7086.0" r="49.0" color="black" fill="blue" />
+<circle cx="1754.0" cy="8120.0" r="7.0" color="black" fill="blue" />
+<circle cx="2684.0" cy="7627.0" r="49.0" color="black" fill="blue" />
+<circle cx="119.0" cy="2175.0" r="33.0" color="black" fill="blue" />
+<circle cx="333.0" cy="4904.0" r="18.0" color="black" fill="blue" />
+<circle cx="1059.0" cy="4423.0" r="60.0" color="black" fill="blue" />
+<circle cx="1284.0" cy="295.0" r="81.0" color="black" fill="blue" />
+<circle cx="237.0" cy="454.0" r="72.0" color="black" fill="blue" />
+<circle cx="2287.0" cy="2365.0" r="79.0" color="black" fill="blue" />
+<circle cx="2868.0" cy="452.0" r="82.0" color="black" fill="blue" />
+<circle cx="2215.0" cy="4329.0" r="20.0" color="black" fill="blue" />
+<circle cx="1828.0" cy="2038.0" r="73.0" color="black" fill="blue" />
+<circle cx="1119.0" cy="1400.0" r="68.0" color="black" fill="blue" />
+<circle cx="2984.0" cy="2116.0" r="66.0" color="black" fill="blue" />
+<circle cx="1769.0" cy="5399.0" r="33.0" color="black" fill="blue" />
+<circle cx="2313.0" cy="7404.0" r="16.0" color="black" fill="blue" />
+<circle cx="2894.0" cy="5388.0" r="18.0" color="black" fill="blue" />
+<circle cx="2812.0" cy="7439.0" r="59.0" color="black" fill="blue" />
+<circle cx="2790.0" cy="4126.0" r="44.0" color="black" fill="blue" />
+<circle cx="3088.0" cy="3790.0" r="24.0" color="black" fill="blue" />
+<circle cx="3135.0" cy="3114.0" r="14.0" color="black" fill="blue" />
+<circle cx="2692.0" cy="7900.0" r="60.0" color="black" fill="blue" />
+<circle cx="3122.0" cy="7109.0" r="33.0" color="black" fill="blue" />
+<circle cx="373.0" cy="2518.0" r="24.0" color="black" fill="blue" />
+<circle cx="1727.0" cy="1936.0" r="10.0" color="black" fill="blue" />
+<circle cx="2191.0" cy="5258.0" r="49.0" color="black" fill="blue" />
+<circle cx="2800.0" cy="3391.0" r="23.0" color="black" fill="blue" />
+<circle cx="1699.0" cy="6987.0" r="19.0" color="black" fill="blue" />
+<circle cx="1131.0" cy="8155.0" r="42.0" color="black" fill="blue" />
+<circle cx="1438.0" cy="5649.0" r="26.0" color="black" fill="blue" />
+<circle cx="31.0" cy="7036.0" r="25.0" color="black" fill="blue" />
+<circle cx="1033.0" cy="1182.0" r="71.0" color="black" fill="blue" />
+<circle cx="804.0" cy="5667.0" r="1" fill="blue" />
+<text x="804.0" y="5667.0" font-size="12" text-anchor="middle" dominant-baseline="middle">0</text>
+<circle cx="563.0" cy="7319.0" r="1" fill="blue" />
+<text x="563.0" y="7319.0" font-size="12" text-anchor="middle" dominant-baseline="middle">1</text>
+<circle cx="877.0" cy="4326.0" r="1" fill="blue" />
+<text x="877.0" y="4326.0" font-size="12" text-anchor="middle" dominant-baseline="middle">2</text>
+<circle cx="648.0" cy="3018.0" r="1" fill="blue" />
+<text x="648.0" y="3018.0" font-size="12" text-anchor="middle" dominant-baseline="middle">3</text>
+<circle cx="542.0" cy="527.0" r="1" fill="blue" />
+<text x="542.0" y="527.0" font-size="12" text-anchor="middle" dominant-baseline="middle">4</text>
+<circle cx="26.0" cy="8153.0" r="1" fill="blue" />
+<text x="26.0" y="8153.0" font-size="12" text-anchor="middle" dominant-baseline="middle">5</text>
+<circle cx="1321.0" cy="728.0" r="1" fill="blue" />
+<text x="1321.0" y="728.0" font-size="12" text-anchor="middle" dominant-baseline="middle">6</text>
+<circle cx="896.0" cy="5682.0" r="1" fill="blue" />
+<text x="896.0" y="5682.0" font-size="12" text-anchor="middle" dominant-baseline="middle">7</text>
+<circle cx="3064.0" cy="6759.0" r="1" fill="blue" />
+<text x="3064.0" y="6759.0" font-size="12" text-anchor="middle" dominant-baseline="middle">8</text>
+<circle cx="2660.0" cy="2186.0" r="1" fill="blue" />
+<text x="2660.0" y="2186.0" font-size="12" text-anchor="middle" dominant-baseline="middle">9</text>
+<circle cx="440.0" cy="4265.0" r="1" fill="blue" />
+<text x="440.0" y="4265.0" font-size="12" text-anchor="middle" dominant-baseline="middle">10</text>
+<circle cx="2056.0" cy="2137.0" r="1" fill="blue" />
+<text x="2056.0" y="2137.0" font-size="12" text-anchor="middle" dominant-baseline="middle">11</text>
+<circle cx="1605.0" cy="45.0" r="1" fill="blue" />
+<text x="1605.0" y="45.0" font-size="12" text-anchor="middle" dominant-baseline="middle">12</text>
+<circle cx="1298.0" cy="1834.0" r="1" fill="blue" />
+<text x="1298.0" y="1834.0" font-size="12" text-anchor="middle" dominant-baseline="middle">13</text>
+<circle cx="938.0" cy="2381.0" r="1" fill="blue" />
+<text x="938.0" y="2381.0" font-size="12" text-anchor="middle" dominant-baseline="middle">14</text>
+<circle cx="2396.0" cy="3635.0" r="1" fill="blue" />
+<text x="2396.0" y="3635.0" font-size="12" text-anchor="middle" dominant-baseline="middle">15</text>
+<circle cx="476.0" cy="443.0" r="1" fill="blue" />
+<text x="476.0" y="443.0" font-size="12" text-anchor="middle" dominant-baseline="middle">16</text>
+<circle cx="2025.0" cy="4019.0" r="1" fill="blue" />
+<text x="2025.0" y="4019.0" font-size="12" text-anchor="middle" dominant-baseline="middle">17</text>
+<circle cx="2309.0" cy="5413.0" r="1" fill="blue" />
+<text x="2309.0" y="5413.0" font-size="12" text-anchor="middle" dominant-baseline="middle">18</text>
+<circle cx="3018.0" cy="4977.0" r="1" fill="blue" />
+<text x="3018.0" y="4977.0" font-size="12" text-anchor="middle" dominant-baseline="middle">19</text>
+<circle cx="1608.0" cy="2237.0" r="1" fill="blue" />
+<text x="1608.0" y="2237.0" font-size="12" text-anchor="middle" dominant-baseline="middle">20</text>
+<circle cx="1033.0" cy="5237.0" r="1" fill="blue" />
+<text x="1033.0" y="5237.0" font-size="12" text-anchor="middle" dominant-baseline="middle">21</text>
+<circle cx="476.0" cy="723.0" r="1" fill="blue" />
+<text x="476.0" y="723.0" font-size="12" text-anchor="middle" dominant-baseline="middle">22</text>
+<circle cx="2126.0" cy="71.0" r="1" fill="blue" />
+<text x="2126.0" y="71.0" font-size="12" text-anchor="middle" dominant-baseline="middle">23</text>
+<circle cx="2873.0" cy="2389.0" r="1" fill="blue" />
+<text x="2873.0" y="2389.0" font-size="12" text-anchor="middle" dominant-baseline="middle">24</text>
+<circle cx="1456.0" cy="1976.0" r="1" fill="blue" />
+<text x="1456.0" y="1976.0" font-size="12" text-anchor="middle" dominant-baseline="middle">25</text>
+<circle cx="422.0" cy="2788.0" r="1" fill="blue" />
+<text x="422.0" y="2788.0" font-size="12" text-anchor="middle" dominant-baseline="middle">26</text>
+<circle cx="200.0" cy="5888.0" r="1" fill="blue" />
+<text x="200.0" y="5888.0" font-size="12" text-anchor="middle" dominant-baseline="middle">27</text>
+<circle cx="2857.0" cy="4747.0" r="1" fill="blue" />
+<text x="2857.0" y="4747.0" font-size="12" text-anchor="middle" dominant-baseline="middle">28</text>
+<circle cx="1970.0" cy="6514.0" r="1" fill="blue" />
+<text x="1970.0" y="6514.0" font-size="12" text-anchor="middle" dominant-baseline="middle">29</text>
+<circle cx="2143.0" cy="1989.0" r="1" fill="blue" />
+<text x="2143.0" y="1989.0" font-size="12" text-anchor="middle" dominant-baseline="middle">30</text>
+<circle cx="1319.0" cy="3411.0" r="1" fill="blue" />
+<text x="1319.0" y="3411.0" font-size="12" text-anchor="middle" dominant-baseline="middle">31</text>
+<circle cx="1799.0" cy="6994.0" r="1" fill="blue" />
+<text x="1799.0" y="6994.0" font-size="12" text-anchor="middle" dominant-baseline="middle">32</text>
+<circle cx="3051.0" cy="2488.0" r="1" fill="blue" />
+<text x="3051.0" y="2488.0" font-size="12" text-anchor="middle" dominant-baseline="middle">33</text>
+<circle cx="3031.0" cy="5349.0" r="1" fill="blue" />
+<text x="3031.0" y="5349.0" font-size="12" text-anchor="middle" dominant-baseline="middle">34</text>
+<circle cx="3179.0" cy="6775.0" r="1" fill="blue" />
+<text x="3179.0" y="6775.0" font-size="12" text-anchor="middle" dominant-baseline="middle">35</text>
+<circle cx="2568.0" cy="1327.0" r="1" fill="blue" />
+<text x="2568.0" y="1327.0" font-size="12" text-anchor="middle" dominant-baseline="middle">36</text>
+<circle cx="3001.0" cy="6138.0" r="1" fill="blue" />
+<text x="3001.0" y="6138.0" font-size="12" text-anchor="middle" dominant-baseline="middle">37</text>
+<circle cx="658.0" cy="8284.0" r="1" fill="blue" />
+<text x="658.0" y="8284.0" font-size="12" text-anchor="middle" dominant-baseline="middle">38</text>
+<circle cx="528.0" cy="1438.0" r="1" fill="blue" />
+<text x="528.0" y="1438.0" font-size="12" text-anchor="middle" dominant-baseline="middle">39</text>
+<circle cx="1629.0" cy="727.0" r="1" fill="blue" />
+<text x="1629.0" y="727.0" font-size="12" text-anchor="middle" dominant-baseline="middle">40</text>
+<circle cx="1484.0" cy="7457.0" r="1" fill="blue" />
+<text x="1484.0" y="7457.0" font-size="12" text-anchor="middle" dominant-baseline="middle">41</text>
+<circle cx="953.0" cy="6452.0" r="1" fill="blue" />
+<text x="953.0" y="6452.0" font-size="12" text-anchor="middle" dominant-baseline="middle">42</text>
+<circle cx="1298.0" cy="5612.0" r="1" fill="blue" />
+<text x="1298.0" y="5612.0" font-size="12" text-anchor="middle" dominant-baseline="middle">43</text>
+<circle cx="1107.0" cy="7564.0" r="1" fill="blue" />
+<text x="1107.0" y="7564.0" font-size="12" text-anchor="middle" dominant-baseline="middle">44</text>
+<circle cx="996.0" cy="335.0" r="1" fill="blue" />
+<text x="996.0" y="335.0" font-size="12" text-anchor="middle" dominant-baseline="middle">45</text>
+<circle cx="2214.0" cy="7244.0" r="1" fill="blue" />
+<text x="2214.0" y="7244.0" font-size="12" text-anchor="middle" dominant-baseline="middle">46</text>
+<circle cx="1741.0" cy="246.0" r="1" fill="blue" />
+<text x="1741.0" y="246.0" font-size="12" text-anchor="middle" dominant-baseline="middle">47</text>
+<circle cx="1183.0" cy="1774.0" r="1" fill="blue" />
+<text x="1183.0" y="1774.0" font-size="12" text-anchor="middle" dominant-baseline="middle">48</text>
+<circle cx="549.0" cy="4453.0" r="1" fill="blue" />
+<text x="549.0" y="4453.0" font-size="12" text-anchor="middle" dominant-baseline="middle">49</text>
+<circle cx="2871.0" cy="7589.0" r="1" fill="blue" />
+<text x="2871.0" y="7589.0" font-size="12" text-anchor="middle" dominant-baseline="middle">50</text>
+<circle cx="737.0" cy="7111.0" r="1" fill="blue" />
+<text x="737.0" y="7111.0" font-size="12" text-anchor="middle" dominant-baseline="middle">51</text>
+<circle cx="2282.0" cy="4512.0" r="1" fill="blue" />
+<text x="2282.0" y="4512.0" font-size="12" text-anchor="middle" dominant-baseline="middle">52</text>
+<circle cx="3105.0" cy="4065.0" r="1" fill="blue" />
+<text x="3105.0" y="4065.0" font-size="12" text-anchor="middle" dominant-baseline="middle">53</text>
+<circle cx="89.0" cy="1173.0" r="1" fill="blue" />
+<text x="89.0" y="1173.0" font-size="12" text-anchor="middle" dominant-baseline="middle">54</text>
+<circle cx="1433.0" cy="8064.0" r="1" fill="blue" />
+<text x="1433.0" y="8064.0" font-size="12" text-anchor="middle" dominant-baseline="middle">55</text>
+<circle cx="3085.0" cy="3570.0" r="1" fill="blue" />
+<text x="3085.0" y="3570.0" font-size="12" text-anchor="middle" dominant-baseline="middle">56</text>
+<circle cx="727.0" cy="1365.0" r="1" fill="blue" />
+<text x="727.0" y="1365.0" font-size="12" text-anchor="middle" dominant-baseline="middle">57</text>
+<circle cx="3120.0" cy="5676.0" r="1" fill="blue" />
+<text x="3120.0" y="5676.0" font-size="12" text-anchor="middle" dominant-baseline="middle">58</text>
+<circle cx="2836.0" cy="5849.0" r="1" fill="blue" />
+<text x="2836.0" y="5849.0" font-size="12" text-anchor="middle" dominant-baseline="middle">59</text>
+<circle cx="250.0" cy="5072.0" r="1" fill="blue" />
+<text x="250.0" y="5072.0" font-size="12" text-anchor="middle" dominant-baseline="middle">60</text>
+<circle cx="829.0" cy="3444.0" r="1" fill="blue" />
+<text x="829.0" y="3444.0" font-size="12" text-anchor="middle" dominant-baseline="middle">61</text>
+<circle cx="654.0" cy="5557.0" r="1" fill="blue" />
+<text x="654.0" y="5557.0" font-size="12" text-anchor="middle" dominant-baseline="middle">62</text>
+<circle cx="1717.0" cy="6571.0" r="1" fill="blue" />
+<text x="1717.0" y="6571.0" font-size="12" text-anchor="middle" dominant-baseline="middle">63</text>
+<circle cx="838.0" cy="4563.0" r="1" fill="blue" />
+<text x="838.0" y="4563.0" font-size="12" text-anchor="middle" dominant-baseline="middle">64</text>
+<circle cx="248.0" cy="3578.0" r="1" fill="blue" />
+<text x="248.0" y="3578.0" font-size="12" text-anchor="middle" dominant-baseline="middle">65</text>
+<circle cx="202.0" cy="7522.0" r="1" fill="blue" />
+<text x="202.0" y="7522.0" font-size="12" text-anchor="middle" dominant-baseline="middle">66</text>
+<circle cx="1380.0" cy="2861.0" r="1" fill="blue" />
+<text x="1380.0" y="2861.0" font-size="12" text-anchor="middle" dominant-baseline="middle">67</text>
+<circle cx="2233.0" cy="7016.0" r="1" fill="blue" />
+<text x="2233.0" y="7016.0" font-size="12" text-anchor="middle" dominant-baseline="middle">68</text>
+<circle cx="1584.0" cy="924.0" r="1" fill="blue" />
+<text x="1584.0" y="924.0" font-size="12" text-anchor="middle" dominant-baseline="middle">69</text>
+<circle cx="2178.0" cy="2692.0" r="1" fill="blue" />
+<text x="2178.0" y="2692.0" font-size="12" text-anchor="middle" dominant-baseline="middle">70</text>
+<circle cx="1199.0" cy="6975.0" r="1" fill="blue" />
+<text x="1199.0" y="6975.0" font-size="12" text-anchor="middle" dominant-baseline="middle">71</text>
+<circle cx="91.0" cy="2581.0" r="1" fill="blue" />
+<text x="91.0" y="2581.0" font-size="12" text-anchor="middle" dominant-baseline="middle">72</text>
+<circle cx="2772.0" cy="3807.0" r="1" fill="blue" />
+<text x="2772.0" y="3807.0" font-size="12" text-anchor="middle" dominant-baseline="middle">73</text>
+<circle cx="3125.0" cy="1225.0" r="1" fill="blue" />
+<text x="3125.0" y="1225.0" font-size="12" text-anchor="middle" dominant-baseline="middle">74</text>
+<circle cx="93.0" cy="4712.0" r="1" fill="blue" />
+<text x="93.0" y="4712.0" font-size="12" text-anchor="middle" dominant-baseline="middle">75</text>
+<circle cx="1203.0" cy="7707.0" r="1" fill="blue" />
+<text x="1203.0" y="7707.0" font-size="12" text-anchor="middle" dominant-baseline="middle">76</text>
+<circle cx="2745.0" cy="4656.0" r="1" fill="blue" />
+<text x="2745.0" y="4656.0" font-size="12" text-anchor="middle" dominant-baseline="middle">77</text>
+<circle cx="1784.0" cy="5111.0" r="1" fill="blue" />
+<text x="1784.0" y="5111.0" font-size="12" text-anchor="middle" dominant-baseline="middle">78</text>
+<circle cx="956.0" cy="4724.0" r="1" fill="blue" />
+<text x="956.0" y="4724.0" font-size="12" text-anchor="middle" dominant-baseline="middle">79</text>
+<circle cx="2672.0" cy="1753.0" r="1" fill="blue" />
+<text x="2672.0" y="1753.0" font-size="12" text-anchor="middle" dominant-baseline="middle">80</text>
+<circle cx="138.0" cy="1143.0" r="1" fill="blue" />
+<text x="138.0" y="1143.0" font-size="12" text-anchor="middle" dominant-baseline="middle">81</text>
+<circle cx="1171.0" cy="3774.0" r="1" fill="blue" />
+<text x="1171.0" y="3774.0" font-size="12" text-anchor="middle" dominant-baseline="middle">82</text>
+<circle cx="270.0" cy="2595.0" r="1" fill="blue" />
+<text x="270.0" y="2595.0" font-size="12" text-anchor="middle" dominant-baseline="middle">83</text>
+<circle cx="2490.0" cy="3910.0" r="1" fill="blue" />
+<text x="2490.0" y="3910.0" font-size="12" text-anchor="middle" dominant-baseline="middle">84</text>
+<circle cx="307.0" cy="1333.0" r="1" fill="blue" />
+<text x="307.0" y="1333.0" font-size="12" text-anchor="middle" dominant-baseline="middle">85</text>
+<circle cx="1366.0" cy="2879.0" r="1" fill="blue" />
+<text x="1366.0" y="2879.0" font-size="12" text-anchor="middle" dominant-baseline="middle">86</text>
+<circle cx="284.0" cy="1718.0" r="1" fill="blue" />
+<text x="284.0" y="1718.0" font-size="12" text-anchor="middle" dominant-baseline="middle">87</text>
+<circle cx="1835.0" cy="4350.0" r="1" fill="blue" />
+<text x="1835.0" y="4350.0" font-size="12" text-anchor="middle" dominant-baseline="middle">88</text>
+<circle cx="2614.0" cy="7919.0" r="1" fill="blue" />
+<text x="2614.0" y="7919.0" font-size="12" text-anchor="middle" dominant-baseline="middle">89</text>
+<circle cx="1297.0" cy="6117.0" r="1" fill="blue" />
+<text x="1297.0" y="6117.0" font-size="12" text-anchor="middle" dominant-baseline="middle">90</text>
+<circle cx="1503.0" cy="2291.0" r="1" fill="blue" />
+<text x="1503.0" y="2291.0" font-size="12" text-anchor="middle" dominant-baseline="middle">91</text>
+<circle cx="532.0" cy="8304.0" r="1" fill="blue" />
+<text x="532.0" y="8304.0" font-size="12" text-anchor="middle" dominant-baseline="middle">92</text>
+<circle cx="536.0" cy="4424.0" r="1" fill="blue" />
+<text x="536.0" y="4424.0" font-size="12" text-anchor="middle" dominant-baseline="middle">93</text>
+<circle cx="2612.0" cy="1600.0" r="1" fill="blue" />
+<text x="2612.0" y="1600.0" font-size="12" text-anchor="middle" dominant-baseline="middle">94</text>
+<circle cx="314.0" cy="204.0" r="1" fill="blue" />
+<text x="314.0" y="204.0" font-size="12" text-anchor="middle" dominant-baseline="middle">95</text>
+<circle cx="624.0" cy="3193.0" r="1" fill="blue" />
+<text x="624.0" y="3193.0" font-size="12" text-anchor="middle" dominant-baseline="middle">96</text>
+<circle cx="647.0" cy="2067.0" r="1" fill="blue" />
+<text x="647.0" y="2067.0" font-size="12" text-anchor="middle" dominant-baseline="middle">97</text>
+<circle cx="273.0" cy="3611.0" r="1" fill="blue" />
+<text x="273.0" y="3611.0" font-size="12" text-anchor="middle" dominant-baseline="middle">98</text>
+<circle cx="413.0" cy="3964.0" r="1" fill="blue" />
+<text x="413.0" y="3964.0" font-size="12" text-anchor="middle" dominant-baseline="middle">99</text>
+<circle cx="1715.0" cy="1621.0" r="1" fill="blue" />
+<text x="1715.0" y="1621.0" font-size="12" text-anchor="middle" dominant-baseline="middle">100</text>
+<circle cx="1906.0" cy="8135.0" r="1" fill="blue" />
+<text x="1906.0" y="8135.0" font-size="12" text-anchor="middle" dominant-baseline="middle">101</text>
+<circle cx="1071.0" cy="1320.0" r="1" fill="blue" />
+<text x="1071.0" y="1320.0" font-size="12" text-anchor="middle" dominant-baseline="middle">102</text>
+<circle cx="2699.0" cy="1654.0" r="1" fill="blue" />
+<text x="2699.0" y="1654.0" font-size="12" text-anchor="middle" dominant-baseline="middle">103</text>
+<circle cx="414.0" cy="1537.0" r="1" fill="blue" />
+<text x="414.0" y="1537.0" font-size="12" text-anchor="middle" dominant-baseline="middle">104</text>
+<circle cx="1721.0" cy="3114.0" r="1" fill="blue" />
+<text x="1721.0" y="3114.0" font-size="12" text-anchor="middle" dominant-baseline="middle">105</text>
+<circle cx="1289.0" cy="2603.0" r="1" fill="blue" />
+<text x="1289.0" y="2603.0" font-size="12" text-anchor="middle" dominant-baseline="middle">106</text>
+<circle cx="1144.0" cy="2712.0" r="1" fill="blue" />
+<text x="1144.0" y="2712.0" font-size="12" text-anchor="middle" dominant-baseline="middle">107</text>
+<circle cx="1038.0" cy="566.0" r="1" fill="blue" />
+<text x="1038.0" y="566.0" font-size="12" text-anchor="middle" dominant-baseline="middle">108</text>
+<circle cx="1003.0" cy="7169.0" r="1" fill="blue" />
+<text x="1003.0" y="7169.0" font-size="12" text-anchor="middle" dominant-baseline="middle">109</text>
+<circle cx="762.0" cy="6670.0" r="1" fill="blue" />
+<text x="762.0" y="6670.0" font-size="12" text-anchor="middle" dominant-baseline="middle">110</text>
+<circle cx="1664.0" cy="5803.0" r="1" fill="blue" />
+<text x="1664.0" y="5803.0" font-size="12" text-anchor="middle" dominant-baseline="middle">111</text>
+<circle cx="604.0" cy="7540.0" r="1" fill="blue" />
+<text x="604.0" y="7540.0" font-size="12" text-anchor="middle" dominant-baseline="middle">112</text>
+<circle cx="2281.0" cy="451.0" r="1" fill="blue" />
+<text x="2281.0" y="451.0" font-size="12" text-anchor="middle" dominant-baseline="middle">113</text>
+<circle cx="487.0" cy="1473.0" r="1" fill="blue" />
+<text x="487.0" y="1473.0" font-size="12" text-anchor="middle" dominant-baseline="middle">114</text>
+<circle cx="75.0" cy="7384.0" r="1" fill="blue" />
+<text x="75.0" y="7384.0" font-size="12" text-anchor="middle" dominant-baseline="middle">115</text>
+<circle cx="1079.0" cy="7558.0" r="1" fill="blue" />
+<text x="1079.0" y="7558.0" font-size="12" text-anchor="middle" dominant-baseline="middle">116</text>
+<circle cx="1843.0" cy="7231.0" r="1" fill="blue" />
+<text x="1843.0" y="7231.0" font-size="12" text-anchor="middle" dominant-baseline="middle">117</text>
+<circle cx="3068.0" cy="6839.0" r="1" fill="blue" />
+<text x="3068.0" y="6839.0" font-size="12" text-anchor="middle" dominant-baseline="middle">118</text>
+<circle cx="1190.0" cy="3717.0" r="1" fill="blue" />
+<text x="1190.0" y="3717.0" font-size="12" text-anchor="middle" dominant-baseline="middle">119</text>
+<circle cx="2803.0" cy="5630.0" r="1" fill="blue" />
+<text x="2803.0" y="5630.0" font-size="12" text-anchor="middle" dominant-baseline="middle">120</text>
+<circle cx="2597.0" cy="1205.0" r="1" fill="blue" />
+<text x="2597.0" y="1205.0" font-size="12" text-anchor="middle" dominant-baseline="middle">121</text>
+<circle cx="1788.0" cy="7173.0" r="1" fill="blue" />
+<text x="1788.0" y="7173.0" font-size="12" text-anchor="middle" dominant-baseline="middle">122</text>
+<circle cx="701.0" cy="174.0" r="1" fill="blue" />
+<text x="701.0" y="174.0" font-size="12" text-anchor="middle" dominant-baseline="middle">123</text>
+<circle cx="2307.0" cy="7918.0" r="1" fill="blue" />
+<text x="2307.0" y="7918.0" font-size="12" text-anchor="middle" dominant-baseline="middle">124</text>
+<circle cx="3061.0" cy="164.0" r="1" fill="blue" />
+<text x="3061.0" y="164.0" font-size="12" text-anchor="middle" dominant-baseline="middle">125</text>
+<circle cx="961.0" cy="6813.0" r="1" fill="blue" />
+<text x="961.0" y="6813.0" font-size="12" text-anchor="middle" dominant-baseline="middle">126</text>
+<circle cx="1997.0" cy="5926.0" r="1" fill="blue" />
+<text x="1997.0" y="5926.0" font-size="12" text-anchor="middle" dominant-baseline="middle">127</text>
+<circle cx="25.0" cy="1155.0" r="1" fill="blue" />
+<text x="25.0" y="1155.0" font-size="12" text-anchor="middle" dominant-baseline="middle">128</text>
+<circle cx="947.0" cy="4031.0" r="1" fill="blue" />
+<text x="947.0" y="4031.0" font-size="12" text-anchor="middle" dominant-baseline="middle">129</text>
+<circle cx="892.0" cy="4512.0" r="1" fill="blue" />
+<text x="892.0" y="4512.0" font-size="12" text-anchor="middle" dominant-baseline="middle">130</text>
+<circle cx="261.0" cy="3564.0" r="1" fill="blue" />
+<text x="261.0" y="3564.0" font-size="12" text-anchor="middle" dominant-baseline="middle">131</text>
+<circle cx="3083.0" cy="3405.0" r="1" fill="blue" />
+<text x="3083.0" y="3405.0" font-size="12" text-anchor="middle" dominant-baseline="middle">132</text>
+<circle cx="85.0" cy="5095.0" r="1" fill="blue" />
+<text x="85.0" y="5095.0" font-size="12" text-anchor="middle" dominant-baseline="middle">133</text>
+<circle cx="1347.0" cy="7025.0" r="1" fill="blue" />
+<text x="1347.0" y="7025.0" font-size="12" text-anchor="middle" dominant-baseline="middle">134</text>
+<circle cx="551.0" cy="7257.0" r="1" fill="blue" />
+<text x="551.0" y="7257.0" font-size="12" text-anchor="middle" dominant-baseline="middle">135</text>
+<circle cx="1020.0" cy="2859.0" r="1" fill="blue" />
+<text x="1020.0" y="2859.0" font-size="12" text-anchor="middle" dominant-baseline="middle">136</text>
+<circle cx="864.0" cy="3374.0" r="1" fill="blue" />
+<text x="864.0" y="3374.0" font-size="12" text-anchor="middle" dominant-baseline="middle">137</text>
+<circle cx="1600.0" cy="791.0" r="1" fill="blue" />
+<text x="1600.0" y="791.0" font-size="12" text-anchor="middle" dominant-baseline="middle">138</text>
+<circle cx="1491.0" cy="2608.0" r="1" fill="blue" />
+<text x="1491.0" y="2608.0" font-size="12" text-anchor="middle" dominant-baseline="middle">139</text>
+<circle cx="2135.0" cy="2721.0" r="1" fill="blue" />
+<text x="2135.0" y="2721.0" font-size="12" text-anchor="middle" dominant-baseline="middle">140</text>
+<circle cx="2318.0" cy="4161.0" r="1" fill="blue" />
+<text x="2318.0" y="4161.0" font-size="12" text-anchor="middle" dominant-baseline="middle">141</text>
+<circle cx="1438.0" cy="1933.0" r="1" fill="blue" />
+<text x="1438.0" y="1933.0" font-size="12" text-anchor="middle" dominant-baseline="middle">142</text>
+<circle cx="1572.0" cy="158.0" r="1" fill="blue" />
+<text x="1572.0" y="158.0" font-size="12" text-anchor="middle" dominant-baseline="middle">143</text>
+<circle cx="3027.0" cy="4182.0" r="1" fill="blue" />
+<text x="3027.0" y="4182.0" font-size="12" text-anchor="middle" dominant-baseline="middle">144</text>
+<circle cx="2603.0" cy="7869.0" r="1" fill="blue" />
+<text x="2603.0" y="7869.0" font-size="12" text-anchor="middle" dominant-baseline="middle">145</text>
+<circle cx="3089.0" cy="442.0" r="1" fill="blue" />
+<text x="3089.0" y="442.0" font-size="12" text-anchor="middle" dominant-baseline="middle">146</text>
+<circle cx="3179.0" cy="7108.0" r="1" fill="blue" />
+<text x="3179.0" y="7108.0" font-size="12" text-anchor="middle" dominant-baseline="middle">147</text>
+<circle cx="1527.0" cy="6515.0" r="1" fill="blue" />
+<text x="1527.0" y="6515.0" font-size="12" text-anchor="middle" dominant-baseline="middle">148</text>
+<circle cx="2156.0" cy="2991.0" r="1" fill="blue" />
+<text x="2156.0" y="2991.0" font-size="12" text-anchor="middle" dominant-baseline="middle">149</text>
+<circle cx="1192.0" cy="2566.0" r="1" fill="blue" />
+<text x="1192.0" y="2566.0" font-size="12" text-anchor="middle" dominant-baseline="middle">150</text>
+<circle cx="344.0" cy="1756.0" r="1" fill="blue" />
+<text x="344.0" y="1756.0" font-size="12" text-anchor="middle" dominant-baseline="middle">151</text>
+<circle cx="340.0" cy="8019.0" r="1" fill="blue" />
+<text x="340.0" y="8019.0" font-size="12" text-anchor="middle" dominant-baseline="middle">152</text>
+<circle cx="719.0" cy="5296.0" r="1" fill="blue" />
+<text x="719.0" y="5296.0" font-size="12" text-anchor="middle" dominant-baseline="middle">153</text>
+<circle cx="2440.0" cy="4574.0" r="1" fill="blue" />
+<text x="2440.0" y="4574.0" font-size="12" text-anchor="middle" dominant-baseline="middle">154</text>
+<circle cx="2585.0" cy="1119.0" r="1" fill="blue" />
+<text x="2585.0" y="1119.0" font-size="12" text-anchor="middle" dominant-baseline="middle">155</text>
+<circle cx="126.0" cy="5071.0" r="1" fill="blue" />
+<text x="126.0" y="5071.0" font-size="12" text-anchor="middle" dominant-baseline="middle">156</text>
+<circle cx="1127.0" cy="3944.0" r="1" fill="blue" />
+<text x="1127.0" y="3944.0" font-size="12" text-anchor="middle" dominant-baseline="middle">157</text>
+<circle cx="631.0" cy="7295.0" r="1" fill="blue" />
+<text x="631.0" y="7295.0" font-size="12" text-anchor="middle" dominant-baseline="middle">158</text>
+<circle cx="2053.0" cy="1123.0" r="1" fill="blue" />
+<text x="2053.0" y="1123.0" font-size="12" text-anchor="middle" dominant-baseline="middle">159</text>
+<circle cx="2669.0" cy="2861.0" r="1" fill="blue" />
+<text x="2669.0" y="2861.0" font-size="12" text-anchor="middle" dominant-baseline="middle">160</text>
+<circle cx="2881.0" cy="54.0" r="1" fill="blue" />
+<text x="2881.0" y="54.0" font-size="12" text-anchor="middle" dominant-baseline="middle">161</text>
+<circle cx="2136.0" cy="1629.0" r="1" fill="blue" />
+<text x="2136.0" y="1629.0" font-size="12" text-anchor="middle" dominant-baseline="middle">162</text>
+<circle cx="467.0" cy="1971.0" r="1" fill="blue" />
+<text x="467.0" y="1971.0" font-size="12" text-anchor="middle" dominant-baseline="middle">163</text>
+<circle cx="960.0" cy="3374.0" r="1" fill="blue" />
+<text x="960.0" y="3374.0" font-size="12" text-anchor="middle" dominant-baseline="middle">164</text>
+<circle cx="2111.0" cy="3088.0" r="1" fill="blue" />
+<text x="2111.0" y="3088.0" font-size="12" text-anchor="middle" dominant-baseline="middle">165</text>
+<circle cx="288.0" cy="2276.0" r="1" fill="blue" />
+<text x="288.0" y="2276.0" font-size="12" text-anchor="middle" dominant-baseline="middle">166</text>
+<circle cx="2767.0" cy="2154.0" r="1" fill="blue" />
+<text x="2767.0" y="2154.0" font-size="12" text-anchor="middle" dominant-baseline="middle">167</text>
+<circle cx="2106.0" cy="2417.0" r="1" fill="blue" />
+<text x="2106.0" y="2417.0" font-size="12" text-anchor="middle" dominant-baseline="middle">168</text>
+<circle cx="2974.0" cy="3585.0" r="1" fill="blue" />
+<text x="2974.0" y="3585.0" font-size="12" text-anchor="middle" dominant-baseline="middle">169</text>
+<circle cx="326.0" cy="4547.0" r="1" fill="blue" />
+<text x="326.0" y="4547.0" font-size="12" text-anchor="middle" dominant-baseline="middle">170</text>
+<circle cx="876.0" cy="5281.0" r="1" fill="blue" />
+<text x="876.0" y="5281.0" font-size="12" text-anchor="middle" dominant-baseline="middle">171</text>
+<circle cx="1077.0" cy="810.0" r="1" fill="blue" />
+<text x="1077.0" y="810.0" font-size="12" text-anchor="middle" dominant-baseline="middle">172</text>
+<circle cx="1463.0" cy="3348.0" r="1" fill="blue" />
+<text x="1463.0" y="3348.0" font-size="12" text-anchor="middle" dominant-baseline="middle">173</text>
+<circle cx="1654.0" cy="1086.0" r="1" fill="blue" />
+<text x="1654.0" y="1086.0" font-size="12" text-anchor="middle" dominant-baseline="middle">174</text>
+<circle cx="671.0" cy="3643.0" r="1" fill="blue" />
+<text x="671.0" y="3643.0" font-size="12" text-anchor="middle" dominant-baseline="middle">175</text>
+<circle cx="2003.0" cy="5287.0" r="1" fill="blue" />
+<text x="2003.0" y="5287.0" font-size="12" text-anchor="middle" dominant-baseline="middle">176</text>
+<circle cx="1579.0" cy="2470.0" r="1" fill="blue" />
+<text x="1579.0" y="2470.0" font-size="12" text-anchor="middle" dominant-baseline="middle">177</text>
+<circle cx="1470.0" cy="4626.0" r="1" fill="blue" />
+<text x="1470.0" y="4626.0" font-size="12" text-anchor="middle" dominant-baseline="middle">178</text>
+<circle cx="1456.0" cy="2203.0" r="1" fill="blue" />
+<text x="1456.0" y="2203.0" font-size="12" text-anchor="middle" dominant-baseline="middle">179</text>
+<circle cx="1216.0" cy="5033.0" r="1" fill="blue" />
+<text x="1216.0" y="5033.0" font-size="12" text-anchor="middle" dominant-baseline="middle">180</text>
+<circle cx="1171.0" cy="2539.0" r="1" fill="blue" />
+<text x="1171.0" y="2539.0" font-size="12" text-anchor="middle" dominant-baseline="middle">181</text>
+<circle cx="1108.0" cy="6859.0" r="1" fill="blue" />
+<text x="1108.0" y="6859.0" font-size="12" text-anchor="middle" dominant-baseline="middle">182</text>
+<circle cx="3050.0" cy="5315.0" r="1" fill="blue" />
+<text x="3050.0" y="5315.0" font-size="12" text-anchor="middle" dominant-baseline="middle">183</text>
+<circle cx="6.0" cy="2529.0" r="1" fill="blue" />
+<text x="6.0" y="2529.0" font-size="12" text-anchor="middle" dominant-baseline="middle">184</text>
+<circle cx="1640.0" cy="716.0" r="1" fill="blue" />
+<text x="1640.0" y="716.0" font-size="12" text-anchor="middle" dominant-baseline="middle">185</text>
+<circle cx="2475.0" cy="7975.0" r="1" fill="blue" />
+<text x="2475.0" y="7975.0" font-size="12" text-anchor="middle" dominant-baseline="middle">186</text>
+<circle cx="1983.0" cy="680.0" r="1" fill="blue" />
+<text x="1983.0" y="680.0" font-size="12" text-anchor="middle" dominant-baseline="middle">187</text>
+<circle cx="647.0" cy="4672.0" r="1" fill="blue" />
+<text x="647.0" y="4672.0" font-size="12" text-anchor="middle" dominant-baseline="middle">188</text>
+<circle cx="2997.0" cy="160.0" r="1" fill="blue" />
+<text x="2997.0" y="160.0" font-size="12" text-anchor="middle" dominant-baseline="middle">189</text>
+<circle cx="2535.0" cy="7472.0" r="1" fill="blue" />
+<text x="2535.0" y="7472.0" font-size="12" text-anchor="middle" dominant-baseline="middle">190</text>
+<circle cx="1865.0" cy="4957.0" r="1" fill="blue" />
+<text x="1865.0" y="4957.0" font-size="12" text-anchor="middle" dominant-baseline="middle">191</text>
+<circle cx="960.0" cy="8254.0" r="1" fill="blue" />
+<text x="960.0" y="8254.0" font-size="12" text-anchor="middle" dominant-baseline="middle">192</text>
+<circle cx="1684.0" cy="1929.0" r="1" fill="blue" />
+<text x="1684.0" y="1929.0" font-size="12" text-anchor="middle" dominant-baseline="middle">193</text>
+<circle cx="2841.0" cy="3068.0" r="1" fill="blue" />
+<text x="2841.0" y="3068.0" font-size="12" text-anchor="middle" dominant-baseline="middle">194</text>
+<circle cx="18.0" cy="229.0" r="1" fill="blue" />
+<text x="18.0" y="229.0" font-size="12" text-anchor="middle" dominant-baseline="middle">195</text>
+<circle cx="1970.0" cy="8093.0" r="1" fill="blue" />
+<text x="1970.0" y="8093.0" font-size="12" text-anchor="middle" dominant-baseline="middle">196</text>
+<circle cx="755.0" cy="5687.0" r="1" fill="blue" />
+<text x="755.0" y="5687.0" font-size="12" text-anchor="middle" dominant-baseline="middle">197</text>
+<circle cx="447.0" cy="2318.0" r="1" fill="blue" />
+<text x="447.0" y="2318.0" font-size="12" text-anchor="middle" dominant-baseline="middle">198</text>
+<circle cx="3177.0" cy="5766.0" r="1" fill="blue" />
+<text x="3177.0" y="5766.0" font-size="12" text-anchor="middle" dominant-baseline="middle">199</text>
+<circle cx="2317.0" cy="7550.0" r="1" fill="blue" />
+<text x="2317.0" y="7550.0" font-size="12" text-anchor="middle" dominant-baseline="middle">200</text>
+<circle cx="2943.0" cy="3428.0" r="1" fill="blue" />
+<text x="2943.0" y="3428.0" font-size="12" text-anchor="middle" dominant-baseline="middle">201</text>
+<circle cx="374.0" cy="85.0" r="1" fill="blue" />
+<text x="374.0" y="85.0" font-size="12" text-anchor="middle" dominant-baseline="middle">202</text>
+<circle cx="2342.0" cy="331.0" r="1" fill="blue" />
+<text x="2342.0" y="331.0" font-size="12" text-anchor="middle" dominant-baseline="middle">203</text>
+<circle cx="467.0" cy="3980.0" r="1" fill="blue" />
+<text x="467.0" y="3980.0" font-size="12" text-anchor="middle" dominant-baseline="middle">204</text>
+<circle cx="1608.0" cy="4499.0" r="1" fill="blue" />
+<text x="1608.0" y="4499.0" font-size="12" text-anchor="middle" dominant-baseline="middle">205</text>
+<circle cx="69.0" cy="1257.0" r="1" fill="blue" />
+<text x="69.0" y="1257.0" font-size="12" text-anchor="middle" dominant-baseline="middle">206</text>
+<circle cx="881.0" cy="2062.0" r="1" fill="blue" />
+<text x="881.0" y="2062.0" font-size="12" text-anchor="middle" dominant-baseline="middle">207</text>
+<circle cx="1999.0" cy="3616.0" r="1" fill="blue" />
+<text x="1999.0" y="3616.0" font-size="12" text-anchor="middle" dominant-baseline="middle">208</text>
+<circle cx="2466.0" cy="4557.0" r="1" fill="blue" />
+<text x="2466.0" y="4557.0" font-size="12" text-anchor="middle" dominant-baseline="middle">209</text>
+<circle cx="3000.0" cy="3598.0" r="1" fill="blue" />
+<text x="3000.0" y="3598.0" font-size="12" text-anchor="middle" dominant-baseline="middle">210</text>
+<circle cx="2989.0" cy="3144.0" r="1" fill="blue" />
+<text x="2989.0" y="3144.0" font-size="12" text-anchor="middle" dominant-baseline="middle">211</text>
+<circle cx="1105.0" cy="2176.0" r="1" fill="blue" />
+<text x="1105.0" y="2176.0" font-size="12" text-anchor="middle" dominant-baseline="middle">212</text>
+<circle cx="352.0" cy="574.0" r="1" fill="blue" />
+<text x="352.0" y="574.0" font-size="12" text-anchor="middle" dominant-baseline="middle">213</text>
+<circle cx="2370.0" cy="6861.0" r="1" fill="blue" />
+<text x="2370.0" y="6861.0" font-size="12" text-anchor="middle" dominant-baseline="middle">214</text>
+<circle cx="2657.0" cy="7145.0" r="1" fill="blue" />
+<text x="2657.0" y="7145.0" font-size="12" text-anchor="middle" dominant-baseline="middle">215</text>
+<circle cx="2939.0" cy="2677.0" r="1" fill="blue" />
+<text x="2939.0" y="2677.0" font-size="12" text-anchor="middle" dominant-baseline="middle">216</text>
+<circle cx="1866.0" cy="5626.0" r="1" fill="blue" />
+<text x="1866.0" y="5626.0" font-size="12" text-anchor="middle" dominant-baseline="middle">217</text>
+<circle cx="3018.0" cy="618.0" r="1" fill="blue" />
+<text x="3018.0" y="618.0" font-size="12" text-anchor="middle" dominant-baseline="middle">218</text>
+<circle cx="2543.0" cy="5063.0" r="1" fill="blue" />
+<text x="2543.0" y="5063.0" font-size="12" text-anchor="middle" dominant-baseline="middle">219</text>
+<circle cx="1130.0" cy="2275.0" r="1" fill="blue" />
+<text x="1130.0" y="2275.0" font-size="12" text-anchor="middle" dominant-baseline="middle">220</text>
+<circle cx="536.0" cy="4156.0" r="1" fill="blue" />
+<text x="536.0" y="4156.0" font-size="12" text-anchor="middle" dominant-baseline="middle">221</text>
+<circle cx="1049.0" cy="5332.0" r="1" fill="blue" />
+<text x="1049.0" y="5332.0" font-size="12" text-anchor="middle" dominant-baseline="middle">222</text>
+<circle cx="2367.0" cy="3980.0" r="1" fill="blue" />
+<text x="2367.0" y="3980.0" font-size="12" text-anchor="middle" dominant-baseline="middle">223</text>
+<circle cx="189.0" cy="6175.0" r="1" fill="blue" />
+<text x="189.0" y="6175.0" font-size="12" text-anchor="middle" dominant-baseline="middle">224</text>
+<circle cx="1330.0" cy="2546.0" r="1" fill="blue" />
+<text x="1330.0" y="2546.0" font-size="12" text-anchor="middle" dominant-baseline="middle">225</text>
+<circle cx="587.0" cy="5233.0" r="1" fill="blue" />
+<text x="587.0" y="5233.0" font-size="12" text-anchor="middle" dominant-baseline="middle">226</text>
+<circle cx="2794.0" cy="2126.0" r="1" fill="blue" />
+<text x="2794.0" y="2126.0" font-size="12" text-anchor="middle" dominant-baseline="middle">227</text>
+<circle cx="2597.0" cy="1766.0" r="1" fill="blue" />
+<text x="2597.0" y="1766.0" font-size="12" text-anchor="middle" dominant-baseline="middle">228</text>
+<circle cx="1542.0" cy="3123.0" r="1" fill="blue" />
+<text x="1542.0" y="3123.0" font-size="12" text-anchor="middle" dominant-baseline="middle">229</text>
+<circle cx="2412.0" cy="1583.0" r="1" fill="blue" />
+<text x="2412.0" y="1583.0" font-size="12" text-anchor="middle" dominant-baseline="middle">230</text>
+<circle cx="2012.0" cy="6345.0" r="1" fill="blue" />
+<text x="2012.0" y="6345.0" font-size="12" text-anchor="middle" dominant-baseline="middle">231</text>
+<circle cx="73.0" cy="4036.0" r="1" fill="blue" />
+<text x="73.0" y="4036.0" font-size="12" text-anchor="middle" dominant-baseline="middle">232</text>
+<circle cx="95.0" cy="4803.0" r="1" fill="blue" />
+<text x="95.0" y="4803.0" font-size="12" text-anchor="middle" dominant-baseline="middle">233</text>
+<circle cx="1719.0" cy="5094.0" r="1" fill="blue" />
+<text x="1719.0" y="5094.0" font-size="12" text-anchor="middle" dominant-baseline="middle">234</text>
+<circle cx="1043.0" cy="5257.0" r="1" fill="blue" />
+<text x="1043.0" y="5257.0" font-size="12" text-anchor="middle" dominant-baseline="middle">235</text>
+<circle cx="1460.0" cy="6970.0" r="1" fill="blue" />
+<text x="1460.0" y="6970.0" font-size="12" text-anchor="middle" dominant-baseline="middle">236</text>
+<circle cx="2146.0" cy="801.0" r="1" fill="blue" />
+<text x="2146.0" y="801.0" font-size="12" text-anchor="middle" dominant-baseline="middle">237</text>
+<circle cx="1948.0" cy="5861.0" r="1" fill="blue" />
+<text x="1948.0" y="5861.0" font-size="12" text-anchor="middle" dominant-baseline="middle">238</text>
+<circle cx="363.0" cy="5337.0" r="1" fill="blue" />
+<text x="363.0" y="5337.0" font-size="12" text-anchor="middle" dominant-baseline="middle">239</text>
+<circle cx="1862.0" cy="7510.0" r="1" fill="blue" />
+<text x="1862.0" y="7510.0" font-size="12" text-anchor="middle" dominant-baseline="middle">240</text>
+<circle cx="3135.0" cy="2253.0" r="1" fill="blue" />
+<text x="3135.0" y="2253.0" font-size="12" text-anchor="middle" dominant-baseline="middle">241</text>
+<circle cx="2465.0" cy="3604.0" r="1" fill="blue" />
+<text x="2465.0" y="3604.0" font-size="12" text-anchor="middle" dominant-baseline="middle">242</text>
+<circle cx="3031.0" cy="6297.0" r="1" fill="blue" />
+<text x="3031.0" y="6297.0" font-size="12" text-anchor="middle" dominant-baseline="middle">243</text>
+<circle cx="52.0" cy="8143.0" r="1" fill="blue" />
+<text x="52.0" y="8143.0" font-size="12" text-anchor="middle" dominant-baseline="middle">244</text>
+<circle cx="265.0" cy="57.0" r="1" fill="blue" />
+<text x="265.0" y="57.0" font-size="12" text-anchor="middle" dominant-baseline="middle">245</text>
+<circle cx="2345.0" cy="6737.0" r="1" fill="blue" />
+<text x="2345.0" y="6737.0" font-size="12" text-anchor="middle" dominant-baseline="middle">246</text>
+<circle cx="2929.0" cy="1964.0" r="1" fill="blue" />
+<text x="2929.0" y="1964.0" font-size="12" text-anchor="middle" dominant-baseline="middle">247</text>
+<circle cx="1782.0" cy="7195.0" r="1" fill="blue" />
+<text x="1782.0" y="7195.0" font-size="12" text-anchor="middle" dominant-baseline="middle">248</text>
+<circle cx="2691.0" cy="1950.0" r="1" fill="blue" />
+<text x="2691.0" y="1950.0" font-size="12" text-anchor="middle" dominant-baseline="middle">249</text>
+<circle cx="1461.0" cy="7951.0" r="1" fill="blue" />
+<text x="1461.0" y="7951.0" font-size="12" text-anchor="middle" dominant-baseline="middle">250</text>
+<circle cx="1324.0" cy="5932.0" r="1" fill="blue" />
+<text x="1324.0" y="5932.0" font-size="12" text-anchor="middle" dominant-baseline="middle">251</text>
+<circle cx="2787.0" cy="129.0" r="1" fill="blue" />
+<text x="2787.0" y="129.0" font-size="12" text-anchor="middle" dominant-baseline="middle">252</text>
+<circle cx="2946.0" cy="7071.0" r="1" fill="blue" />
+<text x="2946.0" y="7071.0" font-size="12" text-anchor="middle" dominant-baseline="middle">253</text>
+<circle cx="307.0" cy="3578.0" r="1" fill="blue" />
+<text x="307.0" y="3578.0" font-size="12" text-anchor="middle" dominant-baseline="middle">254</text>
+<circle cx="2202.0" cy="5582.0" r="1" fill="blue" />
+<text x="2202.0" y="5582.0" font-size="12" text-anchor="middle" dominant-baseline="middle">255</text>
+<circle cx="1267.0" cy="1680.0" r="1" fill="blue" />
+<text x="1267.0" y="1680.0" font-size="12" text-anchor="middle" dominant-baseline="middle">256</text>
+<circle cx="3151.0" cy="3112.0" r="1" fill="blue" />
+<text x="3151.0" y="3112.0" font-size="12" text-anchor="middle" dominant-baseline="middle">257</text>
+<circle cx="2875.0" cy="1963.0" r="1" fill="blue" />
+<text x="2875.0" y="1963.0" font-size="12" text-anchor="middle" dominant-baseline="middle">258</text>
+<circle cx="752.0" cy="7738.0" r="1" fill="blue" />
+<text x="752.0" y="7738.0" font-size="12" text-anchor="middle" dominant-baseline="middle">259</text>
+<circle cx="2571.0" cy="5504.0" r="1" fill="blue" />
+<text x="2571.0" y="5504.0" font-size="12" text-anchor="middle" dominant-baseline="middle">260</text>
+<circle cx="882.0" cy="7027.0" r="1" fill="blue" />
+<text x="882.0" y="7027.0" font-size="12" text-anchor="middle" dominant-baseline="middle">261</text>
+<circle cx="2609.0" cy="310.0" r="1" fill="blue" />
+<text x="2609.0" y="310.0" font-size="12" text-anchor="middle" dominant-baseline="middle">262</text>
+<circle cx="2986.0" cy="1701.0" r="1" fill="blue" />
+<text x="2986.0" y="1701.0" font-size="12" text-anchor="middle" dominant-baseline="middle">263</text>
+<circle cx="423.0" cy="5056.0" r="1" fill="blue" />
+<text x="423.0" y="5056.0" font-size="12" text-anchor="middle" dominant-baseline="middle">264</text>
+<circle cx="243.0" cy="5458.0" r="1" fill="blue" />
+<text x="243.0" y="5458.0" font-size="12" text-anchor="middle" dominant-baseline="middle">265</text>
+<circle cx="2738.0" cy="7730.0" r="1" fill="blue" />
+<text x="2738.0" y="7730.0" font-size="12" text-anchor="middle" dominant-baseline="middle">266</text>
+<circle cx="797.0" cy="5456.0" r="1" fill="blue" />
+<text x="797.0" y="5456.0" font-size="12" text-anchor="middle" dominant-baseline="middle">267</text>
+<circle cx="917.0" cy="3518.0" r="1" fill="blue" />
+<text x="917.0" y="3518.0" font-size="12" text-anchor="middle" dominant-baseline="middle">268</text>
+<circle cx="706.0" cy="1418.0" r="1" fill="blue" />
+<text x="706.0" y="1418.0" font-size="12" text-anchor="middle" dominant-baseline="middle">269</text>
+<circle cx="279.0" cy="3980.0" r="1" fill="blue" />
+<text x="279.0" y="3980.0" font-size="12" text-anchor="middle" dominant-baseline="middle">270</text>
+<circle cx="463.0" cy="1959.0" r="1" fill="blue" />
+<text x="463.0" y="1959.0" font-size="12" text-anchor="middle" dominant-baseline="middle">271</text>
+<circle cx="1998.0" cy="6499.0" r="1" fill="blue" />
+<text x="1998.0" y="6499.0" font-size="12" text-anchor="middle" dominant-baseline="middle">272</text>
+<circle cx="1516.0" cy="6201.0" r="1" fill="blue" />
+<text x="1516.0" y="6201.0" font-size="12" text-anchor="middle" dominant-baseline="middle">273</text>
+<circle cx="106.0" cy="2662.0" r="1" fill="blue" />
+<text x="106.0" y="2662.0" font-size="12" text-anchor="middle" dominant-baseline="middle">274</text>
+<circle cx="53.0" cy="1802.0" r="1" fill="blue" />
+<text x="53.0" y="1802.0" font-size="12" text-anchor="middle" dominant-baseline="middle">275</text>
+<circle cx="1806.0" cy="7637.0" r="1" fill="blue" />
+<text x="1806.0" y="7637.0" font-size="12" text-anchor="middle" dominant-baseline="middle">276</text>
+<circle cx="31.0" cy="2658.0" r="1" fill="blue" />
+<text x="31.0" y="2658.0" font-size="12" text-anchor="middle" dominant-baseline="middle">277</text>
+<circle cx="45.0" cy="4603.0" r="1" fill="blue" />
+<text x="45.0" y="4603.0" font-size="12" text-anchor="middle" dominant-baseline="middle">278</text>
+<circle cx="769.0" cy="1129.0" r="1" fill="blue" />
+<text x="769.0" y="1129.0" font-size="12" text-anchor="middle" dominant-baseline="middle">279</text>
+<circle cx="1601.0" cy="7109.0" r="1" fill="blue" />
+<text x="1601.0" y="7109.0" font-size="12" text-anchor="middle" dominant-baseline="middle">280</text>
+<circle cx="2879.0" cy="3525.0" r="1" fill="blue" />
+<text x="2879.0" y="3525.0" font-size="12" text-anchor="middle" dominant-baseline="middle">281</text>
+<circle cx="532.0" cy="2898.0" r="1" fill="blue" />
+<text x="532.0" y="2898.0" font-size="12" text-anchor="middle" dominant-baseline="middle">282</text>
+<circle cx="697.0" cy="5962.0" r="1" fill="blue" />
+<text x="697.0" y="5962.0" font-size="12" text-anchor="middle" dominant-baseline="middle">283</text>
+<circle cx="829.0" cy="5328.0" r="1" fill="blue" />
+<text x="829.0" y="5328.0" font-size="12" text-anchor="middle" dominant-baseline="middle">284</text>
+<circle cx="1536.0" cy="4716.0" r="1" fill="blue" />
+<text x="1536.0" y="4716.0" font-size="12" text-anchor="middle" dominant-baseline="middle">285</text>
+<circle cx="3158.0" cy="6222.0" r="1" fill="blue" />
+<text x="3158.0" y="6222.0" font-size="12" text-anchor="middle" dominant-baseline="middle">286</text>
+<circle cx="396.0" cy="5741.0" r="1" fill="blue" />
+<text x="396.0" y="5741.0" font-size="12" text-anchor="middle" dominant-baseline="middle">287</text>
+<circle cx="664.0" cy="3305.0" r="1" fill="blue" />
+<text x="664.0" y="3305.0" font-size="12" text-anchor="middle" dominant-baseline="middle">288</text>
+<circle cx="665.0" cy="4573.0" r="1" fill="blue" />
+<text x="665.0" y="4573.0" font-size="12" text-anchor="middle" dominant-baseline="middle">289</text>
+<circle cx="1490.0" cy="2874.0" r="1" fill="blue" />
+<text x="1490.0" y="2874.0" font-size="12" text-anchor="middle" dominant-baseline="middle">290</text>
+<circle cx="2354.0" cy="770.0" r="1" fill="blue" />
+<text x="2354.0" y="770.0" font-size="12" text-anchor="middle" dominant-baseline="middle">291</text>
+<circle cx="1241.0" cy="882.0" r="1" fill="blue" />
+<text x="1241.0" y="882.0" font-size="12" text-anchor="middle" dominant-baseline="middle">292</text>
+<circle cx="143.0" cy="1436.0" r="1" fill="blue" />
+<text x="143.0" y="1436.0" font-size="12" text-anchor="middle" dominant-baseline="middle">293</text>
+<circle cx="1730.0" cy="3078.0" r="1" fill="blue" />
+<text x="1730.0" y="3078.0" font-size="12" text-anchor="middle" dominant-baseline="middle">294</text>
+<circle cx="527.0" cy="4189.0" r="1" fill="blue" />
+<text x="527.0" y="4189.0" font-size="12" text-anchor="middle" dominant-baseline="middle">295</text>
+<circle cx="2951.0" cy="1808.0" r="1" fill="blue" />
+<text x="2951.0" y="1808.0" font-size="12" text-anchor="middle" dominant-baseline="middle">296</text>
+<circle cx="3187.0" cy="6187.0" r="1" fill="blue" />
+<text x="3187.0" y="6187.0" font-size="12" text-anchor="middle" dominant-baseline="middle">297</text>
+<circle cx="1859.0" cy="8130.0" r="1" fill="blue" />
+<text x="1859.0" y="8130.0" font-size="12" text-anchor="middle" dominant-baseline="middle">298</text>
+<circle cx="1575.0" cy="4342.0" r="1" fill="blue" />
+<text x="1575.0" y="4342.0" font-size="12" text-anchor="middle" dominant-baseline="middle">299</text>
+<circle cx="2002.0" cy="5468.0" r="1" fill="blue" />
+<text x="2002.0" y="5468.0" font-size="12" text-anchor="middle" dominant-baseline="middle">300</text>
+<circle cx="2252.0" cy="559.0" r="1" fill="blue" />
+<text x="2252.0" y="559.0" font-size="12" text-anchor="middle" dominant-baseline="middle">301</text>
+<circle cx="2306.0" cy="477.0" r="1" fill="blue" />
+<text x="2306.0" y="477.0" font-size="12" text-anchor="middle" dominant-baseline="middle">302</text>
+<circle cx="3049.0" cy="7610.0" r="1" fill="blue" />
+<text x="3049.0" y="7610.0" font-size="12" text-anchor="middle" dominant-baseline="middle">303</text>
+<circle cx="1460.0" cy="4684.0" r="1" fill="blue" />
+<text x="1460.0" y="4684.0" font-size="12" text-anchor="middle" dominant-baseline="middle">304</text>
+<circle cx="2646.0" cy="6874.0" r="1" fill="blue" />
+<text x="2646.0" y="6874.0" font-size="12" text-anchor="middle" dominant-baseline="middle">305</text>
+<circle cx="977.0" cy="3694.0" r="1" fill="blue" />
+<text x="977.0" y="3694.0" font-size="12" text-anchor="middle" dominant-baseline="middle">306</text>
+<circle cx="2848.0" cy="6806.0" r="1" fill="blue" />
+<text x="2848.0" y="6806.0" font-size="12" text-anchor="middle" dominant-baseline="middle">307</text>
+<circle cx="1072.0" cy="7495.0" r="1" fill="blue" />
+<text x="1072.0" y="7495.0" font-size="12" text-anchor="middle" dominant-baseline="middle">308</text>
+<circle cx="2698.0" cy="3459.0" r="1" fill="blue" />
+<text x="2698.0" y="3459.0" font-size="12" text-anchor="middle" dominant-baseline="middle">309</text>
+<circle cx="1741.0" cy="3634.0" r="1" fill="blue" />
+<text x="1741.0" y="3634.0" font-size="12" text-anchor="middle" dominant-baseline="middle">310</text>
+<circle cx="242.0" cy="726.0" r="1" fill="blue" />
+<text x="242.0" y="726.0" font-size="12" text-anchor="middle" dominant-baseline="middle">311</text>
+<circle cx="2590.0" cy="7229.0" r="1" fill="blue" />
+<text x="2590.0" y="7229.0" font-size="12" text-anchor="middle" dominant-baseline="middle">312</text>
+<circle cx="2127.0" cy="4241.0" r="1" fill="blue" />
+<text x="2127.0" y="4241.0" font-size="12" text-anchor="middle" dominant-baseline="middle">313</text>
+<circle cx="2538.0" cy="1571.0" r="1" fill="blue" />
+<text x="2538.0" y="1571.0" font-size="12" text-anchor="middle" dominant-baseline="middle">314</text>
+<circle cx="2261.0" cy="6296.0" r="1" fill="blue" />
+<text x="2261.0" y="6296.0" font-size="12" text-anchor="middle" dominant-baseline="middle">315</text>
+<circle cx="130.0" cy="4963.0" r="1" fill="blue" />
+<text x="130.0" y="4963.0" font-size="12" text-anchor="middle" dominant-baseline="middle">316</text>
+<circle cx="522.0" cy="8025.0" r="1" fill="blue" />
+<text x="522.0" y="8025.0" font-size="12" text-anchor="middle" dominant-baseline="middle">317</text>
+<circle cx="1729.0" cy="3696.0" r="1" fill="blue" />
+<text x="1729.0" y="3696.0" font-size="12" text-anchor="middle" dominant-baseline="middle">318</text>
+<circle cx="542.0" cy="6180.0" r="1" fill="blue" />
+<text x="542.0" y="6180.0" font-size="12" text-anchor="middle" dominant-baseline="middle">319</text>
+<circle cx="260.0" cy="3448.0" r="1" fill="blue" />
+<text x="260.0" y="3448.0" font-size="12" text-anchor="middle" dominant-baseline="middle">320</text>
+<circle cx="696.0" cy="6545.0" r="1" fill="blue" />
+<text x="696.0" y="6545.0" font-size="12" text-anchor="middle" dominant-baseline="middle">321</text>
+<circle cx="2043.0" cy="6788.0" r="1" fill="blue" />
+<text x="2043.0" y="6788.0" font-size="12" text-anchor="middle" dominant-baseline="middle">322</text>
+<circle cx="1777.0" cy="4034.0" r="1" fill="blue" />
+<text x="1777.0" y="4034.0" font-size="12" text-anchor="middle" dominant-baseline="middle">323</text>
+<circle cx="437.0" cy="317.0" r="1" fill="blue" />
+<text x="437.0" y="317.0" font-size="12" text-anchor="middle" dominant-baseline="middle">324</text>
+<circle cx="1486.0" cy="877.0" r="1" fill="blue" />
+<text x="1486.0" y="877.0" font-size="12" text-anchor="middle" dominant-baseline="middle">325</text>
+<circle cx="2307.0" cy="3149.0" r="1" fill="blue" />
+<text x="2307.0" y="3149.0" font-size="12" text-anchor="middle" dominant-baseline="middle">326</text>
+<circle cx="1323.0" cy="1522.0" r="1" fill="blue" />
+<text x="1323.0" y="1522.0" font-size="12" text-anchor="middle" dominant-baseline="middle">327</text>
+<circle cx="2874.0" cy="3729.0" r="1" fill="blue" />
+<text x="2874.0" y="3729.0" font-size="12" text-anchor="middle" dominant-baseline="middle">328</text>
+<circle cx="1053.0" cy="4594.0" r="1" fill="blue" />
+<text x="1053.0" y="4594.0" font-size="12" text-anchor="middle" dominant-baseline="middle">329</text>
+<circle cx="473.0" cy="7961.0" r="1" fill="blue" />
+<text x="473.0" y="7961.0" font-size="12" text-anchor="middle" dominant-baseline="middle">330</text>
+<circle cx="1569.0" cy="3891.0" r="1" fill="blue" />
+<text x="1569.0" y="3891.0" font-size="12" text-anchor="middle" dominant-baseline="middle">331</text>
+<circle cx="1913.0" cy="1211.0" r="1" fill="blue" />
+<text x="1913.0" y="1211.0" font-size="12" text-anchor="middle" dominant-baseline="middle">332</text>
+<circle cx="2842.0" cy="2029.0" r="1" fill="blue" />
+<text x="2842.0" y="2029.0" font-size="12" text-anchor="middle" dominant-baseline="middle">333</text>
+<circle cx="2375.0" cy="3821.0" r="1" fill="blue" />
+<text x="2375.0" y="3821.0" font-size="12" text-anchor="middle" dominant-baseline="middle">334</text>
+<circle cx="1733.0" cy="2481.0" r="1" fill="blue" />
+<text x="1733.0" y="2481.0" font-size="12" text-anchor="middle" dominant-baseline="middle">335</text>
+<circle cx="3070.0" cy="2520.0" r="1" fill="blue" />
+<text x="3070.0" y="2520.0" font-size="12" text-anchor="middle" dominant-baseline="middle">336</text>
+<circle cx="2580.0" cy="5079.0" r="1" fill="blue" />
+<text x="2580.0" y="5079.0" font-size="12" text-anchor="middle" dominant-baseline="middle">337</text>
+<circle cx="1344.0" cy="4790.0" r="1" fill="blue" />
+<text x="1344.0" y="4790.0" font-size="12" text-anchor="middle" dominant-baseline="middle">338</text>
+<circle cx="2767.0" cy="6269.0" r="1" fill="blue" />
+<text x="2767.0" y="6269.0" font-size="12" text-anchor="middle" dominant-baseline="middle">339</text>
+<circle cx="1802.0" cy="420.0" r="1" fill="blue" />
+<text x="1802.0" y="420.0" font-size="12" text-anchor="middle" dominant-baseline="middle">340</text>
+<circle cx="1664.0" cy="4672.0" r="1" fill="blue" />
+<text x="1664.0" y="4672.0" font-size="12" text-anchor="middle" dominant-baseline="middle">341</text>
+<circle cx="2232.0" cy="7906.0" r="1" fill="blue" />
+<text x="2232.0" y="7906.0" font-size="12" text-anchor="middle" dominant-baseline="middle">342</text>
+<circle cx="2568.0" cy="6125.0" r="1" fill="blue" />
+<text x="2568.0" y="6125.0" font-size="12" text-anchor="middle" dominant-baseline="middle">343</text>
+<circle cx="1403.0" cy="332.0" r="1" fill="blue" />
+<text x="1403.0" y="332.0" font-size="12" text-anchor="middle" dominant-baseline="middle">344</text>
+<circle cx="1430.0" cy="5960.0" r="1" fill="blue" />
+<text x="1430.0" y="5960.0" font-size="12" text-anchor="middle" dominant-baseline="middle">345</text>
+<circle cx="2231.0" cy="658.0" r="1" fill="blue" />
+<text x="2231.0" y="658.0" font-size="12" text-anchor="middle" dominant-baseline="middle">346</text>
+<circle cx="2166.0" cy="7580.0" r="1" fill="blue" />
+<text x="2166.0" y="7580.0" font-size="12" text-anchor="middle" dominant-baseline="middle">347</text>
+<circle cx="375.0" cy="2699.0" r="1" fill="blue" />
+<text x="375.0" y="2699.0" font-size="12" text-anchor="middle" dominant-baseline="middle">348</text>
+<circle cx="2227.0" cy="5512.0" r="1" fill="blue" />
+<text x="2227.0" y="5512.0" font-size="12" text-anchor="middle" dominant-baseline="middle">349</text>
+<circle cx="1258.0" cy="4379.0" r="1" fill="blue" />
+<text x="1258.0" y="4379.0" font-size="12" text-anchor="middle" dominant-baseline="middle">350</text>
+<circle cx="978.0" cy="1103.0" r="1" fill="blue" />
+<text x="978.0" y="1103.0" font-size="12" text-anchor="middle" dominant-baseline="middle">351</text>
+<circle cx="1505.0" cy="5473.0" r="1" fill="blue" />
+<text x="1505.0" y="5473.0" font-size="12" text-anchor="middle" dominant-baseline="middle">352</text>
+<circle cx="657.0" cy="8304.0" r="1" fill="blue" />
+<text x="657.0" y="8304.0" font-size="12" text-anchor="middle" dominant-baseline="middle">353</text>
+<circle cx="3036.0" cy="141.0" r="1" fill="blue" />
+<text x="3036.0" y="141.0" font-size="12" text-anchor="middle" dominant-baseline="middle">354</text>
+<circle cx="2648.0" cy="5368.0" r="1" fill="blue" />
+<text x="2648.0" y="5368.0" font-size="12" text-anchor="middle" dominant-baseline="middle">355</text>
+<circle cx="2043.0" cy="2002.0" r="1" fill="blue" />
+<text x="2043.0" y="2002.0" font-size="12" text-anchor="middle" dominant-baseline="middle">356</text>
+<circle cx="1878.0" cy="5642.0" r="1" fill="blue" />
+<text x="1878.0" y="5642.0" font-size="12" text-anchor="middle" dominant-baseline="middle">357</text>
+<circle cx="312.0" cy="614.0" r="1" fill="blue" />
+<text x="312.0" y="614.0" font-size="12" text-anchor="middle" dominant-baseline="middle">358</text>
+<circle cx="2296.0" cy="2533.0" r="1" fill="blue" />
+<text x="2296.0" y="2533.0" font-size="12" text-anchor="middle" dominant-baseline="middle">359</text>
+<circle cx="1705.0" cy="5568.0" r="1" fill="blue" />
+<text x="1705.0" y="5568.0" font-size="12" text-anchor="middle" dominant-baseline="middle">360</text>
+<circle cx="2577.0" cy="5029.0" r="1" fill="blue" />
+<text x="2577.0" y="5029.0" font-size="12" text-anchor="middle" dominant-baseline="middle">361</text>
+<circle cx="808.0" cy="3589.0" r="1" fill="blue" />
+<text x="808.0" y="3589.0" font-size="12" text-anchor="middle" dominant-baseline="middle">362</text>
+<circle cx="515.0" cy="382.0" r="1" fill="blue" />
+<text x="515.0" y="382.0" font-size="12" text-anchor="middle" dominant-baseline="middle">363</text>
+<circle cx="1328.0" cy="7609.0" r="1" fill="blue" />
+<text x="1328.0" y="7609.0" font-size="12" text-anchor="middle" dominant-baseline="middle">364</text>
+<circle cx="48.0" cy="6461.0" r="1" fill="blue" />
+<text x="48.0" y="6461.0" font-size="12" text-anchor="middle" dominant-baseline="middle">365</text>
+<circle cx="750.0" cy="3759.0" r="1" fill="blue" />
+<text x="750.0" y="3759.0" font-size="12" text-anchor="middle" dominant-baseline="middle">366</text>
+<circle cx="2553.0" cy="6732.0" r="1" fill="blue" />
+<text x="2553.0" y="6732.0" font-size="12" text-anchor="middle" dominant-baseline="middle">367</text>
+<circle cx="910.0" cy="1733.0" r="1" fill="blue" />
+<text x="910.0" y="1733.0" font-size="12" text-anchor="middle" dominant-baseline="middle">368</text>
+<circle cx="2487.0" cy="2424.0" r="1" fill="blue" />
+<text x="2487.0" y="2424.0" font-size="12" text-anchor="middle" dominant-baseline="middle">369</text>
+<circle cx="311.0" cy="4713.0" r="1" fill="blue" />
+<text x="311.0" y="4713.0" font-size="12" text-anchor="middle" dominant-baseline="middle">370</text>
+<circle cx="1749.0" cy="324.0" r="1" fill="blue" />
+<text x="1749.0" y="324.0" font-size="12" text-anchor="middle" dominant-baseline="middle">371</text>
+<circle cx="222.0" cy="793.0" r="1" fill="blue" />
+<text x="222.0" y="793.0" font-size="12" text-anchor="middle" dominant-baseline="middle">372</text>
+<circle cx="186.0" cy="3383.0" r="1" fill="blue" />
+<text x="186.0" y="3383.0" font-size="12" text-anchor="middle" dominant-baseline="middle">373</text>
+<circle cx="2774.0" cy="724.0" r="1" fill="blue" />
+<text x="2774.0" y="724.0" font-size="12" text-anchor="middle" dominant-baseline="middle">374</text>
+<circle cx="1887.0" cy="6981.0" r="1" fill="blue" />
+<text x="1887.0" y="6981.0" font-size="12" text-anchor="middle" dominant-baseline="middle">375</text>
+<circle cx="2545.0" cy="5136.0" r="1" fill="blue" />
+<text x="2545.0" y="5136.0" font-size="12" text-anchor="middle" dominant-baseline="middle">376</text>
+<circle cx="2924.0" cy="4107.0" r="1" fill="blue" />
+<text x="2924.0" y="4107.0" font-size="12" text-anchor="middle" dominant-baseline="middle">377</text>
+<circle cx="1735.0" cy="1630.0" r="1" fill="blue" />
+<text x="1735.0" y="1630.0" font-size="12" text-anchor="middle" dominant-baseline="middle">378</text>
+<circle cx="2673.0" cy="355.0" r="1" fill="blue" />
+<text x="2673.0" y="355.0" font-size="12" text-anchor="middle" dominant-baseline="middle">379</text>
+<circle cx="1193.0" cy="2574.0" r="1" fill="blue" />
+<text x="1193.0" y="2574.0" font-size="12" text-anchor="middle" dominant-baseline="middle">380</text>
+<circle cx="1558.0" cy="29.0" r="1" fill="blue" />
+<text x="1558.0" y="29.0" font-size="12" text-anchor="middle" dominant-baseline="middle">381</text>
+<circle cx="2245.0" cy="4959.0" r="1" fill="blue" />
+<text x="2245.0" y="4959.0" font-size="12" text-anchor="middle" dominant-baseline="middle">382</text>
+<circle cx="448.0" cy="2680.0" r="1" fill="blue" />
+<text x="448.0" y="2680.0" font-size="12" text-anchor="middle" dominant-baseline="middle">383</text>
+<circle cx="2766.0" cy="3784.0" r="1" fill="blue" />
+<text x="2766.0" y="3784.0" font-size="12" text-anchor="middle" dominant-baseline="middle">384</text>
+<circle cx="1006.0" cy="1527.0" r="1" fill="blue" />
+<text x="1006.0" y="1527.0" font-size="12" text-anchor="middle" dominant-baseline="middle">385</text>
+<circle cx="2483.0" cy="7867.0" r="1" fill="blue" />
+<text x="2483.0" y="7867.0" font-size="12" text-anchor="middle" dominant-baseline="middle">386</text>
+<circle cx="2064.0" cy="6176.0" r="1" fill="blue" />
+<text x="2064.0" y="6176.0" font-size="12" text-anchor="middle" dominant-baseline="middle">387</text>
+<circle cx="2177.0" cy="6313.0" r="1" fill="blue" />
+<text x="2177.0" y="6313.0" font-size="12" text-anchor="middle" dominant-baseline="middle">388</text>
+<circle cx="683.0" cy="3445.0" r="1" fill="blue" />
+<text x="683.0" y="3445.0" font-size="12" text-anchor="middle" dominant-baseline="middle">389</text>
+<circle cx="1105.0" cy="3576.0" r="1" fill="blue" />
+<text x="1105.0" y="3576.0" font-size="12" text-anchor="middle" dominant-baseline="middle">390</text>
+<circle cx="365.0" cy="5770.0" r="1" fill="blue" />
+<text x="365.0" y="5770.0" font-size="12" text-anchor="middle" dominant-baseline="middle">391</text>
+<circle cx="893.0" cy="2303.0" r="1" fill="blue" />
+<text x="893.0" y="2303.0" font-size="12" text-anchor="middle" dominant-baseline="middle">392</text>
+<circle cx="2945.0" cy="4502.0" r="1" fill="blue" />
+<text x="2945.0" y="4502.0" font-size="12" text-anchor="middle" dominant-baseline="middle">393</text>
+<circle cx="374.0" cy="7409.0" r="1" fill="blue" />
+<text x="374.0" y="7409.0" font-size="12" text-anchor="middle" dominant-baseline="middle">394</text>
+<circle cx="2459.0" cy="2575.0" r="1" fill="blue" />
+<text x="2459.0" y="2575.0" font-size="12" text-anchor="middle" dominant-baseline="middle">395</text>
+<circle cx="1781.0" cy="884.0" r="1" fill="blue" />
+<text x="1781.0" y="884.0" font-size="12" text-anchor="middle" dominant-baseline="middle">396</text>
+<circle cx="2338.0" cy="4749.0" r="1" fill="blue" />
+<text x="2338.0" y="4749.0" font-size="12" text-anchor="middle" dominant-baseline="middle">397</text>
+<circle cx="741.0" cy="932.0" r="1" fill="blue" />
+<text x="741.0" y="932.0" font-size="12" text-anchor="middle" dominant-baseline="middle">398</text>
+<circle cx="995.0" cy="6035.0" r="1" fill="blue" />
+<text x="995.0" y="6035.0" font-size="12" text-anchor="middle" dominant-baseline="middle">399</text>
+</svg>
