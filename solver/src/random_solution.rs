@@ -14,15 +14,19 @@ pub fn get_random_solution(problem: &Problem, seed: u64, n_iters: u64) -> Soluti
     let mut rng = StdRng::seed_from_u64(seed);
     let mut best = random_iteration(&mut rng, problem);
     let mut best_score = evaluate_exact(problem, &best);
-    log::info!("initial best_score={best_score}");
+    log::info!("initial best_score={best_score} seed={seed} n_iters={n_iters}");
     for i in 1..=n_iters {
         let next = random_iteration(&mut rng, problem);
         let next_score = evaluate_exact(problem, &next);
+        let mut is_better = false;
         if next_score > best_score {
             best = next;
             best_score = next_score;
+            is_better = true;
         }
-        log::info!("iteration={i} best_score={best_score}");
+        if is_better || i % 10000 == 0 {
+            log::info!("iteration={i} best_score={best_score}");
+        }
     }
 
     best
