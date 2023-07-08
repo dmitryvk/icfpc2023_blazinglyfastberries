@@ -4,7 +4,8 @@ mod config;
 
 use rand::Rng;
 use solver::model::problem::{Position, Problem, ProblemFile, Solution};
-use solver::scoring::evaluate;
+use solver::scoring::evaluate_fast;
+use solver::scoring::evaluate_exact;
 use std::fs;
 use std::fs::File;
 use std::io::Write;
@@ -59,7 +60,7 @@ fn main() -> anyhow::Result<()> {
         );
         let solution = get_lined_solution(&problem_file.problem);
         println!("scoring {:?}", problem_file.name);
-        let score = evaluate(&problem_file.problem, &solution);
+        let score = evaluate_fast(&problem_file.problem, &solution);
         println!("score for {:?}: {score}", problem_file.name);
         let content = serde_json::to_string(&solution)?;
         let mut solutions_dir = config.solutions.dir.clone();
