@@ -5,18 +5,18 @@ use std::{
     path::PathBuf,
 };
 
+use clap::Parser;
 use float_ord::FloatOrd;
 use solver::model::problem::Problem;
-use structopt::StructOpt;
 
-#[derive(Debug, Clone, StructOpt)]
+#[derive(Debug, Clone, Parser)]
 struct Opt {
-    #[structopt(short, long)]
+    #[clap(short, long)]
     dir: PathBuf,
 }
 
 fn main() -> anyhow::Result<()> {
-    let opts = Opt::from_args();
+    let opts = Opt::parse();
     let mut files: Vec<(u32, ProblemStats)> = read_dir(&opts.dir)
         .unwrap()
         .map(|n| opts.dir.join(n.unwrap().file_name()))

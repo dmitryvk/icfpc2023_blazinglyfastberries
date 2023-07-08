@@ -65,7 +65,7 @@ fn get_problem_solution(problem_file: PathBuf, solution_file: PathBuf) -> anyhow
     );
     let solution = get_lined_solution(&problem_file.problem);
     println!("scoring {:?}", problem_file.name);
-    let score = evaluate_fast(&problem_file.problem, &solution);
+    let score = evaluate_exact(&problem_file.problem, &solution);
     println!("score for {:?}: {score}", problem_file.name);
     let content = serde_json::to_string(&solution)?;
     let mut file = File::create(solution_file)?;

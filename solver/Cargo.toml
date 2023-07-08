@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 default-run = "solver"
 
+[profile.release]
+lto = "thin"
+debug = 1
+
 [dependencies]
 anyhow = "1.0.65"
 clap = { version = "4.3.11", features = ["derive"] }
