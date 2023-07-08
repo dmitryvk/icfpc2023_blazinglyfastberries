@@ -2,26 +2,80 @@ extern crate core;
 
 mod config;
 
+use clap::{Parser as ClapParser, Subcommand};
 use rand::Rng;
 use solver::model::problem::{Position, Problem, ProblemFile, Solution};
-use solver::scoring::evaluate_fast;
 use solver::scoring::evaluate_exact;
+use solver::scoring::evaluate_fast;
 use std::fs;
 use std::fs::File;
-use std::io::Write;
-use structopt::StructOpt;
+use std::io::{stderr, stdout, Write};
+use std::path::PathBuf;
+use std::process::{Command, Stdio};
 
-#[derive(Debug, Clone, StructOpt)]
-struct Opt {
-    #[structopt(short, long)]
+#[derive(Debug, Clone, ClapParser)]
+#[clap(author, version, about, long_about = None)]
+pub struct Args {
+    #[clap(subcommand)]
+    subcommand: CliCommand,
+}
+
+#[derive(Debug, Clone, Subcommand)]
+pub enum CliCommand {
+    Problem(ProblemArgs),
+    Problems(ProblemsArgs),
+}
+
+#[derive(Debug, Clone, clap::Args)]
+pub struct ProblemArgs {
+    #[clap(short, long, value_parser)]
+    i: PathBuf,
+    #[clap(short, long, value_parser)]
+    o: PathBuf,
+}
+
+#[derive(Debug, Clone, clap::Args)]
+pub struct ProblemsArgs {
     config: String,
 }
 
 fn main() -> anyhow::Result<()> {
-    let opt = Opt::from_args();
+    let args = Args::parse();
 
-    let config = config::Solver::from_file(&opt.config).unwrap_or_else(|e| {
-        eprintln!("Invalid config file '{}': {}", &opt.config, e);
+    match args.subcommand {
+        CliCommand::Problem(args) => get_problem_solution(args.i, args.o),
+        CliCommand::Problems(args) => get_problems_solutions(&args.config),
+    }
+}
+
+fn get_problem_solution(problem_file: PathBuf, solution_file: PathBuf) -> anyhow::Result<()> {
+    let file_name = problem_file
+        .file_name()
+        .expect("Should have been read file name")
+        .to_os_string();
+    let content = fs::read_to_string(problem_file).expect("Should have been able to read the file");
+    let problem: Problem = serde_json::from_str(&content)?;
+    let problem_file = ProblemFile::new(file_name, problem);
+
+    println!(
+        "solving {:?} n_musicians={} n_attendees={}",
+        problem_file.name,
+        problem_file.problem.musicians.len(),
+        problem_file.problem.attendees.len()
+    );
+    let solution = get_lined_solution(&problem_file.problem);
+    println!("scoring {:?}", problem_file.name);
+    let score = evaluate_fast(&problem_file.problem, &solution);
+    println!("score for {:?}: {score}", problem_file.name);
+    let content = serde_json::to_string(&solution)?;
+    let mut file = File::create(solution_file)?;
+    file.write_all(content.as_bytes())?;
+    Ok(())
+}
+
+fn get_problems_solutions(config: &str) -> anyhow::Result<()> {
+    let config = config::Solver::from_file(config).unwrap_or_else(|e| {
+        eprintln!("Invalid config file '{}': {}", &config, e);
         std::process::exit(1);
     });
 
@@ -70,19 +124,6 @@ fn main() -> anyhow::Result<()> {
     }
 
     Ok(())
-}
-
-// todo
-fn get_solution(problem: Problem) -> Solution {
-    let mut rng = rand::thread_rng();
-    let mut placements = Vec::with_capacity(problem.musicians.len());
-    for _ in problem.musicians {
-        let x = rng.gen_range(1.0..problem.stage_width);
-        let y = rng.gen_range(1.0..problem.stage_height);
-        let position = Position::new(x, y);
-        placements.push(position);
-    }
-    Solution::new(placements)
 }
 
 fn get_lined_solution(problem: &Problem) -> Solution {
