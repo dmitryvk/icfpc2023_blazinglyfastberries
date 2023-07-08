@@ -21,6 +21,12 @@ d.append(draw.Rectangle(0, 0, prob['room_width'], prob['room_height'],
 d.append(draw.Rectangle(prob['stage_bottom_left'][0], prob['stage_bottom_left'][1],
                         prob['stage_width'], prob['stage_height'],
                         fill='none', stroke='red'))
+
+# pillars
+for pillar in prob['pillars']:
+    d.append(draw.Circle(pillar['center'][0], pillar['center'][1],
+                         pillar['radius'],
+                         color='black', fill='blue'))
 # origin
 # d.append(draw.Circle(0, 0, 50, fill='orange'))
 
