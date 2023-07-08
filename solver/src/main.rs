@@ -44,6 +44,8 @@ fn main() -> anyhow::Result<()> {
         problems.push(problem_file);
     }
 
+    problems.sort_by_cached_key(|p| p.name.clone());
+
     println!("Read {} problems", problems.len());
 
     fs::create_dir_all(config.solutions.dir.clone())?;
