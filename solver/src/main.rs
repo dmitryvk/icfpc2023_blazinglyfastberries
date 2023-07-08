@@ -49,7 +49,7 @@ fn main() -> anyhow::Result<()> {
     fs::create_dir_all(config.solutions.dir.clone())?;
 
     for problem_file in problems {
-        let solution = get_solution(problem_file.problem);
+        let solution = get_lined_solution(problem_file.problem);
         let content = serde_json::to_string(&solution)?;
         let mut solutions_dir = config.solutions.dir.clone();
         solutions_dir.push(problem_file.name);
@@ -69,6 +69,25 @@ fn get_solution(problem: Problem) -> Solution {
         let y = rng.gen_range(1..problem.stage_height as i32) as f32;
         let position = Position::new(x, y);
         placements.push(position);
+    }
+    Solution::new(placements)
+}
+
+fn get_lined_solution(problem: Problem) -> Solution {
+    let x0 = problem.stage_bottom_left[0];
+    let y0 = problem.stage_bottom_left[1];
+    let x1 = x0 + problem.stage_width;
+    let y1 = y0 + problem.stage_height;
+    let mut x = x0 + 10.0;
+    let mut y = y0 + 10.0;
+    let mut placements = Vec::with_capacity(problem.musicians.len());
+    for _ in problem.musicians {
+        placements.push(Position::new(x, y));
+        x = x + 10.0;
+        if x > x1 - 10.0 {
+            x = x0 + 10.0;
+            y = y + 10.0;
+        }
     }
     Solution::new(placements)
 }
