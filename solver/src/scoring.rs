@@ -4,7 +4,7 @@ use memegeom::{
 };
 
 use crate::{
-    geometry::is_blocking,
+    geometry::{is_blocking, is_blocking_radius},
     model::problem::{Position, Problem, Solution},
 };
 
@@ -32,6 +32,7 @@ pub fn evaluate_fast(problem: &Problem, solution: &Solution) -> f64 {
             // });
             if !is_blocked {
                 result += impact(
+                    1.0,
                     pt_pt_dist(&att_mus_seg.st(), &att_mus_seg.en()),
                     attendee.tastes[problem.musicians[musician_idx] as usize],
                 );
@@ -43,6 +44,10 @@ pub fn evaluate_fast(problem: &Problem, solution: &Solution) -> f64 {
 }
 
 pub fn evaluate_exact(problem: &Problem, solution: &Solution) -> f64 {
+    evaluate_exact_full(false, problem, solution)
+}
+
+pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -> f64 {
     let mut result = 0.0;
     for attendee in &problem.attendees {
         for musician_idx in 0..problem.musicians.len() {
@@ -63,8 +68,26 @@ pub fn evaluate_exact(problem: &Problem, solution: &Solution) -> f64 {
                         ),
                     )
             });
-            if !is_blocked {
+            let is_blocked_pillar = if !full {false} else {(0..problem.pillars.len()).any(|blocker_idx| {
+                is_blocking_radius(&att_mus_seg,
+                                   &pt(problem.pillars[blocker_idx].center[0],
+                                       problem.pillars[blocker_idx].center[1],
+                                   ),
+                                   problem.pillars[blocker_idx].radius
+                )
+            })};
+            let qi = if !full {1.0} else {(0..problem.musicians.len()).fold(1.0, |s, other_idx| {
+                if musician_idx == other_idx { s } else {
+                    let m1 = pt(solution.placements[musician_idx].x,
+                                solution.placements[musician_idx].y);
+                    let m2 = pt(solution.placements[other_idx].x,
+                                solution.placements[other_idx].y);
+                    s + 1.0 / pt_pt_dist(&m1, &m2)
+                }
+            })};
+            if !is_blocked && !is_blocked_pillar {
                 result += impact(
+                    qi,
                     pt_pt_dist(&att_mus_seg.st(), &att_mus_seg.en()),
                     attendee.tastes[problem.musicians[musician_idx] as usize],
                 );
@@ -77,8 +100,8 @@ pub fn evaluate_exact(problem: &Problem, solution: &Solution) -> f64 {
 
 pub const IMPACT_SCALING_COEF: f64 = 1_000_000.0;
 
-fn impact(distance: f64, taste: f64) -> f64 {
-    (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()
+fn impact(qi: f64, distance: f64, taste: f64) -> f64 {
+    (qi * (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()).ceil()
 }
 
 pub fn bound_penalty(problem: &Problem, solution: &Solution) -> f64 {
@@ -161,7 +184,15 @@ where
 mod test {
     use memegeom::primitive::pt;
 
-    use crate::scoring::{bound_penalty, outside_stage_penalty, BOUND_SCALING_COEF};
+    use crate::model::problem::Attendee;
+    use crate::scoring::{
+        evaluate_exact_full,
+        Problem,
+        Solution,
+        Position,
+        outside_stage_penalty,
+        BOUND_SCALING_COEF,
+    };
 
     #[test]
     pub fn out_of_bounds_1() {
@@ -209,5 +240,59 @@ mod test {
         let bl = pt(0.0, 0.0);
         let tr = pt(22.0, 22.0);
         assert!(outside_stage_penalty(&bl, &tr, &m) == 0.0);
+    }
+
+    fn example_problem() -> Problem {
+        Problem {
+            room_width: 2000.0,
+            room_height: 5000.0,
+            stage_width: 1000.0,
+            stage_height: 200.0,
+            stage_bottom_left: vec![500.0, 0.0],
+            musicians: vec![0, 1, 0],
+            attendees: vec![
+                Attendee { x: 100.0, y: 500.0, tastes: vec![1000.0, -1000.0] },
+                Attendee { x: 200.0, y: 1000.0, tastes: vec![200.0, 200.0] },
+                Attendee { x: 1100.0, y: 800.0, tastes: vec![800.0, 1500.0] },
+            ],
+            pillars: vec![],
+        }
+    }
+
+    fn example_solution() -> Solution {
+        Solution {
+            placements: vec![
+                Position::new(590.0, 10.0),
+                Position::new(1100.0, 100.0),
+                Position::new(1100.0, 150.0),
+            ]
+        }
+    }
+
+    #[test]
+    pub fn test_example_score_old_1() {
+        let prob = example_problem();
+        let sol = example_solution();
+        assert_eq!(evaluate_exact_full(false, &prob, &sol), 5343.0)
+    }
+
+    #[test]
+    pub fn test_example_score_old_2() {
+        let prob = example_problem();
+        let sol = Solution {
+            placements: vec![
+                Position::new(590.0, 10.0),
+                Position::new(1105.0, 100.0),
+                Position::new(1100.0, 150.0),
+            ]
+        };
+        assert_eq!(evaluate_exact_full(false, &prob, &sol), 5350.0)
+    }
+
+    #[test]
+    pub fn test_example_score_new() {
+        let prob = example_problem();
+        let sol = example_solution();
+        assert_eq!(evaluate_exact_full(true, &prob, &sol), 5357.0)
     }
 }

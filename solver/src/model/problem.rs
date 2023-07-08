@@ -35,8 +35,8 @@ pub struct Attendee {
 
 #[derive(serde::Deserialize)]
 pub struct Pillar {
-    pub center: Vec<f32>,
-    pub radius: f32,
+    pub center: Vec<f64>,
+    pub radius: f64,
 }
 
 #[derive(serde::Serialize)]

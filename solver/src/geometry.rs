@@ -7,7 +7,11 @@ pub const BLOCKING_DISTANCE: f64 = 5.0;
 
 /// Проверяет, блокируется ли исполнитель другим музыкантом
 pub fn is_blocking(attendee_musician: &Segment, blocker: &Pt) -> bool {
-    pt_seg_dist(blocker, attendee_musician) < BLOCKING_DISTANCE
+    is_blocking_radius(attendee_musician, blocker, BLOCKING_DISTANCE)
+}
+
+pub fn is_blocking_radius(attendee_musician: &Segment, blocker: &Pt, r: f64) -> bool {
+    pt_seg_dist(blocker, attendee_musician) < r
 }
 
 #[cfg(test)]
