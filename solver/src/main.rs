@@ -2,6 +2,8 @@ extern crate core;
 
 mod config;
 
+pub mod random_solution;
+
 use clap::{Parser as ClapParser, Subcommand};
 use rand::Rng;
 use solver::model::problem::{Position, Problem, ProblemFile, Solution};
@@ -12,6 +14,8 @@ use std::fs::File;
 use std::io::{stderr, stdout, Write};
 use std::path::PathBuf;
 use std::process::{Command, Stdio};
+
+use crate::random_solution::get_random_solution;
 
 #[derive(Debug, Clone, ClapParser)]
 #[clap(author, version, about, long_about = None)]
@@ -32,6 +36,10 @@ pub struct ProblemArgs {
     i: PathBuf,
     #[clap(short, long, value_parser)]
     o: PathBuf,
+    #[clap(short, long, value_parser, default_value_t = 1)]
+    rand_seed: u64,
+    #[clap(short, long, value_parser, default_value_t = 1000)]
+    rand_iters: u64,
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -43,12 +51,19 @@ fn main() -> anyhow::Result<()> {
     let args = Args::parse();
 
     match args.subcommand {
-        CliCommand::Problem(args) => get_problem_solution(args.i, args.o),
+        CliCommand::Problem(args) => {
+            get_problem_solution(args.i, args.o, args.rand_seed, args.rand_iters)
+        }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
     }
 }
 
-fn get_problem_solution(problem_file: PathBuf, solution_file: PathBuf) -> anyhow::Result<()> {
+fn get_problem_solution(
+    problem_file: PathBuf,
+    solution_file: PathBuf,
+    rand_seed: u64,
+    rand_iters: u64,
+) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
         .expect("Should have been read file name")
@@ -63,7 +78,7 @@ fn get_problem_solution(problem_file: PathBuf, solution_file: PathBuf) -> anyhow
         problem_file.problem.musicians.len(),
         problem_file.problem.attendees.len()
     );
-    let solution = get_lined_solution(&problem_file.problem);
+    let solution = get_random_solution(&problem_file.problem, rand_seed, rand_iters);
     println!("scoring {:?}", problem_file.name);
     let score = evaluate_exact(&problem_file.problem, &solution);
     println!("score for {:?}: {score}", problem_file.name);
