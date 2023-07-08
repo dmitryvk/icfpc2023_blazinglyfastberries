@@ -14,7 +14,7 @@ pub fn get_random_solution(problem: &Problem, seed: u64, n_iters: u64) -> Soluti
     let mut rng = StdRng::seed_from_u64(seed);
     let mut best = random_iteration(&mut rng, problem);
     let mut best_score = evaluate_exact(problem, &best);
-    println!("initial best_score={best_score}");
+    log::info!("initial best_score={best_score}");
     for i in 1..=n_iters {
         let next = random_iteration(&mut rng, problem);
         let next_score = evaluate_exact(problem, &next);
@@ -22,7 +22,7 @@ pub fn get_random_solution(problem: &Problem, seed: u64, n_iters: u64) -> Soluti
             best = next;
             best_score = next_score;
         }
-        println!("iteration={i} best_score={best_score}");
+        log::info!("iteration={i} best_score={best_score}");
     }
 
     best

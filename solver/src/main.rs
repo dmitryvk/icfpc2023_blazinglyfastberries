@@ -1,19 +1,17 @@
 extern crate core;
 
-mod config;
-
 pub mod random_solution;
 
 use clap::{Parser as ClapParser, Subcommand};
-use rand::Rng;
+use log::LevelFilter;
+use solver::logger::configure;
 use solver::model::problem::{Position, Problem, ProblemFile, Solution};
 use solver::scoring::evaluate_exact;
 use solver::scoring::evaluate_fast;
 use std::fs;
 use std::fs::File;
-use std::io::{stderr, stdout, Write};
+use std::io::Write;
 use std::path::PathBuf;
-use std::process::{Command, Stdio};
 
 use crate::random_solution::get_random_solution;
 
@@ -36,6 +34,8 @@ pub struct ProblemArgs {
     i: PathBuf,
     #[clap(short, long, value_parser)]
     o: PathBuf,
+    #[clap(short, long, value_parser)]
+    l: String,
     #[clap(short, long, value_parser, default_value_t = 1)]
     rand_seed: u64,
     #[clap(short, long, value_parser, default_value_t = 1000)]
@@ -52,6 +52,11 @@ fn main() -> anyhow::Result<()> {
 
     match args.subcommand {
         CliCommand::Problem(args) => {
+            let log_config = solver::config::Log {
+                level: LevelFilter::Info,
+                output: solver::config::LogOutput::File(args.l),
+            };
+            configure(&log_config)?;
             get_problem_solution(args.i, args.o, args.rand_seed, args.rand_iters)
         }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
@@ -72,16 +77,16 @@ fn get_problem_solution(
     let problem: Problem = serde_json::from_str(&content)?;
     let problem_file = ProblemFile::new(file_name, problem);
 
-    println!(
+    log::info!(
         "solving {:?} n_musicians={} n_attendees={}",
         problem_file.name,
         problem_file.problem.musicians.len(),
         problem_file.problem.attendees.len()
     );
     let solution = get_random_solution(&problem_file.problem, rand_seed, rand_iters);
-    println!("scoring {:?}", problem_file.name);
+    log::info!("scoring {:?}", problem_file.name);
     let score = evaluate_exact(&problem_file.problem, &solution);
-    println!("score for {:?}: {score}", problem_file.name);
+    log::info!("score for {:?}: {score}", problem_file.name);
     let content = serde_json::to_string(&solution)?;
     let mut file = File::create(solution_file)?;
     file.write_all(content.as_bytes())?;
@@ -89,10 +94,12 @@ fn get_problem_solution(
 }
 
 fn get_problems_solutions(config: &str) -> anyhow::Result<()> {
-    let config = config::Solver::from_file(config).unwrap_or_else(|e| {
-        eprintln!("Invalid config file '{}': {}", &config, e);
+    let config = solver::config::Solver::from_file(config).unwrap_or_else(|e| {
+        log::error!("Invalid config file '{}': {}", &config, e);
         std::process::exit(1);
     });
+
+    configure(&config.log)?;
 
     let mut problems = Vec::<ProblemFile>::new();
     let problems_files = fs::read_dir(config.problems.dir)?;
@@ -116,21 +123,21 @@ fn get_problems_solutions(config: &str) -> anyhow::Result<()> {
 
     problems.sort_by_cached_key(|p| p.name.clone());
 
-    println!("Read {} problems", problems.len());
+    log::info!("Read {} problems", problems.len());
 
     fs::create_dir_all(config.solutions.dir.clone())?;
 
     for problem_file in problems {
-        println!(
+        log::info!(
             "solving {:?} n_musicians={} n_attendees={}",
             problem_file.name,
             problem_file.problem.musicians.len(),
             problem_file.problem.attendees.len()
         );
         let solution = get_lined_solution(&problem_file.problem);
-        println!("scoring {:?}", problem_file.name);
+        log::info!("scoring {:?}", problem_file.name);
         let score = evaluate_fast(&problem_file.problem, &solution);
-        println!("score for {:?}: {score}", problem_file.name);
+        log::info!("score for {:?}: {score}", problem_file.name);
         let content = serde_json::to_string(&solution)?;
         let mut solutions_dir = config.solutions.dir.clone();
         solutions_dir.push(problem_file.name);

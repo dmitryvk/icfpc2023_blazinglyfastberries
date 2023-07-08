@@ -35,10 +35,10 @@ fn main() -> anyhow::Result<()> {
 
     let overall_stats = combine(files.iter().map(|(_n, stat)| stat.clone()));
 
-    println!("overall: {overall_stats:?}");
+    log::info!("overall: {overall_stats:?}");
 
     for (num, stats) in &files {
-        println!("{num}: {stats:?}");
+        log::info!("{num}: {stats:?}");
     }
 
     Ok(())

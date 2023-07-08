@@ -5,7 +5,7 @@ use memegeom::{
 
 use crate::{
     geometry::is_blocking,
-    model::problem::{Problem, Solution, Position},
+    model::problem::{Position, Problem, Solution},
 };
 
 pub fn evaluate_fast(problem: &Problem, solution: &Solution) -> f64 {
@@ -82,10 +82,11 @@ fn impact(distance: f64, taste: f64) -> f64 {
 }
 
 pub fn bound_penalty(problem: &Problem, solution: &Solution) -> f64 {
-    let bottom_left = pt(problem.stage_bottom_left[0],
-                         problem.stage_bottom_left[1]);
-    let top_right = pt(bottom_left.x + problem.stage_width,
-                       bottom_left.y + problem.stage_height);
+    let bottom_left = pt(problem.stage_bottom_left[0], problem.stage_bottom_left[1]);
+    let top_right = pt(
+        bottom_left.x + problem.stage_width,
+        bottom_left.y + problem.stage_height,
+    );
 
     let mut res = 0.0;
     for i in 0..solution.placements.len() {
@@ -130,7 +131,11 @@ fn dist_penalty(d: f64) -> f64 {
 }
 
 fn relu(x: f64) -> f64 {
-    if x > 0.0 { x } else { 0.0 }
+    if x > 0.0 {
+        x
+    } else {
+        0.0
+    }
 }
 
 pub fn grad<F>(h: f64, f: F, p: &Pt) -> Pt
@@ -152,11 +157,7 @@ fn differential<F>(h: f64, f: F, x: f64) -> f64
 mod test {
     use memegeom::primitive::pt;
 
-    use crate::scoring::{
-        bound_penalty,
-        outside_stage_penalty,
-        BOUND_SCALING_COEF,
-    };
+    use crate::scoring::{bound_penalty, outside_stage_penalty, BOUND_SCALING_COEF};
 
     #[test]
     pub fn out_of_bounds_1() {

@@ -6,11 +6,25 @@ use std::path::PathBuf;
 pub struct Solver {
     pub problems: Directory,
     pub solutions: Directory,
+    pub log: Log,
 }
 
 #[derive(Clone, Debug, Deserialize)]
 pub struct Directory {
     pub dir: PathBuf,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+pub struct Log {
+    pub level: log::LevelFilter,
+    pub output: LogOutput,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum LogOutput {
+    StdOut,
+    File(String),
 }
 
 impl Solver {

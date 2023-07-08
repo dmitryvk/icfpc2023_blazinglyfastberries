@@ -3,3 +3,8 @@ dir = "../problems"
 
 [solutions]
 dir = "../solutions"
+
+[log]
+level = "INFO"
+# output = { file = "path" }
+output = "stdout"
