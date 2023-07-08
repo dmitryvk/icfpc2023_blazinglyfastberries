@@ -23,7 +23,7 @@ pub struct Problem {
     pub stage_bottom_left: Vec<f64>,
     pub musicians: Vec<i32>,
     pub attendees: Vec<Attendee>,
-    pub pillars: Vec<f64>,
+    pub pillars: Vec<Pillar>,
 }
 
 #[derive(serde::Deserialize)]
@@ -31,6 +31,12 @@ pub struct Attendee {
     pub x: f64,
     pub y: f64,
     pub tastes: Vec<f64>,
+}
+
+#[derive(serde::Deserialize)]
+pub struct Pillar {
+    pub center: Vec<f32>,
+    pub radius: f32,
 }
 
 #[derive(serde::Serialize)]
