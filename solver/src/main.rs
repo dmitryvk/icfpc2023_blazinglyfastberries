@@ -31,11 +31,11 @@ pub enum CliCommand {
 #[derive(Debug, Clone, clap::Args)]
 pub struct ProblemArgs {
     #[clap(short, long, value_parser)]
-    i: PathBuf,
+    input: PathBuf,
     #[clap(short, long, value_parser)]
-    o: PathBuf,
+    output: PathBuf,
     #[clap(short, long, value_parser)]
-    l: String,
+    log: String,
     #[clap(long, value_parser, default_value_t = 1)]
     rand_seed: u64,
     #[clap(long, value_parser, default_value_t = 1000)]
@@ -54,10 +54,10 @@ fn main() -> anyhow::Result<()> {
         CliCommand::Problem(args) => {
             let log_config = solver::config::Log {
                 level: LevelFilter::Info,
-                output: solver::config::LogOutput::File(args.l),
+                output: solver::config::LogOutput::File(args.log),
             };
             configure(&log_config)?;
-            get_problem_solution(args.i, args.o, args.rand_seed, args.rand_iters)
+            get_problem_solution(args.input, args.output, args.rand_seed, args.rand_iters)
         }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
     }
