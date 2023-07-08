@@ -36,9 +36,9 @@ pub struct ProblemArgs {
     o: PathBuf,
     #[clap(short, long, value_parser)]
     l: String,
-    #[clap(short, long, value_parser, default_value_t = 1)]
+    #[clap(long, value_parser, default_value_t = 1)]
     rand_seed: u64,
-    #[clap(short, long, value_parser, default_value_t = 1000)]
+    #[clap(long, value_parser, default_value_t = 1000)]
     rand_iters: u64,
 }
 
