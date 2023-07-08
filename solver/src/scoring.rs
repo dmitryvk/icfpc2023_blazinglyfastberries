@@ -1,11 +1,11 @@
 use memegeom::{
     geom::distance::pt_pt_dist,
-    primitive::{pt, seg},
+    primitive::{point::Pt, pt, seg},
 };
 
 use crate::{
     geometry::is_blocking,
-    model::problem::{Problem, Solution},
+    model::problem::{Problem, Solution, Position},
 };
 
 pub fn evaluate_fast(problem: &Problem, solution: &Solution) -> f64 {
@@ -79,4 +79,115 @@ pub const IMPACT_SCALING_COEF: f64 = 1_000_000.0;
 
 fn impact(distance: f64, taste: f64) -> f64 {
     (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()
+}
+
+pub fn bound_penalty(problem: &Problem, solution: &Solution) -> f64 {
+    let bottom_left = pt(problem.stage_bottom_left[0],
+                         problem.stage_bottom_left[1]);
+    let top_right = pt(bottom_left.x + problem.stage_width,
+                       bottom_left.y + problem.stage_height);
+
+    let mut res = 0.0;
+    for i in 0..solution.placements.len() {
+        let m1 = pos_to_pt(&solution.placements[i]);
+
+        // distance from stage bounds
+        res += outside_stage_penalty(&bottom_left, &top_right, &m1);
+
+        // distance from other musicians
+        for j in 0..solution.placements.len() {
+            if i != j {
+                let m2 = pos_to_pt(&solution.placements[j]);
+                let d = pt_pt_dist(&m1, &m2);
+                res += dist_penalty(d);
+            }
+        }
+    }
+    res
+}
+
+fn pos_to_pt(p: &Position) -> Pt {
+    pt(p.x, p.y)
+}
+
+fn outside_stage_penalty(bottom_left: &Pt, top_right: &Pt, m: &Pt) -> f64 {
+    let mut res = 0.0;
+    res += dist_penalty(m.x - bottom_left.x);
+    res += dist_penalty(top_right.x - m.x);
+    res += dist_penalty(m.y - bottom_left.y);
+    res += dist_penalty(top_right.y - m.y);
+    res
+}
+
+pub const BOUND_MIN_DIST: f64 = 10.0;
+pub const BOUND_MAX_DIST: f64 = BOUND_MIN_DIST + 1.0;
+pub const BOUND_SCALING_COEF: f64 = 100_000_000.0;
+
+// returns BOUND_SCALING_COEF * ReLU(BOUND_MAX_DIST - d)
+// grows very fast if distance becomes less than BOUND_MAX_DIST
+fn dist_penalty(d: f64) -> f64 {
+    BOUND_SCALING_COEF * relu(BOUND_MAX_DIST - d)
+}
+
+fn relu(x: f64) -> f64 {
+    if x > 0.0 { x } else { 0.0 }
+}
+
+#[cfg(test)]
+mod test {
+    use memegeom::primitive::pt;
+
+    use crate::scoring::{
+        bound_penalty,
+        outside_stage_penalty,
+        BOUND_SCALING_COEF,
+    };
+
+    #[test]
+    pub fn out_of_bounds_1() {
+        let m = pt(10.0, 15.0);
+        let bl = pt(0.0, 0.0);
+        let tr = pt(30.0, 30.0);
+        assert!(outside_stage_penalty(&bl, &tr, &m) == BOUND_SCALING_COEF);
+    }
+
+    #[test]
+    pub fn out_of_bounds_2() {
+        let m = pt(15.0, 10.0);
+        let bl = pt(0.0, 0.0);
+        let tr = pt(30.0, 30.0);
+        assert!(outside_stage_penalty(&bl, &tr, &m) == BOUND_SCALING_COEF);
+    }
+
+    #[test]
+    pub fn out_of_bounds_3() {
+        let m = pt(20.0, 15.0);
+        let bl = pt(0.0, 0.0);
+        let tr = pt(30.0, 30.0);
+        assert!(outside_stage_penalty(&bl, &tr, &m) == BOUND_SCALING_COEF);
+    }
+
+    #[test]
+    pub fn out_of_bounds_4() {
+        let m = pt(15.0, 20.0);
+        let bl = pt(0.0, 0.0);
+        let tr = pt(30.0, 30.0);
+        assert!(outside_stage_penalty(&bl, &tr, &m) == BOUND_SCALING_COEF);
+    }
+
+    #[test]
+    pub fn out_of_bounds_5() {
+        let m = pt(100.0, 100.0);
+        let bl = pt(0.0, 0.0);
+        let tr = pt(30.0, 30.0);
+        assert!(outside_stage_penalty(&bl, &tr, &m) > BOUND_SCALING_COEF);
+    }
+
+    #[test]
+    pub fn out_of_bounds_in() {
+        let m = pt(11.0, 11.0);
+        let bl = pt(0.0, 0.0);
+        let tr = pt(22.0, 22.0);
+        assert!(outside_stage_penalty(&bl, &tr, &m) == 0.0);
+    }
 }
