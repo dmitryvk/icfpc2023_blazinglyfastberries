@@ -16,9 +16,14 @@ for i in $(seq 1 90); do
   rand_max_secs=$(echo $ARGS | jq ".args[$i-1].rand_max_secs")
   descent_iters=$(echo $ARGS | jq ".args[$i-1].descent_iters")
   descent_max_secs=$(echo $ARGS | jq ".args[$i-1].descent_max_secs")
+  parallel_many_seeds_workers=$(echo $ARGS | jq ".args[$i-1].parallel_many_seeds_workers")
+  parallel_many_seeds_threads=$(echo $ARGS | jq ".args[$i-1].parallel_many_seeds_threads")
   echo -e "$i.json:"
   echo -e "\trm -f ../logs/$i.log"
-  echo -e "\tcargo +nightly run --manifest-path ../solver/Cargo.toml --release -- problem -i ../problems/$i.json -o $i.json -l ../logs/$i.log --rand-iters $rand_iters --rand-max-secs $rand_max_secs --descent-iters $descent_iters --descent-max-secs $descent_max_secs";
+  run="\tcargo +nightly run --manifest-path ../solver/Cargo.toml --release -- problem -i ../problems/$i.json -o $i.json -l ../logs/$i.log "
+  run+="--rand-iters $rand_iters --rand-max-secs $rand_max_secs --descent-iters $descent_iters --descent-max-secs $descent_max_secs ";
+  run+="--parallel-many-seeds-workers $parallel_many_seeds_workers --parallel-many-seeds-threads $parallel_many_seeds_threads";
+  echo -e $run
   echo -e "\tfgrep 'score for' ../logs/$i.log"
   echo
 done
