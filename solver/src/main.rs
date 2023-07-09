@@ -95,7 +95,7 @@ fn get_problem_solution(
     descent_iters: u64,
     descent_max_secs: u64,
     parallel: bool,
-    threads: usize,
+    workers: usize,
 ) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
@@ -117,7 +117,7 @@ fn get_problem_solution(
             rand_seed,
             rand_iters,
             rand_max_secs,
-            threads,
+            workers,
         )
     } else {
         get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs)
