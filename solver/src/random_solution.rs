@@ -53,49 +53,53 @@ pub fn get_random_solution_with_paralleling(
 ) -> Solution {
     let pool = ThreadPool::new(workers);
 
-    let mut rng = StdRng::seed_from_u64(seed);
-    let best = random_iteration(&mut rng, &problem);
-    let mut best_score = { Arc::new(evaluate_exact(&problem, &best)) };
-    let best = Arc::new(best);
-
-    let stop = Arc::new(AtomicBool::new(false));
-
-    log::info!("initial best_score={best_score} seed={seed} n_iters={n_iters}");
-    let start = Instant::now();
-
     struct Message {
         pub idx: u64,
         pub solution: Solution,
         pub score: f64,
     }
-    let (tx, rx) = channel::<Message>();
-
-    let stop_in_receiver = stop.clone();
-    let mut best_in_receiver = best.clone();
 
     let problem = Arc::new(problem.clone());
-    std::thread::scope(move |scope| {
-        scope.spawn(move || {
-            while let Ok(message) = rx.recv() {
-                let mut is_better = false;
-                let idx = message.idx;
-                if &message.score > &best_score {
-                    best_in_receiver = Arc::new(message.solution);
-                    best_score = Arc::new(message.score);
-                    is_better = true;
-                }
-                if is_better || idx % 10000 == 0 {
-                    log::info!("iteration={idx} best_score={best_score}");
-                }
-                if start.elapsed().as_secs() > max_secs {
-                    log::info!("iteration={idx} best_score={best_score}. Stopping due to max time");
-                    stop_in_receiver.swap(true, Ordering::Relaxed);
-                    break;
+    let best = std::thread::scope(move |scope| {
+        let (tx, rx) = channel::<Message>();
+
+        let mut rng = StdRng::seed_from_u64(seed);
+        let best = random_iteration(&mut rng, &problem);
+        let best_score = evaluate_exact(&problem, &best);
+        let is_stopped_for_check = Arc::new(AtomicBool::new(false));
+        let to_stop = is_stopped_for_check.clone();
+        let is_stopped_receiver_for_check = Arc::new(AtomicBool::new(false));
+        let to_stop_receiver = is_stopped_receiver_for_check.clone();
+        log::info!("initial best_score={best_score} seed={seed} n_iters={n_iters}");
+        let start = Instant::now();
+        let join_receiver = scope.spawn(move || {
+            let mut best = best;
+            let mut best_score = best_score;
+            while !is_stopped_receiver_for_check.load(Ordering::Relaxed) {
+                while let Ok(message) = rx.recv_timeout(std::time::Duration::from_secs(5)) {
+                    let mut is_better = false;
+                    let idx = message.idx;
+                    if &message.score > &best_score {
+                        best = message.solution;
+                        best_score = message.score;
+                        is_better = true;
+                    }
+                    if is_better || idx % 10000 == 0 {
+                        log::info!("iteration={idx} best_score={best_score}");
+                    }
+                    if start.elapsed().as_secs() > max_secs {
+                        log::info!(
+                            "iteration={idx} best_score={best_score}. Stopping due to max time"
+                        );
+                        to_stop.swap(true, Ordering::Relaxed);
+                        break;
+                    }
                 }
             }
+            best
         });
         for i in 1..=n_iters {
-            if stop.load(Ordering::Relaxed) {
+            if is_stopped_for_check.load(Ordering::Relaxed) {
                 break;
             }
             let tx = tx.clone();
@@ -113,9 +117,11 @@ pub fn get_random_solution_with_paralleling(
                     .expect("channel will be there waiting for the pool");
             });
         }
+        to_stop_receiver.swap(true, Ordering::Relaxed);
+        join_receiver.join()
     });
 
-    best.deref().clone()
+    best.expect("Should return solution")
 }
 
 fn random_iteration<R: Rng>(rng: &mut R, problem: &Problem) -> Solution {
