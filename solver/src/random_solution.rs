@@ -72,10 +72,10 @@ pub fn get_random_solutions(
                 descent_max_secs,
             );
             let updated_volume = update_volume(&problem, &improved);
-            let improved_score = evaluate_exact(&problem, &updated_volume);
+            let updated_score = evaluate_exact(&problem, &updated_volume);
             tx.send(Message {
-                solution: improved,
-                score: improved_score,
+                solution: updated_volume,
+                score: updated_score,
             }).expect("channel will be there waiting for the pool");
         });
     }
