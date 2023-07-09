@@ -31,8 +31,10 @@ pub fn evaluate_fast(problem: &Problem, solution: &Solution) -> f64 {
             //             ),
             //         )
             // });
+            let vol = solution.volumes[musician_idx];
             if !is_blocked {
                 result += impact(
+                    vol,
                     1.0,
                     pt_pt_dist(&att_mus_seg.st(), &att_mus_seg.en()),
                     attendee.tastes[problem.musicians[musician_idx] as usize],
@@ -112,8 +114,10 @@ fn evaluate(full: bool, problem: &Problem, solution: &Solution, attendee: &Atten
                 }
             })
         };
+        let vol = solution.volumes[musician_idx];
         if !is_blocked && !is_blocked_pillar {
             result += impact(
+                vol,
                 qi,
                 pt_pt_dist(&att_mus_seg.st(), &att_mus_seg.en()),
                 attendee.tastes[problem.musicians[musician_idx] as usize],
@@ -140,8 +144,8 @@ pub fn parallel_evaluate_exact_full(full: bool, problem: &Problem, solution: &So
 
 pub const IMPACT_SCALING_COEF: f64 = 1_000_000.0;
 
-fn impact(qi: f64, distance: f64, taste: f64) -> f64 {
-    (qi * (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()).ceil()
+fn impact(vol: f64, qi: f64, distance: f64, taste: f64) -> f64 {
+    (vol * qi * (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()).ceil()
 }
 
 pub fn is_valid_placement(problem: &Problem, solution: &Solution) -> bool {
@@ -351,6 +355,7 @@ mod test {
                 Position::new(1100.0, 100.0),
                 Position::new(1100.0, 150.0),
             ],
+            volumes: vec![1.0; 3],
         }
     }
 
@@ -370,6 +375,7 @@ mod test {
                 Position::new(1105.0, 100.0),
                 Position::new(1100.0, 150.0),
             ],
+            volumes: vec![1.0; 3],
         };
         assert_eq!(evaluate_exact_full(false, &prob, &sol), 5350.0)
     }

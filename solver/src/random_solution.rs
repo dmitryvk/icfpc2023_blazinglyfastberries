@@ -311,3 +311,7 @@ pub fn improve_solution(
     }
     sol
 }
+
+pub fn update_volume(p: &Problem, s: &Solution) -> Solution {
+    s.clone()
+}

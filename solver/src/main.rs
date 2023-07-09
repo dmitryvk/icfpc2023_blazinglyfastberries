@@ -16,6 +16,7 @@ use std::path::PathBuf;
 
 use crate::random_solution::{
     get_random_solution, get_random_solution_with_many_seeds, improve_solution,
+    update_volume,
 };
 
 #[derive(Debug, Clone, ClapParser)]
@@ -134,18 +135,22 @@ fn get_problem_solution(
         descent_iters,
         descent_max_secs,
     );
+    let updated_volume = update_volume(
+        &problem_file.problem,
+        &improved,
+    );
     let score = if parallel_scoring {
         log::info!("parallel scoring {:?}", problem_file.name);
-        parallel_evaluate_exact(&problem_file.problem, &improved)
+        parallel_evaluate_exact(&problem_file.problem, &updated_volume)
     } else {
         log::info!("scoring {:?}", problem_file.name);
-        evaluate_exact(&problem_file.problem, &improved)
+        evaluate_exact(&problem_file.problem, &updated_volume)
     };
     log::info!("score for {:?}: {score}", problem_file.name);
     log::info!("correctness {:?}", problem_file.name);
-    let penalty = bound_penalty(&problem_file.problem, &improved);
+    let penalty = bound_penalty(&problem_file.problem, &updated_volume);
     log::info!("penalty for {:?}: {penalty}", problem_file.name);
-    let content = serde_json::to_string(&improved)?;
+    let content = serde_json::to_string(&updated_volume)?;
     let mut file = File::create(solution_file)?;
     file.write_all(content.as_bytes())?;
     Ok(())
