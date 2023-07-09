@@ -1,12 +1,13 @@
-use memegeom::{
-    geom::distance::pt_pt_dist,
-    primitive::{point::Pt, pt, seg},
-};
-
+use crate::model::problem::Attendee;
 use crate::{
     geometry::{is_blocking, is_blocking_radius},
     model::problem::{Position, Problem, Solution},
 };
+use memegeom::{
+    geom::distance::pt_pt_dist,
+    primitive::{point::Pt, pt, seg},
+};
+use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 
 pub fn evaluate_fast(problem: &Problem, solution: &Solution) -> f64 {
     let mut result = 0.0;
@@ -51,6 +52,14 @@ pub fn evaluate_exact(problem: &Problem, solution: &Solution) -> f64 {
 pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -> f64 {
     let mut result = 0.0;
     for attendee in &problem.attendees {
+        result += evaluate(full, problem, solution, attendee);
+    }
+    result
+}
+
+fn evaluate(full: bool, problem: &Problem, solution: &Solution, attendee: &Attendee) -> f64 {
+    let mut result = 0.0;
+    for attendee in &problem.attendees {
         for musician_idx in 0..problem.musicians.len() {
             let att_mus_seg = seg(
                 pt(attendee.x, attendee.y),
@@ -62,12 +71,12 @@ pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -
             let is_blocked = (0..problem.musicians.len()).any(|blocker_idx| {
                 blocker_idx != musician_idx
                     && is_blocking(
-                        &att_mus_seg,
-                        &pt(
-                            solution.placements[blocker_idx].x,
-                            solution.placements[blocker_idx].y,
-                        ),
-                    )
+                    &att_mus_seg,
+                    &pt(
+                        solution.placements[blocker_idx].x,
+                        solution.placements[blocker_idx].y,
+                    ),
+                )
             });
             let is_blocked_pillar = if !full {
                 false
@@ -113,7 +122,20 @@ pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -
             }
         }
     }
+}
 
+pub fn parallel_evaluate_exact(problem: &Problem, solution: &Solution) -> f64 {
+    let full = problem.pillars.len() > 0;
+    parallel_evaluate_exact(full, problem, solution)
+}
+
+pub fn parallel_evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -> f64 {
+    let result = problem
+        .attendees
+        .as_slice()
+        .par_iter()
+        .map(|attendee: &Attendee| evaluate(full, problem, solution, attendee))
+        .sum();
     result
 }
 

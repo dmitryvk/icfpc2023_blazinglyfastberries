@@ -6,15 +6,17 @@ use clap::{Parser as ClapParser, Subcommand};
 use log::LevelFilter;
 use solver::logger::configure;
 use solver::model::problem::{Position, Problem, ProblemFile, Solution};
-use solver::scoring::bound_penalty;
 use solver::scoring::evaluate_exact;
 use solver::scoring::evaluate_fast;
+use solver::scoring::{bound_penalty, parallel_evaluate_exact};
 use std::fs;
 use std::fs::File;
 use std::io::Write;
 use std::path::PathBuf;
 
-use crate::random_solution::{get_random_solution, improve_solution};
+use crate::random_solution::{
+    get_random_solution, get_random_solution_with_paralleling, improve_solution,
+};
 
 #[derive(Debug, Clone, ClapParser)]
 #[clap(author, version, about, long_about = None)]
@@ -47,6 +49,10 @@ pub struct ProblemArgs {
     descent_iters: u64,
     #[clap(long, value_parser, default_value_t = 1000)]
     descent_max_secs: u64,
+    #[clap(long, value_parser, default_value_t = false)]
+    parallel: bool,
+    #[clap(long, value_parser, default_value_t = 10)]
+    workers: usize,
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -72,6 +78,8 @@ fn main() -> anyhow::Result<()> {
                 args.rand_max_secs,
                 args.descent_iters,
                 args.descent_max_secs,
+                args.parallel,
+                args.workers,
             )
         }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
@@ -86,6 +94,8 @@ fn get_problem_solution(
     rand_max_secs: u64,
     descent_iters: u64,
     descent_max_secs: u64,
+    parallel: bool,
+    threads: usize,
 ) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
@@ -101,7 +111,17 @@ fn get_problem_solution(
         problem_file.problem.musicians.len(),
         problem_file.problem.attendees.len()
     );
-    let solution = get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs);
+    let solution = if parallel {
+        get_random_solution_with_paralleling(
+            &problem_file.problem,
+            rand_seed,
+            rand_iters,
+            rand_max_secs,
+            threads,
+        )
+    } else {
+        get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs)
+    };
     let improved = improve_solution(
         &problem_file.problem,
         &solution,
@@ -109,8 +129,13 @@ fn get_problem_solution(
         descent_iters,
         descent_max_secs,
     );
-    log::info!("scoring {:?}", problem_file.name);
-    let score = evaluate_exact(&problem_file.problem, &improved);
+    let score = if parallel {
+        log::info!("parallel scoring {:?}", problem_file.name);
+        parallel_evaluate_exact(&problem_file.problem, &improved)
+    } else {
+        log::info!("scoring {:?}", problem_file.name);
+        evaluate_exact(&problem_file.problem, &improved)
+    };
     log::info!("score for {:?}: {score}", problem_file.name);
     log::info!("correctness {:?}", problem_file.name);
     let penalty = bound_penalty(&problem_file.problem, &improved);

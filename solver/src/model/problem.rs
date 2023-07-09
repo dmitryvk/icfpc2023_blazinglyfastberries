@@ -14,7 +14,7 @@ impl ProblemFile {
     }
 }
 
-#[derive(serde::Deserialize)]
+#[derive(serde::Deserialize, Clone)]
 pub struct Problem {
     pub room_width: f64,
     pub room_height: f64,
@@ -26,21 +26,20 @@ pub struct Problem {
     pub pillars: Vec<Pillar>,
 }
 
-#[derive(serde::Deserialize)]
+#[derive(serde::Deserialize, Clone)]
 pub struct Attendee {
     pub x: f64,
     pub y: f64,
     pub tastes: Vec<f64>,
 }
 
-#[derive(serde::Deserialize)]
+#[derive(serde::Deserialize, Clone)]
 pub struct Pillar {
     pub center: Vec<f64>,
     pub radius: f64,
 }
 
-#[derive(serde::Serialize)]
-#[derive(Clone)]
+#[derive(serde::Serialize, Clone)]
 pub struct Solution {
     pub placements: Vec<Position>,
 }
@@ -51,8 +50,7 @@ impl Solution {
     }
 }
 
-#[derive(serde::Serialize)]
-#[derive(Clone)]
+#[derive(serde::Serialize, Clone)]
 pub struct Position {
     pub x: f64,
     pub y: f64,

@@ -1,4 +1,10 @@
+use config::ConfigError::Message;
+use std::ops::Deref;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::mpsc::channel;
+use std::sync::Arc;
 use std::time::Instant;
+use threadpool::ThreadPool;
 
 use memegeom::{
     geom::distance::pt_pt_dist,
@@ -37,6 +43,80 @@ pub fn get_random_solution(problem: &Problem, seed: u64, n_iters: u64, max_secs:
     }
 
     best
+}
+
+pub fn get_random_solution_with_paralleling(
+    problem: &Problem,
+    seed: u64,
+    n_iters: u64,
+    max_secs: u64,
+    workers: usize,
+) -> Solution {
+    let pool = ThreadPool::new(workers);
+
+    let mut rng = StdRng::seed_from_u64(seed);
+    let best = random_iteration(&mut rng, &problem);
+    let mut best_score = { Arc::new(evaluate_exact(&problem, &best)) };
+    let best = Arc::new(best);
+
+    let stop = Arc::new(AtomicBool::new(false));
+
+    log::info!("initial best_score={best_score} seed={seed} n_iters={n_iters}");
+    let start = Instant::now();
+
+    struct Message {
+        pub idx: u64,
+        pub solution: Solution,
+        pub score: f64,
+    }
+    let (tx, rx) = channel::<Message>();
+
+    let stop_in_receiver = stop.clone();
+    let mut best_in_receiver = best.clone();
+
+    let problem = Arc::new(problem.clone());
+    std::thread::scope(move |scope| {
+        scope.spawn(move || {
+            while let Ok(message) = rx.recv() {
+                let mut is_better = false;
+                let idx = message.idx;
+                if &message.score > &best_score {
+                    best_in_receiver = Arc::new(message.solution);
+                    best_score = Arc::new(message.score);
+                    is_better = true;
+                }
+                if is_better || idx % 10000 == 0 {
+                    log::info!("iteration={idx} best_score={best_score}");
+                }
+                if start.elapsed().as_secs() > max_secs {
+                    log::info!("iteration={idx} best_score={best_score}. Stopping due to max time");
+                    stop_in_receiver.swap(true, Ordering::Relaxed);
+                    break;
+                }
+            }
+        });
+        for i in 1..=n_iters {
+            if stop.load(Ordering::Relaxed) {
+                break;
+            }
+            let tx = tx.clone();
+            let problem_in_thread = problem.clone();
+            pool.execute(move || {
+                let mut rng = StdRng::seed_from_u64(seed);
+                let next = random_iteration(&mut rng, problem_in_thread.clone().deref());
+                let next_score = evaluate_exact(problem_in_thread.deref(), &next);
+                let message = Message {
+                    idx: i,
+                    solution: next,
+                    score: next_score,
+                };
+                tx.send(message)
+                    .expect("channel will be there waiting for the pool");
+            });
+        }
+    });
+
+    best.deref().clone()
 }
 
 fn random_iteration<R: Rng>(rng: &mut R, problem: &Problem) -> Solution {
