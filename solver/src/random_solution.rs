@@ -2,13 +2,12 @@ use std::time::Instant;
 
 use memegeom::{
     geom::distance::pt_pt_dist,
-    primitive::{point::Pt, pt},
+    primitive::{point::Pt, pt, rt},
 };
 use rand::{distributions::Uniform, prelude::Distribution, rngs::StdRng, Rng, SeedableRng};
 use solver::{
     model::problem::{Position, Problem, Solution},
-    scoring::{evaluate_exact, bound_penalty, grad,
-              pos_to_pt, pt_to_pos},
+    scoring::{bound_penalty, evaluate_exact, grad, is_valid_placement, pos_to_pt, pt_to_pos},
 };
 
 pub const MUSICIAN_SIZE: f64 = 10.0;
@@ -89,28 +88,72 @@ fn random_iteration<R: Rng>(rng: &mut R, problem: &Problem) -> Solution {
     Solution::new(placements)
 }
 
-
-pub fn improve_solution(prob: &Problem, solution: &Solution, gamma: f64, n_iters: u64) -> Solution {
+pub fn improve_solution(
+    prob: &Problem,
+    solution: &Solution,
+    gamma: f64,
+    n_iters: u64,
+    max_secs: u64,
+) -> Solution {
     let mut sol = (*solution).clone();
-    for mus_idx in 0..prob.musicians.len() {
-        log::info!("Improving musician {}", mus_idx);
-        // let f = |p: &_| {
-        //     let mut s = sol.clone();
-        //     s.placements[mus_idx] = pt_to_pos(p);
-        //     evaluate_exact_full(full, prob, &s) + bound_penalty(prob, &s)
-        // };
-        let mut pt = pos_to_pt(&mut sol.placements[mus_idx]);
-        for it in 1..=n_iters {
-            let d = grad(0.1,
-                         |p| {
-                             sol.placements[mus_idx] = pt_to_pos(p);
-                             evaluate_exact(prob, &sol) - bound_penalty(prob, &sol)
-                         },
-                         &pt);
-            pt += gamma / d.mag() * d;
-            sol.placements[mus_idx] = pt_to_pos(&pt);
+    let start = Instant::now();
+    let stage = rt(
+        prob.stage_bottom_left[0] + MUSICIAN_SIZE,
+        prob.stage_bottom_left[1] + MUSICIAN_SIZE,
+        prob.stage_bottom_left[0] + prob.stage_width - MUSICIAN_SIZE,
+        prob.stage_bottom_left[1] + prob.stage_height - MUSICIAN_SIZE,
+    );
+    for it in 1..=n_iters {
+        if start.elapsed().as_secs() > max_secs {
+            log::info!("iter={it} time limit reached");
+            break;
+        }
+        let mut iter_dist = 0.0;
+        for mus_idx in 0..prob.musicians.len() {
+            log::info!("Improving musician {}", mus_idx);
+            if start.elapsed().as_secs() > max_secs {
+                log::info!("iter={it} musician={mus_idx} time limit reached");
+                break;
+            }
+            // let f = |p: &_| {
+            //     let mut s = sol.clone();
+            //     s.placements[mus_idx] = pt_to_pos(p);
+            //     evaluate_exact_full(full, prob, &s) + bound_penalty(prob, &s)
+            // };
+            let mut pt = pos_to_pt(&sol.placements[mus_idx]);
+            let old_pt = pt;
+            let d = grad(
+                0.1,
+                |p| {
+                    sol.placements[mus_idx] = pt_to_pos(p);
+                    let r = evaluate_exact(prob, &sol) - bound_penalty(prob, &sol);
+                    sol.placements[mus_idx] = pt_to_pos(&old_pt);
+                    r
+                },
+                &pt,
+            );
+            let mag = d.mag();
+            if mag > 1e-8 {
+                pt += gamma / mag * d;
+                pt = pt.clamp(&stage); // Ensure that the musician does not move out of the stage (but can glide across the boundary)
+                sol.placements[mus_idx] = pt_to_pos(&pt);
+                if !is_valid_placement(prob, &sol) {
+                    // Ensure that the musician does not collide with other musicians
+                    log::info!(
+                        "iter={it}, musician={mus_idx} pt={pt} grad={d} would collide, not moving"
+                    );
+                    pt = old_pt;
+                    sol.placements[mus_idx] = pt_to_pos(&pt);
+                } else {
+                    iter_dist += pt_pt_dist(&old_pt, &pt);
+                }
+            }
             let score = evaluate_exact(prob, &sol);
-            log::info!("iter={}, musician={} pt={} grad={}, score={}", it, mus_idx, pt, d, score);
+            log::info!("iter={it}, musician={mus_idx} pt={pt} grad={d}, score={score}");
+        }
+        if iter_dist < 1e-3 {
+            log::info!("iter={it} iter_dist={iter_dist} is too low, stopping");
+            break;
         }
     }
     sol

@@ -69,25 +69,41 @@ pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -
                         ),
                     )
             });
-            let is_blocked_pillar = if !full {false} else {(0..problem.pillars.len()).any(|blocker_idx| {
-                is_blocking_radius(&att_mus_seg,
-                                   &pt(problem.pillars[blocker_idx].center[0],
-                                       problem.pillars[blocker_idx].center[1],
-                                   ),
-                                   problem.pillars[blocker_idx].radius
-                )
-            })};
-            let qi = if !full {1.0} else {(0..problem.musicians.len()).fold(1.0, |s, other_idx| {
-                if musician_idx == other_idx || problem.musicians[musician_idx] != problem.musicians[other_idx] {
-                    s
-                } else {
-                    let m1 = pt(solution.placements[musician_idx].x,
-                                solution.placements[musician_idx].y);
-                    let m2 = pt(solution.placements[other_idx].x,
-                                solution.placements[other_idx].y);
-                    s + 1.0 / pt_pt_dist(&m1, &m2)
-                }
-            })};
+            let is_blocked_pillar = if !full {
+                false
+            } else {
+                (0..problem.pillars.len()).any(|blocker_idx| {
+                    is_blocking_radius(
+                        &att_mus_seg,
+                        &pt(
+                            problem.pillars[blocker_idx].center[0],
+                            problem.pillars[blocker_idx].center[1],
+                        ),
+                        problem.pillars[blocker_idx].radius,
+                    )
+                })
+            };
+            let qi = if !full {
+                1.0
+            } else {
+                (0..problem.musicians.len()).fold(1.0, |s, other_idx| {
+                    if musician_idx == other_idx
+                        || problem.musicians[musician_idx] != problem.musicians[other_idx]
+                    {
+                        s
+                    } else {
+                        let m1 = pt(
+                            solution.placements[musician_idx].x,
+                            solution.placements[musician_idx].y,
+                        );
+                        let m2 = pt(
+                            solution.placements[other_idx].x,
+                            solution.placements[other_idx].y,
+                        );
+                        s + 1.0 / pt_pt_dist(&m1, &m2)
+                    }
+                })
+            };
             if !is_blocked && !is_blocked_pillar {
                 result += impact(
                     qi,
@@ -105,6 +121,40 @@ pub const IMPACT_SCALING_COEF: f64 = 1_000_000.0;
 
 fn impact(qi: f64, distance: f64, taste: f64) -> f64 {
     (qi * (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()).ceil()
+}
+
+pub fn is_valid_placement(problem: &Problem, solution: &Solution) -> bool {
+    let bottom_left = pt(problem.stage_bottom_left[0], problem.stage_bottom_left[1]);
+    let top_right = pt(
+        bottom_left.x + problem.stage_width,
+        bottom_left.y + problem.stage_height,
+    );
+
+    for i in 0..solution.placements.len() {
+        let m1 = pos_to_pt(&solution.placements[i]);
+
+        // outside stage bounds
+        if m1.x < bottom_left.x + BOUND_MIN_DIST
+            || m1.x > top_right.x - BOUND_MIN_DIST
+            || m1.y < bottom_left.y + BOUND_MIN_DIST
+            || m1.y > top_right.y - BOUND_MIN_DIST
+        {
+            return false;
+        }
+
+        // distance from other musicians
+        for j in 0..solution.placements.len() {
+            if i != j {
+                let m2 = pos_to_pt(&solution.placements[j]);
+                let d = pt_pt_dist(&m1, &m2);
+                if d > BOUND_MIN_DIST {
+                    return false;
+                }
+            }
+        }
+    }
+
+    true
 }
 
 pub fn bound_penalty(problem: &Problem, solution: &Solution) -> f64 {
@@ -193,12 +243,7 @@ mod test {
 
     use crate::model::problem::Attendee;
     use crate::scoring::{
-        evaluate_exact_full,
-        Problem,
-        Solution,
-        Position,
-        outside_stage_penalty,
-        BOUND_SCALING_COEF,
+        evaluate_exact_full, outside_stage_penalty, Position, Problem, Solution, BOUND_SCALING_COEF,
     };
 
     #[test]
@@ -258,9 +303,21 @@ mod test {
             stage_bottom_left: vec![500.0, 0.0],
             musicians: vec![0, 1, 0],
             attendees: vec![
-                Attendee { x: 100.0, y: 500.0, tastes: vec![1000.0, -1000.0] },
-                Attendee { x: 200.0, y: 1000.0, tastes: vec![200.0, 200.0] },
-                Attendee { x: 1100.0, y: 800.0, tastes: vec![800.0, 1500.0] },
+                Attendee {
+                    x: 100.0,
+                    y: 500.0,
+                    tastes: vec![1000.0, -1000.0],
+                },
+                Attendee {
+                    x: 200.0,
+                    y: 1000.0,
+                    tastes: vec![200.0, 200.0],
+                },
+                Attendee {
+                    x: 1100.0,
+                    y: 800.0,
+                    tastes: vec![800.0, 1500.0],
+                },
             ],
             pillars: vec![],
         }
@@ -272,7 +329,7 @@ mod test {
                 Position::new(590.0, 10.0),
                 Position::new(1100.0, 100.0),
                 Position::new(1100.0, 150.0),
-            ]
+            ],
         }
     }
 
@@ -291,7 +348,7 @@ mod test {
                 Position::new(590.0, 10.0),
                 Position::new(1105.0, 100.0),
                 Position::new(1100.0, 150.0),
-            ]
+            ],
         };
         assert_eq!(evaluate_exact_full(false, &prob, &sol), 5350.0)
     }
