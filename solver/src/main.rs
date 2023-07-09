@@ -15,7 +15,8 @@ use std::io::Write;
 use std::path::PathBuf;
 
 use crate::random_solution::{
-    get_random_solution, get_random_solution_with_paralleling, improve_solution,
+    get_random_solution, get_random_solution_with_many_seeds, get_random_solution_with_one_seed,
+    improve_solution,
 };
 
 #[derive(Debug, Clone, ClapParser)]
@@ -49,10 +50,14 @@ pub struct ProblemArgs {
     descent_iters: u64,
     #[clap(long, value_parser, default_value_t = 1000)]
     descent_max_secs: u64,
+    #[clap(long, value_parser, default_value_t = 1)]
+    parallel_many_seeds_workers: usize,
+    #[clap(long, value_parser, default_value_t = 1)]
+    parallel_many_seeds_threads: usize,
+    #[clap(long, value_parser, default_value_t = 5)]
+    parallel_one_seed_workers: usize,
     #[clap(long, value_parser, default_value_t = false)]
-    parallel: bool,
-    #[clap(long, value_parser, default_value_t = 10)]
-    workers: usize,
+    parallel_scoring: bool,
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -78,8 +83,10 @@ fn main() -> anyhow::Result<()> {
                 args.rand_max_secs,
                 args.descent_iters,
                 args.descent_max_secs,
-                args.parallel,
-                args.workers,
+                args.parallel_scoring,
+                args.parallel_many_seeds_workers,
+                args.parallel_many_seeds_threads,
+                args.parallel_one_seed_workers,
             )
         }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
@@ -94,8 +101,10 @@ fn get_problem_solution(
     rand_max_secs: u64,
     descent_iters: u64,
     descent_max_secs: u64,
-    parallel: bool,
-    workers: usize,
+    parallel_scoring: bool,
+    parallel_many_seeds_workers: usize,
+    parallel_many_seeds_threads: usize,
+    parallel_one_seed_workers: usize,
 ) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
@@ -111,13 +120,22 @@ fn get_problem_solution(
         problem_file.problem.musicians.len(),
         problem_file.problem.attendees.len()
     );
-    let solution = if parallel {
-        get_random_solution_with_paralleling(
+    let solution = if parallel_many_seeds_workers > 1 {
+        get_random_solution_with_many_seeds(
             &problem_file.problem,
             rand_seed,
             rand_iters,
             rand_max_secs,
-            workers,
+            parallel_many_seeds_workers,
+            parallel_many_seeds_threads,
+        )
+    } else if parallel_one_seed_workers > 1 {
+        get_random_solution_with_one_seed(
+            &problem_file.problem,
+            rand_seed,
+            rand_iters,
+            rand_max_secs,
+            parallel_one_seed_workers,
         )
     } else {
         get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs)
@@ -129,7 +147,7 @@ fn get_problem_solution(
         descent_iters,
         descent_max_secs,
     );
-    let score = if parallel {
+    let score = if parallel_scoring {
         log::info!("parallel scoring {:?}", problem_file.name);
         parallel_evaluate_exact(&problem_file.problem, &improved)
     } else {

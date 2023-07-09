@@ -44,7 +44,74 @@ pub fn get_random_solution(problem: &Problem, seed: u64, n_iters: u64, max_secs:
     best
 }
 
-pub fn get_random_solution_with_paralleling(
+pub fn get_random_solution_with_many_seeds(
+    problem: &Problem,
+    seed: u64,
+    n_iters: u64,
+    max_secs: u64,
+    workers: usize,
+    threads: usize,
+) -> Solution {
+    let pool = ThreadPool::new(workers);
+
+    struct Message {
+        pub solution: Solution,
+        pub score: f64,
+    }
+
+    let (tx, rx) = channel::<Message>();
+    for i in 1..=threads {
+        let problem = problem.clone();
+        let tx = tx.clone();
+        pool.execute(move || {
+            let seed = seed + (i as u64);
+            let mut rng = StdRng::seed_from_u64(seed);
+            let mut best = random_iteration(&mut rng, &problem);
+            let mut best_score = evaluate_exact(&problem, &best);
+            log::info!("thread={i} initial best_score={best_score} seed={seed} n_iters={n_iters}");
+            let start = Instant::now();
+            for i in 1..=n_iters {
+                let next = random_iteration(&mut rng, &problem);
+                let next_score = evaluate_exact(&problem, &next);
+                let mut is_better = false;
+                if next_score > best_score {
+                    best = next;
+                    best_score = next_score;
+                    is_better = true;
+                }
+                if is_better || i % 10000 == 0 {
+                    log::info!("thread={i} iteration={i} best_score={best_score}");
+                }
+                if start.elapsed().as_secs() > max_secs {
+                    log::info!("thread={i} iteration={i} best_score={best_score}. Stopping due to max time");
+                    break;
+                }
+            }
+            tx.send(Message {
+                solution: best,
+                score: best_score,
+            }).expect("channel will be there waiting for the pool");
+        });
+    }
+
+    let mut remained = threads;
+    let mut best = Solution::new(vec![]);
+    let mut best_score = 0.0;
+    while remained > 1 {
+        while let Ok(message) = rx.recv_timeout(std::time::Duration::from_secs(10)) {
+            if &message.score > &best_score {
+                best = message.solution;
+                best_score = message.score;
+            }
+            remained -= 1;
+        }
+    }
+    log::info!("best solution best_score={best_score}");
+
+    best
+}
+
+pub fn get_random_solution_with_one_seed(
     problem: &Problem,
     seed: u64,
     n_iters: u64,
@@ -104,8 +171,8 @@ pub fn get_random_solution_with_paralleling(
             }
             let tx = tx.clone();
             let problem_in_thread = problem.clone();
+            let mut rng = rng.clone();
             pool.execute(move || {
-                let mut rng = StdRng::seed_from_u64(seed);
                 let next = random_iteration(&mut rng, problem_in_thread.clone().deref());
                 let next_score = evaluate_exact(problem_in_thread.deref(), &next);
                 let message = Message {
