@@ -42,11 +42,13 @@ pub struct Pillar {
 #[derive(serde::Serialize, Clone)]
 pub struct Solution {
     pub placements: Vec<Position>,
+    pub volumes: Vec<f64>,
 }
 
 impl Solution {
     pub fn new(placements: Vec<Position>) -> Self {
-        Self { placements }
+        let vol1 = vec![1.0; placements.len()];
+        Self { placements, volumes: vol1 }
     }
 }
 
