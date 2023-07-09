@@ -5,19 +5,14 @@ pub mod random_solution;
 use clap::{Parser as ClapParser, Subcommand};
 use log::LevelFilter;
 use solver::logger::configure;
-use solver::model::problem::{Position, Problem, ProblemFile, Solution};
-use solver::scoring::evaluate_exact;
-use solver::scoring::evaluate_fast;
-use solver::scoring::{bound_penalty, parallel_evaluate_exact};
+use solver::model::problem::{Problem, ProblemFile};
+use solver::scoring::bound_penalty;
 use std::fs;
 use std::fs::File;
 use std::io::Write;
 use std::path::PathBuf;
 
-use crate::random_solution::{
-    get_random_solution, get_random_solution_with_many_seeds, improve_solution,
-    update_volume,
-};
+use crate::random_solution::get_random_solutions;
 
 #[derive(Debug, Clone, ClapParser)]
 #[clap(author, version, about, long_about = None)]
@@ -29,7 +24,6 @@ pub struct Args {
 #[derive(Debug, Clone, Subcommand)]
 pub enum CliCommand {
     Problem(ProblemArgs),
-    Problems(ProblemsArgs),
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -51,11 +45,9 @@ pub struct ProblemArgs {
     #[clap(long, value_parser, default_value_t = 1000)]
     descent_max_secs: u64,
     #[clap(long, value_parser, default_value_t = 1)]
-    parallel_many_seeds_workers: usize,
+    n_threads: usize,
     #[clap(long, value_parser, default_value_t = 1)]
-    parallel_many_seeds_threads: usize,
-    #[clap(long, value_parser, default_value_t = false)]
-    parallel_scoring: bool,
+    n_seeds: usize,
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -81,15 +73,14 @@ fn main() -> anyhow::Result<()> {
                 args.rand_max_secs,
                 args.descent_iters,
                 args.descent_max_secs,
-                args.parallel_scoring,
-                args.parallel_many_seeds_workers,
-                args.parallel_many_seeds_threads,
+                args.n_threads,
+                args.n_seeds,
             )
         }
-        CliCommand::Problems(args) => get_problems_solutions(&args.config),
     }
 }
 
+#[allow(clippy::too_many_arguments)]
 fn get_problem_solution(
     problem_file: PathBuf,
     solution_file: PathBuf,
@@ -98,9 +89,8 @@ fn get_problem_solution(
     rand_max_secs: u64,
     descent_iters: u64,
     descent_max_secs: u64,
-    parallel_scoring: bool,
-    parallel_many_seeds_workers: usize,
-    parallel_many_seeds_threads: usize,
+    n_threads: usize,
+    n_seeds: usize,
 ) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
@@ -116,116 +106,22 @@ fn get_problem_solution(
         problem_file.problem.musicians.len(),
         problem_file.problem.attendees.len()
     );
-    let solution = if parallel_many_seeds_workers > 1 {
-        get_random_solution_with_many_seeds(
-            &problem_file.problem,
-            rand_seed,
-            rand_iters,
-            rand_max_secs,
-            parallel_many_seeds_workers,
-            parallel_many_seeds_threads,
-        )
-    } else {
-        get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs)
-    };
-    let improved = improve_solution(
+    let (solution, score) = get_random_solutions(
         &problem_file.problem,
-        &solution,
-        1.0,
+        rand_seed,
+        rand_iters,
+        rand_max_secs,
         descent_iters,
         descent_max_secs,
+        n_threads,
+        n_seeds,
     );
-    let updated_volume = update_volume(
-        &problem_file.problem,
-        &improved,
-    );
-    let score = if parallel_scoring {
-        log::info!("parallel scoring {:?}", problem_file.name);
-        parallel_evaluate_exact(&problem_file.problem, &updated_volume)
-    } else {
-        log::info!("scoring {:?}", problem_file.name);
-        evaluate_exact(&problem_file.problem, &updated_volume)
-    };
     log::info!("score for {:?}: {score}", problem_file.name);
     log::info!("correctness {:?}", problem_file.name);
-    let penalty = bound_penalty(&problem_file.problem, &updated_volume);
+    let penalty = bound_penalty(&problem_file.problem, &solution);
     log::info!("penalty for {:?}: {penalty}", problem_file.name);
-    let content = serde_json::to_string(&updated_volume)?;
+    let content = serde_json::to_string(&solution)?;
     let mut file = File::create(solution_file)?;
     file.write_all(content.as_bytes())?;
     Ok(())
-}
-
-fn get_problems_solutions(config: &str) -> anyhow::Result<()> {
-    let config = solver::config::Solver::from_file(config).unwrap_or_else(|e| {
-        log::error!("Invalid config file '{}': {}", &config, e);
-        std::process::exit(1);
-    });
-
-    configure(&config.log)?;
-
-    let mut problems = Vec::<ProblemFile>::new();
-    let problems_files = fs::read_dir(config.problems.dir)?;
-    for problem_file in problems_files {
-        let problem_file = problem_file?.path();
-        if let Some(extension) = problem_file.extension() {
-            if !extension.eq_ignore_ascii_case("json") {
-                continue;
-            }
-        }
-        let file_name = problem_file
-            .file_name()
-            .expect("Should have been read file name")
-            .to_os_string();
-        let content =
-            fs::read_to_string(problem_file).expect("Should have been able to read the file");
-        let problem: Problem = serde_json::from_str(&content)?;
-        let problem_file = ProblemFile::new(file_name, problem);
-        problems.push(problem_file);
-    }
-
-    problems.sort_by_cached_key(|p| p.name.clone());
-
-    log::info!("Read {} problems", problems.len());
-
-    fs::create_dir_all(config.solutions.dir.clone())?;
-
-    for problem_file in problems {
-        log::info!(
-            "solving {:?} n_musicians={} n_attendees={}",
-            problem_file.name,
-            problem_file.problem.musicians.len(),
-            problem_file.problem.attendees.len()
-        );
-        let solution = get_lined_solution(&problem_file.problem);
-        log::info!("scoring {:?}", problem_file.name);
-        let score = evaluate_fast(&problem_file.problem, &solution);
-        log::info!("score for {:?}: {score}", problem_file.name);
-        let content = serde_json::to_string(&solution)?;
-        let mut solutions_dir = config.solutions.dir.clone();
-        solutions_dir.push(problem_file.name);
-        let mut file = File::create(solutions_dir)?;
-        file.write_all(content.as_bytes())?;
-    }
-
-    Ok(())
-}
-
-fn get_lined_solution(problem: &Problem) -> Solution {
-    let x0 = problem.stage_bottom_left[0];
-    let y0 = problem.stage_bottom_left[1];
-    let x1 = x0 + problem.stage_width;
-    let _y1 = y0 + problem.stage_height;
-    let mut x = x0 + 10.0;
-    let mut y = y0 + 10.0;
-    let mut placements = Vec::with_capacity(problem.musicians.len());
-    for _ in &problem.musicians {
-        placements.push(Position::new(x, y));
-        x = x + 10.0;
-        if x > x1 - 10.0 {
-            x = x0 + 10.0;
-            y = y + 10.0;
-        }
-    }
-    Solution::new(placements)
 }
