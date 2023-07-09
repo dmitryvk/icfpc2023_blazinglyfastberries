@@ -147,7 +147,7 @@ pub fn is_valid_placement(problem: &Problem, solution: &Solution) -> bool {
             if i != j {
                 let m2 = pos_to_pt(&solution.placements[j]);
                 let d = pt_pt_dist(&m1, &m2);
-                if d > BOUND_MIN_DIST {
+                if d < BOUND_MIN_DIST {
                     return false;
                 }
             }
