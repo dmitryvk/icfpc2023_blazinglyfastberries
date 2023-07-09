@@ -12,7 +12,7 @@ use memegeom::{
 use rand::{distributions::Uniform, prelude::Distribution, rngs::StdRng, Rng, SeedableRng};
 use solver::{
     model::problem::{Position, Problem, Solution},
-    scoring::{bound_penalty, evaluate_exact, grad, is_valid_placement, pos_to_pt, pt_to_pos},
+    scoring::{bound_penalty, evaluate_exact, grad, is_valid_placement, pos_to_pt, pt_to_pos, IMPACT_SCALING_COEF},
 };
 
 pub const MUSICIAN_SIZE: f64 = 10.0;
@@ -313,5 +313,21 @@ pub fn improve_solution(
 }
 
 pub fn update_volume(p: &Problem, s: &Solution) -> Solution {
-    s.clone()
+    let mut res = s.clone();
+    if p.pillars.len() > 0 {
+        res
+    } else {
+        for musician_idx in 0..p.musicians.len() {
+            let total = p.attendees.iter().fold(0.0, |s, att| {
+                let taste = att.tastes[p.musicians[musician_idx] as usize];
+                let a = pt(att.x, att.y);
+                let m = pt(res.placements[musician_idx].x,
+                           res.placements[musician_idx].y);
+                let distance = pt_pt_dist(&a, &m);
+                s + (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()
+            });
+            res.volumes[musician_idx] = if total > 0.0 { 10.0 } else { 0.0 }
+        }
+        res
+    }
 }
