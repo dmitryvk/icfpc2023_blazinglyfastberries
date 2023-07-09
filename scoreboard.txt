@@ -25,7 +25,7 @@
 25 	138025914
 26 	87568591
 27 	70250424
-28 	62557816
+28 	80981934
 29 	108116639
 30 	279131847
 31 	8032405
@@ -36,20 +36,55 @@
 36 	4531008
 37 	13774663
 38 	973734
-39 	5878488
-40 	14520473
-41 	4732173
-42 	3987004
-43 	1138412
-44 	10618662
-45 	9171995
+39 	11086146
+40 	16343706
+41 	9520499
+42 	4419162
+43 	1363118
+44 	21339223
+45 	14204620
 46 	881796
 47 	913495
 48 	2395333
 49 	1107237
-50 	4008787
-51 	2991588
-52 	3309584
-53 	6027964
+50 	6715131
+51 	3161249
+52 	4560095
+53 	10517927
 54 	1762445
-55 	706080
+55 	786723
+56 	Not submitted
+57 	Not submitted
+58 	Not submitted
+59 	Not submitted
+60 	Not submitted
+61 	Not submitted
+62 	Not submitted
+63 	Not submitted
+64 	Not submitted
+65 	Not submitted
+66 	Not submitted
+67 	Not submitted
+68 	Not submitted
+69 	Not submitted
+70 	Not submitted
+71 	Not submitted
+72 	Not submitted
+73 	Not submitted
+74 	Not submitted
+75 	Not submitted
+76 	Not submitted
+77 	Not submitted
+78 	Not submitted
+79 	Not submitted
+80 	Not submitted
+81 	Not submitted
+82 	Not submitted
+83 	Not submitted
+84 	Not submitted
+85 	Not submitted
+86 	Not submitted
+87 	Not submitted
+88 	Not submitted
+89 	Not submitted
+90 	Not submitted
