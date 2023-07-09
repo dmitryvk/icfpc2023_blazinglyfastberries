@@ -1,5 +1,5 @@
 .PHONY: all
-all: 1.json 2.json 3.json 4.json 5.json 6.json 7.json 8.json 9.json 10.json 11.json 12.json 13.json 14.json 15.json 16.json 17.json 18.json 19.json 20.json 21.json 22.json 23.json 24.json 25.json 26.json 27.json 28.json 29.json 30.json 31.json 32.json 33.json 34.json 35.json 36.json 37.json 38.json 39.json 40.json 41.json 42.json 43.json 44.json 45.json 46.json 47.json 48.json 49.json 50.json 51.json 52.json 53.json 54.json 55.json 56.json 57.json 58.json 59.json 60.json 61.json 62.json 63.json 64.json 65.json 66.json 67.json 68.json 69.json 70.json 71.json 72.json 73.json 74.json 75.json 76.json 77.json 78.json 79.json 80.json 81.json 82.json 83.json 84.json 85.json 86.json 87.json 88.json 89.json 90.json
+all: 1.json 1.uploadid 2.json 2.uploadid 3.json 3.uploadid 4.json 4.uploadid 5.json 5.uploadid 6.json 6.uploadid 7.json 7.uploadid 8.json 8.uploadid 9.json 9.uploadid 10.json 10.uploadid 11.json 11.uploadid 12.json 12.uploadid 13.json 13.uploadid 14.json 14.uploadid 15.json 15.uploadid 16.json 16.uploadid 17.json 17.uploadid 18.json 18.uploadid 19.json 19.uploadid 20.json 20.uploadid 21.json 21.uploadid 22.json 22.uploadid 23.json 23.uploadid 24.json 24.uploadid 25.json 25.uploadid 26.json 26.uploadid 27.json 27.uploadid 28.json 28.uploadid 29.json 29.uploadid 30.json 30.uploadid 31.json 31.uploadid 32.json 32.uploadid 33.json 33.uploadid 34.json 34.uploadid 35.json 35.uploadid 36.json 36.uploadid 37.json 37.uploadid 38.json 38.uploadid 39.json 39.uploadid 40.json 40.uploadid 41.json 41.uploadid 42.json 42.uploadid 43.json 43.uploadid 44.json 44.uploadid 45.json 45.uploadid 46.json 46.uploadid 47.json 47.uploadid 48.json 48.uploadid 49.json 49.uploadid 50.json 50.uploadid 51.json 51.uploadid 52.json 52.uploadid 53.json 53.uploadid 54.json 54.uploadid 55.json 55.uploadid 56.json 56.uploadid 57.json 57.uploadid 58.json 58.uploadid 59.json 59.uploadid 60.json 60.uploadid 61.json 61.uploadid 62.json 62.uploadid 63.json 63.uploadid 64.json 64.uploadid 65.json 65.uploadid 66.json 66.uploadid 67.json 67.uploadid 68.json 68.uploadid 69.json 69.uploadid 70.json 70.uploadid 71.json 71.uploadid 72.json 72.uploadid 73.json 73.uploadid 74.json 74.uploadid 75.json 75.uploadid 76.json 76.uploadid 77.json 77.uploadid 78.json 78.uploadid 79.json 79.uploadid 80.json 80.uploadid 81.json 81.uploadid 82.json 82.uploadid 83.json 83.uploadid 84.json 84.uploadid 85.json 85.uploadid 86.json 86.uploadid 87.json 87.uploadid 88.json 88.uploadid 89.json 89.uploadid 90.json 90.uploadid
 1.json:
 	rm -f ../logs/1.log
 	cargo +nightly run --manifest-path ../solver/Cargo.toml --release -- problem -i ../problems/1.json -o 1.json -l ../logs/1.log --rand-iters 1000000 --rand-max-secs 60 --descent-iters 1000 --descent-max-secs 60
@@ -449,4 +449,364 @@ all: 1.json 2.json 3.json 4.json 5.json 6.json 7.json 8.json 9.json 10.json 11.j
 	rm -f ../logs/90.log
 	cargo +nightly run --manifest-path ../solver/Cargo.toml --release -- problem -i ../problems/90.json -o 90.json -l ../logs/90.log --rand-iters 1000000 --rand-max-secs 60 --descent-iters 1000 --descent-max-secs 60
 	fgrep 'score for' ../logs/90.log
+
+1.uploadid: 1.json
+	./upload1.sh 1 1.json > 1.uploadid.tmp
+	mv 1.uploadid.tmp 1.uploadid
+
+2.uploadid: 2.json
+	./upload1.sh 2 2.json > 2.uploadid.tmp
+	mv 2.uploadid.tmp 2.uploadid
+
+3.uploadid: 3.json
+	./upload1.sh 3 3.json > 3.uploadid.tmp
+	mv 3.uploadid.tmp 3.uploadid
+
+4.uploadid: 4.json
+	./upload1.sh 4 4.json > 4.uploadid.tmp
+	mv 4.uploadid.tmp 4.uploadid
+
+5.uploadid: 5.json
+	./upload1.sh 5 5.json > 5.uploadid.tmp
+	mv 5.uploadid.tmp 5.uploadid
+
+6.uploadid: 6.json
+	./upload1.sh 6 6.json > 6.uploadid.tmp
+	mv 6.uploadid.tmp 6.uploadid
+
+7.uploadid: 7.json
+	./upload1.sh 7 7.json > 7.uploadid.tmp
+	mv 7.uploadid.tmp 7.uploadid
+
+8.uploadid: 8.json
+	./upload1.sh 8 8.json > 8.uploadid.tmp
+	mv 8.uploadid.tmp 8.uploadid
+
+9.uploadid: 9.json
+	./upload1.sh 9 9.json > 9.uploadid.tmp
+	mv 9.uploadid.tmp 9.uploadid
+
+10.uploadid: 10.json
+	./upload1.sh 10 10.json > 10.uploadid.tmp
+	mv 10.uploadid.tmp 10.uploadid
+
+11.uploadid: 11.json
+	./upload1.sh 11 11.json > 11.uploadid.tmp
+	mv 11.uploadid.tmp 11.uploadid
+
+12.uploadid: 12.json
+	./upload1.sh 12 12.json > 12.uploadid.tmp
+	mv 12.uploadid.tmp 12.uploadid
+
+13.uploadid: 13.json
+	./upload1.sh 13 13.json > 13.uploadid.tmp
+	mv 13.uploadid.tmp 13.uploadid
+
+14.uploadid: 14.json
+	./upload1.sh 14 14.json > 14.uploadid.tmp
+	mv 14.uploadid.tmp 14.uploadid
+
+15.uploadid: 15.json
+	./upload1.sh 15 15.json > 15.uploadid.tmp
+	mv 15.uploadid.tmp 15.uploadid
+
+16.uploadid: 16.json
+	./upload1.sh 16 16.json > 16.uploadid.tmp
+	mv 16.uploadid.tmp 16.uploadid
+
+17.uploadid: 17.json
+	./upload1.sh 17 17.json > 17.uploadid.tmp
+	mv 17.uploadid.tmp 17.uploadid
+
+18.uploadid: 18.json
+	./upload1.sh 18 18.json > 18.uploadid.tmp
+	mv 18.uploadid.tmp 18.uploadid
+
+19.uploadid: 19.json
+	./upload1.sh 19 19.json > 19.uploadid.tmp
+	mv 19.uploadid.tmp 19.uploadid
+
+20.uploadid: 20.json
+	./upload1.sh 20 20.json > 20.uploadid.tmp
+	mv 20.uploadid.tmp 20.uploadid
+
+21.uploadid: 21.json
+	./upload1.sh 21 21.json > 21.uploadid.tmp
+	mv 21.uploadid.tmp 21.uploadid
+
+22.uploadid: 22.json
+	./upload1.sh 22 22.json > 22.uploadid.tmp
+	mv 22.uploadid.tmp 22.uploadid
+
+23.uploadid: 23.json
+	./upload1.sh 23 23.json > 23.uploadid.tmp
+	mv 23.uploadid.tmp 23.uploadid
+
+24.uploadid: 24.json
+	./upload1.sh 24 24.json > 24.uploadid.tmp
+	mv 24.uploadid.tmp 24.uploadid
+
+25.uploadid: 25.json
+	./upload1.sh 25 25.json > 25.uploadid.tmp
+	mv 25.uploadid.tmp 25.uploadid
+
+26.uploadid: 26.json
+	./upload1.sh 26 26.json > 26.uploadid.tmp
+	mv 26.uploadid.tmp 26.uploadid
+
+27.uploadid: 27.json
+	./upload1.sh 27 27.json > 27.uploadid.tmp
+	mv 27.uploadid.tmp 27.uploadid
+
+28.uploadid: 28.json
+	./upload1.sh 28 28.json > 28.uploadid.tmp
+	mv 28.uploadid.tmp 28.uploadid
+
+29.uploadid: 29.json
+	./upload1.sh 29 29.json > 29.uploadid.tmp
+	mv 29.uploadid.tmp 29.uploadid
+
+30.uploadid: 30.json
+	./upload1.sh 30 30.json > 30.uploadid.tmp
+	mv 30.uploadid.tmp 30.uploadid
+
+31.uploadid: 31.json
+	./upload1.sh 31 31.json > 31.uploadid.tmp
+	mv 31.uploadid.tmp 31.uploadid
+
+32.uploadid: 32.json
+	./upload1.sh 32 32.json > 32.uploadid.tmp
+	mv 32.uploadid.tmp 32.uploadid
+
+33.uploadid: 33.json
+	./upload1.sh 33 33.json > 33.uploadid.tmp
+	mv 33.uploadid.tmp 33.uploadid
+
+34.uploadid: 34.json
+	./upload1.sh 34 34.json > 34.uploadid.tmp
+	mv 34.uploadid.tmp 34.uploadid
+
+35.uploadid: 35.json
+	./upload1.sh 35 35.json > 35.uploadid.tmp
+	mv 35.uploadid.tmp 35.uploadid
+
+36.uploadid: 36.json
+	./upload1.sh 36 36.json > 36.uploadid.tmp
+	mv 36.uploadid.tmp 36.uploadid
+
+37.uploadid: 37.json
+	./upload1.sh 37 37.json > 37.uploadid.tmp
+	mv 37.uploadid.tmp 37.uploadid
+
+38.uploadid: 38.json
+	./upload1.sh 38 38.json > 38.uploadid.tmp
+	mv 38.uploadid.tmp 38.uploadid
+
+39.uploadid: 39.json
+	./upload1.sh 39 39.json > 39.uploadid.tmp
+	mv 39.uploadid.tmp 39.uploadid
+
+40.uploadid: 40.json
+	./upload1.sh 40 40.json > 40.uploadid.tmp
+	mv 40.uploadid.tmp 40.uploadid
+
+41.uploadid: 41.json
+	./upload1.sh 41 41.json > 41.uploadid.tmp
+	mv 41.uploadid.tmp 41.uploadid
+
+42.uploadid: 42.json
+	./upload1.sh 42 42.json > 42.uploadid.tmp
+	mv 42.uploadid.tmp 42.uploadid
+
+43.uploadid: 43.json
+	./upload1.sh 43 43.json > 43.uploadid.tmp
+	mv 43.uploadid.tmp 43.uploadid
+
+44.uploadid: 44.json
+	./upload1.sh 44 44.json > 44.uploadid.tmp
+	mv 44.uploadid.tmp 44.uploadid
+
+45.uploadid: 45.json
+	./upload1.sh 45 45.json > 45.uploadid.tmp
+	mv 45.uploadid.tmp 45.uploadid
+
+46.uploadid: 46.json
+	./upload1.sh 46 46.json > 46.uploadid.tmp
+	mv 46.uploadid.tmp 46.uploadid
+
+47.uploadid: 47.json
+	./upload1.sh 47 47.json > 47.uploadid.tmp
+	mv 47.uploadid.tmp 47.uploadid
+
+48.uploadid: 48.json
+	./upload1.sh 48 48.json > 48.uploadid.tmp
+	mv 48.uploadid.tmp 48.uploadid
+
+49.uploadid: 49.json
+	./upload1.sh 49 49.json > 49.uploadid.tmp
+	mv 49.uploadid.tmp 49.uploadid
+
+50.uploadid: 50.json
+	./upload1.sh 50 50.json > 50.uploadid.tmp
+	mv 50.uploadid.tmp 50.uploadid
+
+51.uploadid: 51.json
+	./upload1.sh 51 51.json > 51.uploadid.tmp
+	mv 51.uploadid.tmp 51.uploadid
+
+52.uploadid: 52.json
+	./upload1.sh 52 52.json > 52.uploadid.tmp
+	mv 52.uploadid.tmp 52.uploadid
+
+53.uploadid: 53.json
+	./upload1.sh 53 53.json > 53.uploadid.tmp
+	mv 53.uploadid.tmp 53.uploadid
+
+54.uploadid: 54.json
+	./upload1.sh 54 54.json > 54.uploadid.tmp
+	mv 54.uploadid.tmp 54.uploadid
+
+55.uploadid: 55.json
+	./upload1.sh 55 55.json > 55.uploadid.tmp
+	mv 55.uploadid.tmp 55.uploadid
+
+56.uploadid: 56.json
+	./upload1.sh 56 56.json > 56.uploadid.tmp
+	mv 56.uploadid.tmp 56.uploadid
+
+57.uploadid: 57.json
+	./upload1.sh 57 57.json > 57.uploadid.tmp
+	mv 57.uploadid.tmp 57.uploadid
+
+58.uploadid: 58.json
+	./upload1.sh 58 58.json > 58.uploadid.tmp
+	mv 58.uploadid.tmp 58.uploadid
+
+59.uploadid: 59.json
+	./upload1.sh 59 59.json > 59.uploadid.tmp
+	mv 59.uploadid.tmp 59.uploadid
+
+60.uploadid: 60.json
+	./upload1.sh 60 60.json > 60.uploadid.tmp
+	mv 60.uploadid.tmp 60.uploadid
+
+61.uploadid: 61.json
+	./upload1.sh 61 61.json > 61.uploadid.tmp
+	mv 61.uploadid.tmp 61.uploadid
+
+62.uploadid: 62.json
+	./upload1.sh 62 62.json > 62.uploadid.tmp
+	mv 62.uploadid.tmp 62.uploadid
+
+63.uploadid: 63.json
+	./upload1.sh 63 63.json > 63.uploadid.tmp
+	mv 63.uploadid.tmp 63.uploadid
+
+64.uploadid: 64.json
+	./upload1.sh 64 64.json > 64.uploadid.tmp
+	mv 64.uploadid.tmp 64.uploadid
+
+65.uploadid: 65.json
+	./upload1.sh 65 65.json > 65.uploadid.tmp
+	mv 65.uploadid.tmp 65.uploadid
+
+66.uploadid: 66.json
+	./upload1.sh 66 66.json > 66.uploadid.tmp
+	mv 66.uploadid.tmp 66.uploadid
+
+67.uploadid: 67.json
+	./upload1.sh 67 67.json > 67.uploadid.tmp
+	mv 67.uploadid.tmp 67.uploadid
+
+68.uploadid: 68.json
+	./upload1.sh 68 68.json > 68.uploadid.tmp
+	mv 68.uploadid.tmp 68.uploadid
+
+69.uploadid: 69.json
+	./upload1.sh 69 69.json > 69.uploadid.tmp
+	mv 69.uploadid.tmp 69.uploadid
+
+70.uploadid: 70.json
+	./upload1.sh 70 70.json > 70.uploadid.tmp
+	mv 70.uploadid.tmp 70.uploadid
+
+71.uploadid: 71.json
+	./upload1.sh 71 71.json > 71.uploadid.tmp
+	mv 71.uploadid.tmp 71.uploadid
+
+72.uploadid: 72.json
+	./upload1.sh 72 72.json > 72.uploadid.tmp
+	mv 72.uploadid.tmp 72.uploadid
+
+73.uploadid: 73.json
+	./upload1.sh 73 73.json > 73.uploadid.tmp
+	mv 73.uploadid.tmp 73.uploadid
+
+74.uploadid: 74.json
+	./upload1.sh 74 74.json > 74.uploadid.tmp
+	mv 74.uploadid.tmp 74.uploadid
+
+75.uploadid: 75.json
+	./upload1.sh 75 75.json > 75.uploadid.tmp
+	mv 75.uploadid.tmp 75.uploadid
+
+76.uploadid: 76.json
+	./upload1.sh 76 76.json > 76.uploadid.tmp
+	mv 76.uploadid.tmp 76.uploadid
+
+77.uploadid: 77.json
+	./upload1.sh 77 77.json > 77.uploadid.tmp
+	mv 77.uploadid.tmp 77.uploadid
+
+78.uploadid: 78.json
+	./upload1.sh 78 78.json > 78.uploadid.tmp
+	mv 78.uploadid.tmp 78.uploadid
+
+79.uploadid: 79.json
+	./upload1.sh 79 79.json > 79.uploadid.tmp
+	mv 79.uploadid.tmp 79.uploadid
+
+80.uploadid: 80.json
+	./upload1.sh 80 80.json > 80.uploadid.tmp
+	mv 80.uploadid.tmp 80.uploadid
+
+81.uploadid: 81.json
+	./upload1.sh 81 81.json > 81.uploadid.tmp
+	mv 81.uploadid.tmp 81.uploadid
+
+82.uploadid: 82.json
+	./upload1.sh 82 82.json > 82.uploadid.tmp
+	mv 82.uploadid.tmp 82.uploadid
+
+83.uploadid: 83.json
+	./upload1.sh 83 83.json > 83.uploadid.tmp
+	mv 83.uploadid.tmp 83.uploadid
+
+84.uploadid: 84.json
+	./upload1.sh 84 84.json > 84.uploadid.tmp
+	mv 84.uploadid.tmp 84.uploadid
+
+85.uploadid: 85.json
+	./upload1.sh 85 85.json > 85.uploadid.tmp
+	mv 85.uploadid.tmp 85.uploadid
+
+86.uploadid: 86.json
+	./upload1.sh 86 86.json > 86.uploadid.tmp
+	mv 86.uploadid.tmp 86.uploadid
+
+87.uploadid: 87.json
+	./upload1.sh 87 87.json > 87.uploadid.tmp
+	mv 87.uploadid.tmp 87.uploadid
+
+88.uploadid: 88.json
+	./upload1.sh 88 88.json > 88.uploadid.tmp
+	mv 88.uploadid.tmp 88.uploadid
+
+89.uploadid: 89.json
+	./upload1.sh 89 89.json > 89.uploadid.tmp
+	mv 89.uploadid.tmp 89.uploadid
+
+90.uploadid: 90.json
+	./upload1.sh 90 90.json > 90.uploadid.tmp
+	mv 90.uploadid.tmp 90.uploadid
 

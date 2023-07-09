@@ -1,5 +1,5 @@
 .PHONY: all
-all: 1.svg 2.svg 3.svg 4.svg 5.svg 6.svg 7.svg 8.svg 9.svg 10.svg 11.svg 12.svg 13.svg 14.svg 15.svg 16.svg 17.svg 18.svg 19.svg 20.svg 21.svg 22.svg 23.svg 24.svg 25.svg 26.svg 27.svg 28.svg 29.svg 30.svg 31.svg 32.svg 33.svg 34.svg 35.svg 36.svg 37.svg 38.svg 39.svg 40.svg 41.svg 42.svg 43.svg 44.svg 45.svg 46.svg 47.svg 48.svg 49.svg 50.svg 51.svg 52.svg 53.svg 54.svg 55.svg
+all: 1.svg 2.svg 3.svg 4.svg 5.svg 6.svg 7.svg 8.svg 9.svg 10.svg 11.svg 12.svg 13.svg 14.svg 15.svg 16.svg 17.svg 18.svg 19.svg 20.svg 21.svg 22.svg 23.svg 24.svg 25.svg 26.svg 27.svg 28.svg 29.svg 30.svg 31.svg 32.svg 33.svg 34.svg 35.svg 36.svg 37.svg 38.svg 39.svg 40.svg 41.svg 42.svg 43.svg 44.svg 45.svg 46.svg 47.svg 48.svg 49.svg 50.svg 51.svg 52.svg 53.svg 54.svg 55.svg 56.svg 57.svg 58.svg 59.svg 60.svg 61.svg 62.svg 63.svg 64.svg 65.svg 66.svg 67.svg 68.svg 69.svg 70.svg 71.svg 72.svg 73.svg 74.svg 75.svg 76.svg 77.svg 78.svg 79.svg 80.svg 81.svg 82.svg 83.svg 84.svg 85.svg 86.svg 87.svg 88.svg 89.svg 90.svg
 
 1.svg: ../problems/1.json ../solutions/1.json
 	. venv/bin/activate && python3 vis_prob.py 1.svg ../problems/1.json ../solutions/1.json
@@ -111,3 +111,73 @@ all: 1.svg 2.svg 3.svg 4.svg 5.svg 6.svg 7.svg 8.svg 9.svg 10.svg 11.svg 12.svg 
 	. venv/bin/activate && python3 vis_prob.py 54.svg ../problems/54.json ../solutions/54.json
 55.svg: ../problems/55.json ../solutions/55.json
 	. venv/bin/activate && python3 vis_prob.py 55.svg ../problems/55.json ../solutions/55.json
+56.svg: ../problems/56.json ../solutions/56.json
+	. venv/bin/activate && python3 vis_prob.py 56.svg ../problems/56.json ../solutions/56.json
+57.svg: ../problems/57.json ../solutions/57.json
+	. venv/bin/activate && python3 vis_prob.py 57.svg ../problems/57.json ../solutions/57.json
+58.svg: ../problems/58.json ../solutions/58.json
+	. venv/bin/activate && python3 vis_prob.py 58.svg ../problems/58.json ../solutions/58.json
+59.svg: ../problems/59.json ../solutions/59.json
+	. venv/bin/activate && python3 vis_prob.py 59.svg ../problems/59.json ../solutions/59.json
+60.svg: ../problems/60.json ../solutions/60.json
+	. venv/bin/activate && python3 vis_prob.py 60.svg ../problems/60.json ../solutions/60.json
+61.svg: ../problems/61.json ../solutions/61.json
+	. venv/bin/activate && python3 vis_prob.py 61.svg ../problems/61.json ../solutions/61.json
+62.svg: ../problems/62.json ../solutions/62.json
+	. venv/bin/activate && python3 vis_prob.py 62.svg ../problems/62.json ../solutions/62.json
+63.svg: ../problems/63.json ../solutions/63.json
+	. venv/bin/activate && python3 vis_prob.py 63.svg ../problems/63.json ../solutions/63.json
+64.svg: ../problems/64.json ../solutions/64.json
+	. venv/bin/activate && python3 vis_prob.py 64.svg ../problems/64.json ../solutions/64.json
+65.svg: ../problems/65.json ../solutions/65.json
+	. venv/bin/activate && python3 vis_prob.py 65.svg ../problems/65.json ../solutions/65.json
+66.svg: ../problems/66.json ../solutions/66.json
+	. venv/bin/activate && python3 vis_prob.py 66.svg ../problems/66.json ../solutions/66.json
+67.svg: ../problems/67.json ../solutions/67.json
+	. venv/bin/activate && python3 vis_prob.py 67.svg ../problems/67.json ../solutions/67.json
+68.svg: ../problems/68.json ../solutions/68.json
+	. venv/bin/activate && python3 vis_prob.py 68.svg ../problems/68.json ../solutions/68.json
+69.svg: ../problems/69.json ../solutions/69.json
+	. venv/bin/activate && python3 vis_prob.py 69.svg ../problems/69.json ../solutions/69.json
+70.svg: ../problems/70.json ../solutions/70.json
+	. venv/bin/activate && python3 vis_prob.py 70.svg ../problems/70.json ../solutions/70.json
+71.svg: ../problems/71.json ../solutions/71.json
+	. venv/bin/activate && python3 vis_prob.py 71.svg ../problems/71.json ../solutions/71.json
+72.svg: ../problems/72.json ../solutions/72.json
+	. venv/bin/activate && python3 vis_prob.py 72.svg ../problems/72.json ../solutions/72.json
+73.svg: ../problems/73.json ../solutions/73.json
+	. venv/bin/activate && python3 vis_prob.py 73.svg ../problems/73.json ../solutions/73.json
+74.svg: ../problems/74.json ../solutions/74.json
+	. venv/bin/activate && python3 vis_prob.py 74.svg ../problems/74.json ../solutions/74.json
+75.svg: ../problems/75.json ../solutions/75.json
+	. venv/bin/activate && python3 vis_prob.py 75.svg ../problems/75.json ../solutions/75.json
+76.svg: ../problems/76.json ../solutions/76.json
+	. venv/bin/activate && python3 vis_prob.py 76.svg ../problems/76.json ../solutions/76.json
+77.svg: ../problems/77.json ../solutions/77.json
+	. venv/bin/activate && python3 vis_prob.py 77.svg ../problems/77.json ../solutions/77.json
+78.svg: ../problems/78.json ../solutions/78.json
+	. venv/bin/activate && python3 vis_prob.py 78.svg ../problems/78.json ../solutions/78.json
+79.svg: ../problems/79.json ../solutions/79.json
+	. venv/bin/activate && python3 vis_prob.py 79.svg ../problems/79.json ../solutions/79.json
+80.svg: ../problems/80.json ../solutions/80.json
+	. venv/bin/activate && python3 vis_prob.py 80.svg ../problems/80.json ../solutions/80.json
+81.svg: ../problems/81.json ../solutions/81.json
+	. venv/bin/activate && python3 vis_prob.py 81.svg ../problems/81.json ../solutions/81.json
+82.svg: ../problems/82.json ../solutions/82.json
+	. venv/bin/activate && python3 vis_prob.py 82.svg ../problems/82.json ../solutions/82.json
+83.svg: ../problems/83.json ../solutions/83.json
+	. venv/bin/activate && python3 vis_prob.py 83.svg ../problems/83.json ../solutions/83.json
+84.svg: ../problems/84.json ../solutions/84.json
+	. venv/bin/activate && python3 vis_prob.py 84.svg ../problems/84.json ../solutions/84.json
+85.svg: ../problems/85.json ../solutions/85.json
+	. venv/bin/activate && python3 vis_prob.py 85.svg ../problems/85.json ../solutions/85.json
+86.svg: ../problems/86.json ../solutions/86.json
+	. venv/bin/activate && python3 vis_prob.py 86.svg ../problems/86.json ../solutions/86.json
+87.svg: ../problems/87.json ../solutions/87.json
+	. venv/bin/activate && python3 vis_prob.py 87.svg ../problems/87.json ../solutions/87.json
+88.svg: ../problems/88.json ../solutions/88.json
+	. venv/bin/activate && python3 vis_prob.py 88.svg ../problems/88.json ../solutions/88.json
+89.svg: ../problems/89.json ../solutions/89.json
+	. venv/bin/activate && python3 vis_prob.py 89.svg ../problems/89.json ../solutions/89.json
+90.svg: ../problems/90.json ../solutions/90.json
+	. venv/bin/activate && python3 vis_prob.py 90.svg ../problems/90.json ../solutions/90.json
