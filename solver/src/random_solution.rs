@@ -314,25 +314,21 @@ pub fn improve_solution(
 
 pub fn update_volume(p: &Problem, s: &Solution) -> Solution {
     let mut res = s.clone();
-    if p.pillars.len() == 0 {
-        res
-    } else {
-        // let score0 = evaluate_exact(p, &res);
-        // log::info!("Updating volumes. Initial score: {}", score0);
-        for musician_idx in 0..p.musicians.len() {
-            let total = p.attendees.iter().fold(0.0, |s, att| {
-                let taste = att.tastes[p.musicians[musician_idx] as usize];
-                let a = pt(att.x, att.y);
-                let m = pt(res.placements[musician_idx].x,
-                           res.placements[musician_idx].y);
-                let distance = pt_pt_dist(&a, &m);
-                s + (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()
-            });
-            log::info!("Musician {} has impact {}", musician_idx, total);
-            res.volumes[musician_idx] = if total > 0.0 { 10.0 } else { 0.0 }
-        }
-        // let score1 = evaluate_exact(p, &res);
-        // log::info!("Updating volumes. Final score: {}", score1);
-        res
+    // let score0 = evaluate_exact(p, &res);
+    // log::info!("Updating volumes. Initial score: {}", score0);
+    for musician_idx in 0..p.musicians.len() {
+        let total = p.attendees.iter().fold(0.0, |s, att| {
+            let taste = att.tastes[p.musicians[musician_idx] as usize];
+            let a = pt(att.x, att.y);
+            let m = pt(res.placements[musician_idx].x,
+                       res.placements[musician_idx].y);
+            let distance = pt_pt_dist(&a, &m);
+            s + (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()
+        });
+        log::info!("Musician {} has impact {}", musician_idx, total);
+        res.volumes[musician_idx] = if total > 0.0 { 10.0 } else { 0.0 }
     }
+    // let score1 = evaluate_exact(p, &res);
+    // log::info!("Updating volumes. Final score: {}", score1);
+    res
 }
