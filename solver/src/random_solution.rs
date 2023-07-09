@@ -314,7 +314,7 @@ pub fn improve_solution(
 
 pub fn update_volume(p: &Problem, s: &Solution) -> Solution {
     let mut res = s.clone();
-    if p.pillars.len() > 0 {
+    if p.pillars.len() == 0 {
         res
     } else {
         // let score0 = evaluate_exact(p, &res);
