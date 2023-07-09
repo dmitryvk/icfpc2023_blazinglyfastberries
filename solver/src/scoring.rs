@@ -59,74 +59,73 @@ pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -
 
 fn evaluate(full: bool, problem: &Problem, solution: &Solution, attendee: &Attendee) -> f64 {
     let mut result = 0.0;
-    for attendee in &problem.attendees {
-        for musician_idx in 0..problem.musicians.len() {
-            let att_mus_seg = seg(
-                pt(attendee.x, attendee.y),
-                pt(
-                    solution.placements[musician_idx].x,
-                    solution.placements[musician_idx].y,
-                ),
-            );
-            let is_blocked = (0..problem.musicians.len()).any(|blocker_idx| {
-                blocker_idx != musician_idx
-                    && is_blocking(
+    for musician_idx in 0..problem.musicians.len() {
+        let att_mus_seg = seg(
+            pt(attendee.x, attendee.y),
+            pt(
+                solution.placements[musician_idx].x,
+                solution.placements[musician_idx].y,
+            ),
+        );
+        let is_blocked = (0..problem.musicians.len()).any(|blocker_idx| {
+            blocker_idx != musician_idx
+                && is_blocking(
                     &att_mus_seg,
                     &pt(
                         solution.placements[blocker_idx].x,
                         solution.placements[blocker_idx].y,
                     ),
                 )
-            });
-            let is_blocked_pillar = if !full {
-                false
-            } else {
-                (0..problem.pillars.len()).any(|blocker_idx| {
-                    is_blocking_radius(
-                        &att_mus_seg,
-                        &pt(
-                            problem.pillars[blocker_idx].center[0],
-                            problem.pillars[blocker_idx].center[1],
-                        ),
-                        problem.pillars[blocker_idx].radius,
-                    )
-                })
-            };
-            let qi = if !full {
-                1.0
-            } else {
-                (0..problem.musicians.len()).fold(1.0, |s, other_idx| {
-                    if musician_idx == other_idx
-                        || problem.musicians[musician_idx] != problem.musicians[other_idx]
-                    {
-                        s
-                    } else {
-                        let m1 = pt(
-                            solution.placements[musician_idx].x,
-                            solution.placements[musician_idx].y,
-                        );
-                        let m2 = pt(
-                            solution.placements[other_idx].x,
-                            solution.placements[other_idx].y,
-                        );
-                        s + 1.0 / pt_pt_dist(&m1, &m2)
-                    }
-                })
-            };
-            if !is_blocked && !is_blocked_pillar {
-                result += impact(
-                    qi,
-                    pt_pt_dist(&att_mus_seg.st(), &att_mus_seg.en()),
-                    attendee.tastes[problem.musicians[musician_idx] as usize],
-                );
-            }
+        });
+        let is_blocked_pillar = if !full {
+            false
+        } else {
+            (0..problem.pillars.len()).any(|blocker_idx| {
+                is_blocking_radius(
+                    &att_mus_seg,
+                    &pt(
+                        problem.pillars[blocker_idx].center[0],
+                        problem.pillars[blocker_idx].center[1],
+                    ),
+                    problem.pillars[blocker_idx].radius,
+                )
+            })
+        };
+        let qi = if !full {
+            1.0
+        } else {
+            (0..problem.musicians.len()).fold(1.0, |s, other_idx| {
+                if musician_idx == other_idx
+                    || problem.musicians[musician_idx] != problem.musicians[other_idx]
+                {
+                    s
+                } else {
+                    let m1 = pt(
+                        solution.placements[musician_idx].x,
+                        solution.placements[musician_idx].y,
+                    );
+                    let m2 = pt(
+                        solution.placements[other_idx].x,
+                        solution.placements[other_idx].y,
+                    );
+                    s + 1.0 / pt_pt_dist(&m1, &m2)
+                }
+            })
+        };
+        if !is_blocked && !is_blocked_pillar {
+            result += impact(
+                qi,
+                pt_pt_dist(&att_mus_seg.st(), &att_mus_seg.en()),
+                attendee.tastes[problem.musicians[musician_idx] as usize],
+            );
         }
     }
+    result
 }
 
 pub fn parallel_evaluate_exact(problem: &Problem, solution: &Solution) -> f64 {
     let full = problem.pillars.len() > 0;
-    parallel_evaluate_exact(full, problem, solution)
+    parallel_evaluate_exact_full(full, problem, solution)
 }
 
 pub fn parallel_evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -> f64 {
