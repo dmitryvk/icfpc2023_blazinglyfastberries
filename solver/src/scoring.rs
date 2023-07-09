@@ -5,7 +5,7 @@ use crate::{
 };
 use memegeom::{
     geom::distance::pt_pt_dist,
-    primitive::{point::Pt, pt, seg},
+    primitive::{point::Pt, pt, segment::Segment, seg},
 };
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 
@@ -59,6 +59,35 @@ pub fn evaluate_exact_full(full: bool, problem: &Problem, solution: &Solution) -
     result
 }
 
+pub fn is_att_mus_audible(problem: &Problem, solution: &Solution, musician_idx: usize, att_mus_seg: &Segment) -> bool {
+    let full = problem.pillars.len() > 0;
+    let is_blocked = (0..problem.musicians.len()).any(|blocker_idx| {
+        blocker_idx != musician_idx
+            && is_blocking(
+                &att_mus_seg,
+                &pt(
+                    solution.placements[blocker_idx].x,
+                    solution.placements[blocker_idx].y,
+                ),
+            )
+    });
+    let is_blocked_pillar = if !full {
+        false
+    } else {
+        (0..problem.pillars.len()).any(|blocker_idx| {
+            is_blocking_radius(
+                &att_mus_seg,
+                &pt(
+                    problem.pillars[blocker_idx].center[0],
+                    problem.pillars[blocker_idx].center[1],
+                ),
+                problem.pillars[blocker_idx].radius,
+            )
+        })
+    };
+    !is_blocked && !is_blocked_pillar
+}
+
 fn evaluate(full: bool, problem: &Problem, solution: &Solution, attendee: &Attendee) -> f64 {
     let mut result = 0.0;
     for musician_idx in 0..problem.musicians.len() {
@@ -69,30 +98,7 @@ fn evaluate(full: bool, problem: &Problem, solution: &Solution, attendee: &Atten
                 solution.placements[musician_idx].y,
             ),
         );
-        let is_blocked = (0..problem.musicians.len()).any(|blocker_idx| {
-            blocker_idx != musician_idx
-                && is_blocking(
-                    &att_mus_seg,
-                    &pt(
-                        solution.placements[blocker_idx].x,
-                        solution.placements[blocker_idx].y,
-                    ),
-                )
-        });
-        let is_blocked_pillar = if !full {
-            false
-        } else {
-            (0..problem.pillars.len()).any(|blocker_idx| {
-                is_blocking_radius(
-                    &att_mus_seg,
-                    &pt(
-                        problem.pillars[blocker_idx].center[0],
-                        problem.pillars[blocker_idx].center[1],
-                    ),
-                    problem.pillars[blocker_idx].radius,
-                )
-            })
-        };
+        let is_audible = is_att_mus_audible(problem, solution, musician_idx, &att_mus_seg);
         let qi = if !full {
             1.0
         } else {
@@ -115,7 +121,7 @@ fn evaluate(full: bool, problem: &Problem, solution: &Solution, attendee: &Atten
             })
         };
         let vol = solution.volumes[musician_idx];
-        if !is_blocked && !is_blocked_pillar {
+        if is_audible {
             result += impact(
                 vol,
                 qi,

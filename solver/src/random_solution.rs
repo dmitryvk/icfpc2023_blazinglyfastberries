@@ -7,12 +7,12 @@ use threadpool::ThreadPool;
 
 use memegeom::{
     geom::distance::pt_pt_dist,
-    primitive::{point::Pt, pt, rt},
+    primitive::{point::Pt, pt, rt, seg},
 };
 use rand::{distributions::Uniform, prelude::Distribution, rngs::StdRng, Rng, SeedableRng};
 use solver::{
     model::problem::{Position, Problem, Solution},
-    scoring::{bound_penalty, evaluate_exact, grad, is_valid_placement, pos_to_pt, pt_to_pos, IMPACT_SCALING_COEF},
+    scoring::{bound_penalty, evaluate_exact, grad, is_valid_placement, pos_to_pt, pt_to_pos, IMPACT_SCALING_COEF, is_att_mus_audible},
 };
 
 pub const MUSICIAN_SIZE: f64 = 10.0;
@@ -317,13 +317,15 @@ pub fn update_volume(p: &Problem, s: &Solution) -> Solution {
     // let score0 = evaluate_exact(p, &res);
     // log::info!("Updating volumes. Initial score: {}", score0);
     for musician_idx in 0..p.musicians.len() {
-        let total = p.attendees.iter().fold(0.0, |s, att| {
+        let total = p.attendees.iter().fold(0.0, |sum, att| {
             let taste = att.tastes[p.musicians[musician_idx] as usize];
             let a = pt(att.x, att.y);
             let m = pt(res.placements[musician_idx].x,
                        res.placements[musician_idx].y);
+            let att_mus_seg = seg(a, m);
             let distance = pt_pt_dist(&a, &m);
-            s + (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil()
+            let is_audible = is_att_mus_audible(p, s, musician_idx, &att_mus_seg);
+            sum + if !is_audible { 0.0 } else { (IMPACT_SCALING_COEF * taste / distance.powi(2)).ceil() }
         });
         log::info!("Musician {} has impact {}", musician_idx, total);
         res.volumes[musician_idx] = if total > 0.0 { 10.0 } else { 0.0 }
