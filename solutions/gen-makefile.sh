@@ -12,6 +12,7 @@ echo
 ARGS=$(jq "." ./args.json)
 
 for i in $(seq 1 90); do
+  rand_seed=$(echo $ARGS | jq ".args[$i-1].rand_seed")
   rand_iters=$(echo $ARGS | jq ".args[$i-1].rand_iters")
   rand_max_secs=$(echo $ARGS | jq ".args[$i-1].rand_max_secs")
   descent_iters=$(echo $ARGS | jq ".args[$i-1].descent_iters")
@@ -21,7 +22,7 @@ for i in $(seq 1 90); do
   echo -e "$i.json:"
   echo -e "\trm -f ../logs/$i.log"
   run="\tcargo +nightly run --manifest-path ../solver/Cargo.toml --release -- problem -i ../problems/$i.json -o $i.json -l ../logs/$i.log "
-  run+="--rand-iters $rand_iters --rand-max-secs $rand_max_secs --descent-iters $descent_iters --descent-max-secs $descent_max_secs ";
+  run+="--rand-seed $rand_seed --rand-iters $rand_iters --rand-max-secs $rand_max_secs --descent-iters $descent_iters --descent-max-secs $descent_max_secs ";
   run+="--n-threads $n_threads --n-seeds $n_seeds";
   echo -e $run
   echo -e "\tfgrep 'score for' ../logs/$i.log"
