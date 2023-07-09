@@ -111,6 +111,7 @@ pub fn get_random_solution_with_many_seeds(
     best
 }
 
+#[deprecated]
 pub fn get_random_solution_with_one_seed(
     problem: &Problem,
     seed: u64,

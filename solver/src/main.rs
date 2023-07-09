@@ -15,8 +15,7 @@ use std::io::Write;
 use std::path::PathBuf;
 
 use crate::random_solution::{
-    get_random_solution, get_random_solution_with_many_seeds, get_random_solution_with_one_seed,
-    improve_solution,
+    get_random_solution, get_random_solution_with_many_seeds, improve_solution,
 };
 
 #[derive(Debug, Clone, ClapParser)]
@@ -54,8 +53,6 @@ pub struct ProblemArgs {
     parallel_many_seeds_workers: usize,
     #[clap(long, value_parser, default_value_t = 1)]
     parallel_many_seeds_threads: usize,
-    #[clap(long, value_parser, default_value_t = 5)]
-    parallel_one_seed_workers: usize,
     #[clap(long, value_parser, default_value_t = false)]
     parallel_scoring: bool,
 }
@@ -86,7 +83,6 @@ fn main() -> anyhow::Result<()> {
                 args.parallel_scoring,
                 args.parallel_many_seeds_workers,
                 args.parallel_many_seeds_threads,
-                args.parallel_one_seed_workers,
             )
         }
         CliCommand::Problems(args) => get_problems_solutions(&args.config),
@@ -104,7 +100,6 @@ fn get_problem_solution(
     parallel_scoring: bool,
     parallel_many_seeds_workers: usize,
     parallel_many_seeds_threads: usize,
-    parallel_one_seed_workers: usize,
 ) -> anyhow::Result<()> {
     let file_name = problem_file
         .file_name()
@@ -128,14 +123,6 @@ fn get_problem_solution(
             rand_max_secs,
             parallel_many_seeds_workers,
             parallel_many_seeds_threads,
-        )
-    } else if parallel_one_seed_workers > 1 {
-        get_random_solution_with_one_seed(
-            &problem_file.problem,
-            rand_seed,
-            rand_iters,
-            rand_max_secs,
-            parallel_one_seed_workers,
         )
     } else {
         get_random_solution(&problem_file.problem, rand_seed, rand_iters, rand_max_secs)
