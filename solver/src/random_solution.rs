@@ -97,11 +97,13 @@ pub fn get_random_solution_with_many_seeds(
     let mut remained = threads;
     let mut best = Solution::new(vec![]);
     let mut best_score = 0.0;
+    let mut first_sol = true;
     while remained > 1 {
         while let Ok(message) = rx.recv_timeout(std::time::Duration::from_secs(10)) {
-            if &message.score > &best_score {
+            if first_sol || &message.score > &best_score {
                 best = message.solution;
                 best_score = message.score;
+                first_sol = true;
             }
             remained -= 1;
         }
